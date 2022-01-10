@@ -1,52 +1,64 @@
-# Prerequisites
-*.d
+# Wordpress - ignore core, configuration, examples, uploads and logs.
+# https://github.com/github/gitignore/blob/main/WordPress.gitignore
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# Core
+#
+# Note: if you want to stage/commit WP core files
+# you can delete this whole section/until Configuration.
+/wp-admin/
+/wp-content/index.php
+/wp-content/languages
+/wp-content/plugins/index.php
+/wp-content/themes/index.php
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# Configuration
+wp-config.php
 
-# Precompiled Headers
-*.gch
-*.pch
+# Example themes
+/wp-content/themes/twenty*/
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+# Example plugin
+/wp-content/plugins/hello.php
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# Uploads
+/wp-content/uploads/
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# Log files
+*.log
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+# htaccess
+/.htaccess
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# All plugins
+#
+# Note: If you wish to whitelist plugins,
+# uncomment the next line
+#/wp-content/plugins
+
+# All themes
+#
+# Note: If you wish to whitelist themes,
+# uncomment the next line
+#/wp-content/themes
+
+# avantio folder
+avantio_cron_cli
+
+# other folders
+documentacion/
+llafranc_villas.bat
+pantallazos/
+sql/
+
+wp-content/themes/twentynineteen
+wp-content/themes/twentytwenty
+wp-content/themes/twentytwentyone
+
+
+

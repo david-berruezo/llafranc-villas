@@ -1,0 +1,32 @@
+# Copyright (C) 2021 WpEstate
+# This file is distributed under the same license as the WpRentals Elementor Widgets plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WpRentals Elementor Widgets 3.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wprentals-elementor\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-05-06T07:12:06+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: residence-elementor\n"
+
+#. Plugin Name of the plugin
+msgid "WpRentals Elementor Widgets"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://wpestate.org/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Elementor widgets for WpRentals"
+msgstr ""
+
+#. Author of the plugin
+msgid "WpEstate"
+msgstr ""

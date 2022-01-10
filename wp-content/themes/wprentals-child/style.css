@@ -1,0 +1,57 @@
+/*
+Theme Name: WpRentals Child theme
+Theme URI: http://themeforest.net/user/wpestate
+Description: Ultimate WordPress Theme created by WpEstate for accommodation booking. WpRentals is clean, flexible, fully responsive and retina Ready. Its smart settings allow you to build outstanding renting websites easily and fast.
+Version: 2.7
+Author: wpestate.org
+Author URI: http://themeforest.net/user/annapx
+Tags: white, one-column, two-columns,left-sidebar, right-sidebar, fluid-layout , custom-menu, theme-options, translation-ready
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Template: wprentals
+
+-------------------------------------------------------------- */
+
+
+.price_unit{
+    display:none!important;
+}
+
+.buscador{
+    /*min-width:1120px;*/
+}
+
+/* spanish */
+.elementor-35362 .elementor-element.elementor-element-3a3f967a > .elementor-element-populated {
+    padding: 0% 0% 0% 0%!important;
+}
+
+/* english */
+.elementor-370289 .elementor-element.elementor-element-171199cd > .elementor-element-populated {
+    padding: 0% 0% 0% 0%!important;
+}
+
+/* catalan */
+.elementor-370290 .elementor-element.elementor-element-7761d7c > .elementor-element-populated {
+    padding: 0% 0% 0% 0%!important;
+}
+
+/* frances */
+.elementor-370291 .elementor-element.elementor-element-727cb35c > .elementor-element-populated {
+    padding: 0% 0% 0% 0%!important;
+}
+
+#form-field-field_c60d2d1{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+
+.mi-selector{
+    positon:relative;
+    width:100%;
+    margin-top:10px;
+    margin-bottom:10px;
+}
