@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="192.236.161.142" id="56553cef-4665-4825-acdd-7279f267a3ee" port="22" nameFormat="DESCRIPTIVE" username="tiendapisos" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

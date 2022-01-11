@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3fa1afba-0569-46b6-ab89-3f8f278fac4b" name="192.236.161.142">
+        <fileTransfer rootFolder="/home/tiendapisos/public_html" accessType="SFTP" host="192.236.161.142" port="22" sshConfigId="56553cef-4665-4825-acdd-7279f267a3ee" sshConfig="tiendapisos@192.236.161.142:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
