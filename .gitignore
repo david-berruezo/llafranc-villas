@@ -56,9 +56,13 @@ llafranc_villas.bat
 pantallazos/
 sql/
 
+# themes
 wp-content/themes/twentynineteen
 wp-content/themes/twentytwenty
 wp-content/themes/twentytwentyone
+
+# plugin
+wprentals-ws-avantio
 
 
 
