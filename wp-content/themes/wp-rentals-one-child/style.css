@@ -1,0 +1,199 @@
+/*
+Theme Name: WpRentals Child theme
+Theme URI: http://themeforest.net/user/wpestate
+Description: Ultimate WordPress Theme created by WpEstate for accommodation booking. WpRentals is clean, flexible, fully responsive and retina Ready. Its smart settings allow you to build outstanding renting websites easily and fast.
+Version: 2.7
+Author: wpestate.org
+Author URI: http://themeforest.net/user/annapx
+Tags: white, one-column, two-columns,left-sidebar, right-sidebar, fluid-layout , custom-menu, theme-options, translation-ready
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Template: wprentals
+
+-------------------------------------------------------------- */
+
+
+.price_unit{
+    display:none!important;
+}
+
+.buscador{
+    /*min-width:1120px;*/
+}
+
+/* spanish */
+.elementor-35362 .elementor-element.elementor-element-3a3f967a > .elementor-element-populated {
+    padding: 0% 0% 0% 0%!important;
+}
+
+/* english */
+.elementor-370289 .elementor-element.elementor-element-171199cd > .elementor-element-populated {
+    padding: 0% 0% 0% 0%!important;
+}
+
+/* catalan */
+.elementor-370290 .elementor-element.elementor-element-7761d7c > .elementor-element-populated {
+    padding: 0% 0% 0% 0%!important;
+}
+
+/* frances */
+.elementor-370291 .elementor-element.elementor-element-727cb35c > .elementor-element-populated {
+    padding: 0% 0% 0% 0%!important;
+}
+
+/* checkbox */
+#form-field-field_c60d2d1{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+
+#form-field-field_cd7e9eb{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+#form-field-field_f20c46d{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+#form-field-field_fbb4886{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+/* selector list buscador */
+.mi-selector{
+    positon:relative;
+    width:100%;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.ui_kit_checkbox > .custom-control{
+    position: relative;
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.ui_kit_checkbox input[type="checkbox"]{
+    height: 20px;
+    width: 20px;
+}
+
+.ui_kit_checkbox > li{
+    padding-top:10px;
+    padding-top:10px;
+}
+
+.buscador_amenities:before {
+    background-color: #ffffff;
+    content: "";
+    height: 20px;
+    left: auto;
+    margin: 0 auto;
+    position: absolute;
+    right: 20%;
+    top: -5px;
+    width: 20px;
+    -webkit-transform: rotate(
+            45deg
+    );
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(
+            45deg
+    );
+}
+
+
+span#hide_advbtn{
+    color:#00518f;
+    cursor:pointer;
+}
+
+.buscador_amenities > .text-thm3 {
+    color:#00518f;
+}
+
+@media (max-width: 600px) {
+    .elementor-element-46a3c94d {
+        /*display: none;*/
+    }
+}
+
+.header_wrapper.header_type1.header_align_left #access {
+    margin: 0px 0px 0px 230px;
+    text-align: right;
+    padding-top: 0px;
+    height: 100%;
+}
+
+.logo img {
+    max-height: 225px;
+}
+
+/* header  */
+.elementor-sticky--active{
+    z-index:999!important;
+}
+
+.property_menu_wrapper_hidden{
+    z-index:999!important;
+}
+
+/* wp rentals grid */
+
+.places1, .places2, .places3, .places4, .places5, .places6 {
+    background-size: cover;
+    background-position: 50% 50%;
+    opacity: 1;
+    height: 302px;
+    width: 100%;
+    transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+}
+
+.places1 {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #000;
+    height: 302px
+}
+
+#menu-properties > option{
+    color: #6EC1E4;
+    /* color-secondary: #54595F;
+    color-text: #7A7A7A;
+    color-accent: #61CE70;
+    */
+    font-family: "Roboto";
+    font-weight: 600;
+    font-family: "Roboto Slab";
+    font-weight: 400;
+}
+
+.elementor-nav-menu--main{
+     z-index:999!important;
+}
+
+elementor-widget-wrap{
+    z-index:999!important;
+}

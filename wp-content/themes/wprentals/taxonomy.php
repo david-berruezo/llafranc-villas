@@ -34,13 +34,19 @@ $args = array(
     'paged'             => $paged,
     'posts_per_page'    => $prop_no,
     'meta_key'          => 'prop_featured',
-    'orderby'           => 'meta_value',
-    'order'             => 'DESC',
+    //'orderby'           => 'meta_value',
+    //'order'             => 'DESC',
+    'orderby'           => 'title',
+    'order'             => 'ASC',
     'tax_query'         => array(
                             'relation' => 'AND',
                             $tax_array
                         )
-);	
+);
+
+$args_dos = $args;
+$args_dos["orderby"] = "title";
+$args_dos["order"] = "ASC";
 
 $transient_appendix =   wpestate_add_language_currency_cache($transient_appendix);
 $prop_selection     =   wpestate_request_transient_cache( 'wpestate_taxonomy_list'.$transient_appendix);

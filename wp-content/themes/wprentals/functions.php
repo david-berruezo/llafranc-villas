@@ -49,6 +49,13 @@ define('BSF_6892199_NAG', false);
 
 global $search_object;
 
+# set cookie
+setcookie(TEST_COOKIE , 'Wp Cookie check' , 0 , COOKIEPATH , COOKIE_DOMAIN);
+
+if (SITECOOKIEPATH != COOKIEPATH) {
+    setcookie(TEST_COOKIE , 'Wp Cookie check' , 0 , SITECOOKIEPATH , COOKIE_DOMAIN);
+}
+
 /** REMOVE REDUX MESSAGES */
 function wpestate_remove_redux_messages() {
 	if(class_exists('ReduxFramework')){

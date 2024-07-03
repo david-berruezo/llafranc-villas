@@ -102,7 +102,7 @@ class Wprentals_Recent_Items_Slider_v1 extends Widget_Base {
 
                 $wprentals_property_category_values_elementor           =   $this->elementor_transform($wprentals_property_category_values);
                 $wprentals_property_action_category_values_elementor    =   $this->elementor_transform($wprentals_property_action_category_values);
-		$wprentals_property_city_values_elementor               =   $this->elementor_transform($wprentals_property_city_values);
+		        $wprentals_property_city_values_elementor               =   $this->elementor_transform($wprentals_property_city_values);
                 $wprentals_property_area_values_elementor               =   $this->elementor_transform($wprentals_property_area_values);
                 $featured_listings  =   array('no'=>'no','yes'=>'yes');
 

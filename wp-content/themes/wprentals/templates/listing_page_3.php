@@ -35,7 +35,7 @@ if(isset($_GET['guest_no_prop'])){
 }
 $guest_list= wpestate_get_guest_dropdown('noany');
 ?>
--->
+
 <div  class="row content-fixed-listing listing_type_3">
     <div class=" <?php 
     if ( $wpestate_options['content_class']=='col-md-12' || $wpestate_options['content_class']=='none'){

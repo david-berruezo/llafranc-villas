@@ -5,11 +5,16 @@
 $amenities_avantio_interior = array();
 $amenities_avantio_exterior = array();
 
+
 $languages = pll_languages_list();
-foreach($languages as $lang){
-    $amenities_avantio_interior[$lang] = array();
-    $amenities_avantio_exteior[$lang] = array();
-}// end foreach
+
+if (isset($languages)){
+    foreach($languages as $lang){
+        $amenities_avantio_interior[$lang] = array();
+        $amenities_avantio_exteior[$lang] = array();
+    }// end foreach
+}
+
 
 # features vector names
 $amenities_avantio_interior_textos = array(
@@ -23,7 +28,7 @@ $amenities_avantio_interior_textos = array(
     "dvd",
     "exprimidor",
     "gimnasio",
-    "grupos de personas",
+    //"grupos de personas",
     "hervidor electrico",
     "horno",
     "jacuzzi",
@@ -48,6 +53,7 @@ $amenities_avantio_interior_textos = array(
 );
 
 
+
 $amenities_avantio_exterior_textos = array(
     "balcon",
     "barbacoa",
@@ -59,10 +65,9 @@ $amenities_avantio_exterior_textos = array(
     "squash",
     "tennis",
     "terraza",
-    "Piscina comunitaria"
-
 );
 
+# get terms by language es
 $terms_default_language = get_terms(array(
     'taxonomy' => 'property_features',
     'hide_empty' => false,
@@ -76,18 +81,18 @@ foreach($terms_default_language as $tdl){
         $tdl->term_id => $tdl->name
     );
     $terms_languages = pll_get_term_translations($tdl->term_id);
-    # interior
+    # check interior vector with term name and fill amenities_avantio_interior
     if(in_array($tdl->name,$amenities_avantio_interior_textos)){
-        $amenities_avantio_interior["es"][$tdl->term_id] = $tdl->name;
-        foreach($terms_languages as $key_lang => $tl_id){
-            if ($key_lang != "es"){
-                $tl_name = get_term_by("ID" , $tl_id, "property_features" , "OBJECT");
-                $amenities_avantio_interior[$key_lang][$tl_id] = $tl_name->name;
+            $amenities_avantio_interior["es"][$tdl->term_id] = $tdl->name;
+            foreach($terms_languages as $key_lang => $tl_id){
+                if ($key_lang != "es"){
+                    $tl_name = get_term_by("ID" , $tl_id, "property_features" , "OBJECT");
+                    $amenities_avantio_interior[$key_lang][$tl_id] = $tl_name->name;
+                }
             }
-        }
-        $find_it = true;
+            $find_it = true;
     }// end if
-    # exterior
+    # check exterior vector with term name and fill amenities_avantio_exterior
     if(in_array($tdl->name,$amenities_avantio_exterior_textos)){
         $amenities_avantio_exterior["es"][$tdl->term_id] = $tdl->name;
         foreach($terms_languages as $key_lang => $tl_id){
@@ -98,7 +103,8 @@ foreach($terms_default_language as $tdl){
         }
         $find_it = true;
     }// end if
-    if(!$find_it){
+    # if not found fill amenities_avantio_interior
+    if(!$find_it && $tdl->name != "grupos de personas"){
         $amenities_avantio_interior["es"][$tdl->term_id] = $tdl->name;
         foreach($terms_languages as $key_lang => $tl_name){
             if ($key_lang != "es"){
@@ -147,7 +153,8 @@ if (!function_exists('wpestate_property_entorno_y_distancia')):
         $return_string='<div class="panel-wrapper" id="listing_entorno_y_distancia">
             <a class="panel-title" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseFive"> <span class="panel-title-arrow"></span>';
 
-        $return_string.= esc_html__('Property Entorno', 'wprentals');
+        $return_string.=esc_html__('Property Entorno', 'wprentals');
+        //$return_string.=esc_html__('Property Caracteristicas Adicionales', 'wprentals');
         $return_string.='</a>
             <div id="collapseFive" class="panel-collapse collapse in">
                 <div class="panel-body panel-body-border" itemprop="entorno_y_distancia" >';
@@ -195,17 +202,14 @@ if (!function_exists('wpestate_property_caracteristicas_adicionales_wrapper')):
         $return_string='
         <div class="panel-wrapper">
             <!-- property address   -->
-            <a class="panel-title" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseSix">  <span class="panel-title-arrow"></span>';
-
+            <a class="panel-title" data-toggle="collapse" data-parent="#accordion_prop_addr" href="#collapseSix"><span class="panel-title-arrow"></span>';
         $return_string.=esc_html__('Property Caracteristicas Adicionales', 'wprentals');
         $return_string.='
             </a>
-
             <div id="collapseSix" class="panel-collapse collapse in">
                 <div class="panel-body panel-body-border">
                    '.estate_listing_caracteristicas_adicionales($post_id).'
                 </div>
-
             </div>
         </div>';
 
@@ -340,8 +344,6 @@ if (!function_exists('wpestate_features_and_ammenities_wrapper_interior')):
 endif;
 
 
-
-
 if (!function_exists('wpestate_features_and_ammenities_wrapper_exterior')):
     function wpestate_features_and_ammenities_wrapper_exterior($post_id, $wpestate_property_features_text)
     {
@@ -422,13 +424,6 @@ function wpestate_listing_terms_wrapper($post_id, $wp_estate_terms_text)
 endif;
 
 
-
-
-
-
-
-
-
 if (!function_exists('wpestate_sleeping_situation_wrapper')):
 function wpestate_sleeping_situation_wrapper($post_id, $wp_estate_sleeping_text)
 {
@@ -505,7 +500,7 @@ function wprentals_card_owner_image($post_id)
         $preview_agent_img   = get_the_author_meta('custom_picture', $agent_id);
         return '<div class="owner_thumb" style="background-image: url('. esc_url($preview_agent_img).')"></div>';
     } else {
-        return '<a href="'.esc_url($agent_link).'" class="owner_thumb" style="background-image: url('. esc_url($preview_agent_img).')"></a>';
+        //return '<a href="'.esc_url($agent_link).'" class="owner_thumb" style="background-image: url('. esc_url($preview_agent_img).')"></a>';
     }
 }
 endif;
@@ -682,6 +677,8 @@ if (!function_exists('estate_listing_features_exterior')):
         $multi_return_string    =   '';
         $show_no_features       =   esc_html(wprentals_get_option('wp_estate_show_no_features', ''));
         $property_features      =   get_the_terms($post_id, 'property_features');
+        //p_($property_features);
+
         $parsed_features        =   wpestate_build_terms_array();
 
         if (is_array($parsed_features)) {
@@ -689,10 +686,10 @@ if (!function_exists('estate_listing_features_exterior')):
                 if (count($item['childs']) > 0) {
                     $multi_return_string_part=  '<div class="listing_detail col-md-12 feature_block_'.$item['name'].' ">';
                     $multi_return_string_part.=  '<div class="feature_chapter_name col-md-12">'.$item['name'].'</div>';
-                    $multi_return_string_part_check='';
+                    $multi_return_string_part_check = '';
                     if (is_array($item['childs'])) {
                         if(in_array($item["name"],$amenities_avantio_exterior[$actual_language])){
-                            foreach ($item['childs'] as $key_ch=>$child) {
+                            foreach ($item['childs'] as $key_ch => $child) {
                                 $temp   = wpestate_display_feature($show_no_features, $child, $post_id, $property_features);
                                 $multi_return_string_part .=$temp;
                                 $multi_return_string_part_check.=$temp;
@@ -706,8 +703,33 @@ if (!function_exists('estate_listing_features_exterior')):
                         $multi_return_string.=$multi_return_string_part;
                     }
                 } else {
+
+                    //p_($item);
                     if(in_array($item["name"],$amenities_avantio_exterior[$actual_language])){
-                        $single_return_string .= wpestate_display_feature($show_no_features, $item['name'], $post_id, $property_features);
+                        $valor = "";
+                        switch($item['name']){
+                            case "piscina":
+                                $valor = get_post_meta($post_id, 'property_tipo_piscina');
+                            break;
+                            case "pool":
+                                $valor = get_post_meta($post_id, 'property_tipo_piscina');
+                                $valor = str_replace("privada","private",$valor);
+                                $valor = str_replace("comunitaria","communal",$valor);
+                                $valor = str_replace("pool private","private pool",$valor);
+                            break;
+                            case "bassin":
+                                $valor = get_post_meta($post_id, 'property_tipo_piscina');
+                                $valor = str_replace("privada","privée",$valor);
+                                $valor = str_replace("comunitaria","communautaire",$valor);
+                                $item['name'] = "piscine";
+                            break;
+                        }// end switch
+
+                        if (!$valor)
+                            $single_return_string .= wpestate_display_feature($show_no_features, $item['name'], $post_id, $property_features);
+
+                        if ($valor)
+                            $single_return_string .=  '<div class="listing_detail col-md-6"><i class="fas fa-check checkon"></i>'. $item['name'] . " " .$valor[0].'</div>';
                     }
 
                 }
@@ -830,10 +852,6 @@ endif; // end   estate_listing_features
 
 
 
-
-
-
-
 if (!function_exists('wpestate_display_feature')):
     function wpestate_display_feature($show_no_features, $term_name, $post_id, $property_features)
     {
@@ -849,7 +867,7 @@ if (!function_exists('wpestate_display_feature')):
             if (is_wp_error($term_icon_wp)) {
                 $term_icon='';
             } else {
-                $term_icon=wp_remote_retrieve_body($term_icon_wp);
+                $term_icon = wp_remote_retrieve_body($term_icon_wp);
             }
         }
 
@@ -1815,10 +1833,16 @@ if (!function_exists('estate_listing_entorno_y_distancia')):
         $beach_unit = get_post_meta($post_id, 'beach_unit');
         $beach_unit = $beach_unit[0];
 
-        if ($beach_name || $beach_dist)
-            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Beach name', 'wprentals').':</span> ' .$beach_name. '</div>';
-            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Beach distance', 'wprentals').':</span> ' .$beach_dist. " ".$beach_unit. '</div>';
+        if ($beach_dist < 1){
+            $beach_dist = $beach_dist * 1000;
+            $beach_unit = "M";
+        }
 
+        if ($beach_name != "" && $beach_name != "Distancia Playa")
+            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Beach name', 'wprentals').':</span> ' .$beach_name. '</div>';
+
+        if($beach_dist != 0)
+            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Beach distance', 'wprentals').':</span> ' .$beach_dist. " ".$beach_unit. '</div>';
 
         $golf_name = get_post_meta($post_id, 'golf_name');
         $golf_name = $golf_name[0];
@@ -1829,8 +1853,15 @@ if (!function_exists('estate_listing_entorno_y_distancia')):
         $golf_unit = get_post_meta($post_id, 'golf_unit');
         $golf_unit = $golf_unit[0];
 
-        if ($golf_name || $golf_dist)
+        if ($golf_dist < 1){
+            $golf_dist = $golf_dist * 1000;
+            $golf_unit = "M";
+        }
+
+        if ($golf_name != "" && $golf_name != "Distancia Golf")
             $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Golf name', 'wprentals').':</span> ' .$golf_name. '</div>';
+
+        if ($golf_dist != 0)
             $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Golf distance', 'wprentals').':</span> ' .$golf_dist.$golf_unit. '</div>';
 
         $city_name = get_post_meta($post_id, 'city_name');
@@ -1842,10 +1873,16 @@ if (!function_exists('estate_listing_entorno_y_distancia')):
         $city_unit = get_post_meta($post_id, 'city_unit');
         $city_unit = $city_unit[0];
 
-        if ($city_name || $city_dist)
-            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('City name', 'wprentals').':</span> ' .$city_name. '</div>';
-            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('City distance', 'wprentals').':</span> ' .$city_dist.$city_unit. '</div>';
+        if ($city_dist < 1){
+            $city_dist = $city_dist * 1000;
+            $city_unit = "M";
+        }
 
+        if ($city_name != "" && $city_name != "Distancia Ciudad")
+            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('City name', 'wprentals').':</span> ' .$city_name. '</div>';
+
+        if($city_dist != 0)
+            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('City distance', 'wprentals').':</span> ' .$city_dist.$city_unit. '</div>';
 
         $super_name = get_post_meta($post_id, 'super_name');
         $super_name = $super_name[0];
@@ -1856,8 +1893,15 @@ if (!function_exists('estate_listing_entorno_y_distancia')):
         $super_unit = get_post_meta($post_id, 'super_unit');
         $super_unit = $super_unit[0];
 
-        if ($super_name || $super_dist)
+        if ($super_dist < 1){
+            $super_dist = $super_dist * 1000;
+            $super_unit = "M";
+        }
+
+        if ($super_name != "" && $super_name != "Distancia Supermercado")
             $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Super name', 'wprentals').':</span> ' .$super_name. '</div>';
+
+        if ( $super_dist > 0)
             $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Super distance', 'wprentals').':</span> ' .$super_dist. " ".$super_unit. '</div>';
 
         $airport_name = get_post_meta($post_id, 'airport_name');
@@ -1869,10 +1913,16 @@ if (!function_exists('estate_listing_entorno_y_distancia')):
         $airport_unit = get_post_meta($post_id, 'airport_unit');
         $airport_unit = $airport_unit[0];
 
-        if($airport_name ||$airport_dist)
-            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Airport name', 'wprentals').':</span> ' .$airport_name. '</div>';
-            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Airport distance', 'wprentals').':</span> ' .$airport_dist. " ".$airport_unit. '</div>';
+        if ($airport_dist < 1){
+            $airport_dist = $airport_dist * 1000;
+            $airport_unit = "M";
+        }
 
+        if($airport_name != "" && $airport_name != "Distancia Areopuerto")
+            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Airport name', 'wprentals').':</span> ' .$airport_name. '</div>';
+
+        if($airport_dist > 0)
+            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Airport distance', 'wprentals').':</span> ' .$airport_dist. " ".$airport_unit. '</div>';
 
         $train_name = get_post_meta($post_id, 'train_name');
         $train_name = $train_name[0];
@@ -1883,8 +1933,15 @@ if (!function_exists('estate_listing_entorno_y_distancia')):
         $train_unit = get_post_meta($post_id, 'train_unit');
         $train_unit = $train_unit[0];
 
-        if($train_name ||$train_dist)
+        if ($train_dist < 1){
+            $train_dist = $train_dist * 1000;
+            $train_unit = "M";
+        }
+
+        if($train_name != "" && $train_name != "Distancia tren")
             $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Train name', 'wprentals').':</span> ' .$train_name. '</div>';
+
+        if($train_dist > 0)
             $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Train distance', 'wprentals').':</span> ' .$train_dist. " ".$train_unit. '</div>';
 
 
@@ -1897,8 +1954,15 @@ if (!function_exists('estate_listing_entorno_y_distancia')):
         $bus_unit = get_post_meta($post_id, 'bus_unit');
         $bus_unit = $bus_unit[0];
 
-        if($bus_name ||$bus_dist)
+        if ($bus_dist < 1){
+            $bus_dist = $bus_dist * 1000;
+            $bus_unit = "M";
+        }
+
+        if($bus_name != "" && $bus_name != "Distancia bus")
             $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Bus name', 'wprentals').':</span> ' .$bus_name. '</div>';
+
+        if($bus_dist > 0)
             $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Bus distance', 'wprentals').':</span> ' .$bus_dist. " ".$bus_unit. '</div>';
 
         $view_to_beach = get_post_meta($post_id, 'view_to_beach', true);
@@ -1976,113 +2040,168 @@ endif;
 if (!function_exists('estate_listing_caracteristicas_adicionales')):
     function estate_listing_caracteristicas_adicionales($post_id)
     {
+        # database
+        $my_wpdb = new wpdb("tiendapi_user","Perretin771","tiendapi_inmobiliaria",'localhost');
 
-        /*
-        $cancellation_policy    =   esc_html(get_post_meta($post_id, 'cancellation_policy', true));
-        $other_rules            =   esc_html(get_post_meta($post_id, 'other_rules', true));
+        # language
+        $language = pll_current_language();
+
+        # get translation of post
+        $my_post = pll_get_post_translations($post_id);
+        $my_post = $my_post["es"];
+
+        $sql = "SELECT ds.* 
+FROM `avantio_accomodations_extras` as aae 
+JOIN dynamic_services as ds ON ds.id = aae.dynamic_services
+where avantio_accomodations = $my_post and ds.language = '".$language."' and aae.dynamic_services IN(1,2,3) ";
+        $services = $my_wpdb->get_results($sql);
+        //p_($services);
+
+        # grupos de jovenes
+        $sql = " select checkbox_grups from avantio_accomodations where id = $my_post and language = 'es' ";
+        $grupos = $my_wpdb->get_results($sql);
+        
+        switch($grupos[0]->checkbox_grups){
+            case 0:
+                switch($language){
+                    case "es":$grupos_message = "No se aceptan grupos de jóvenes";
+                    break;
+                    case "ca":$grupos_message = "No s'acceptan grups de joves";
+                    break;
+                    case "fr":$grupos_message = "Les groupes de jeunes ne sont pas acceptés";
+                    break;
+                    case "en":$grupos_message = "Groups of young people are not accepted";
+                    break;
+                }
+            break;
+            case 1:
+                switch($language){
+                    case "es":$grupos_message = "Se aceptan grupos de jóvenes solo bajo petición";
+                        break;
+                    case "ca":$grupos_message = "S'acceptan grups de joves solsament sota petició";
+                        break;
+                    case "fr":$grupos_message = "Les groupes de jeunes sont acceptés uniquement sur demande";
+                        break;
+                    case "en":$grupos_message = "Groups of young people are not accepted only on request";
+                        break;
+                }
+            break;
+
+        }// end switch
+
+        # mascotas
+        $sql = "SELECT ds.* 
+FROM `avantio_accomodations_extras` as aae 
+JOIN dynamic_services as ds ON ds.id = aae.dynamic_services
+where avantio_accomodations = $my_post and ds.language = '".$language."' and aae.dynamic_services IN(9) ";
+        $mascotas = $my_wpdb->get_results($sql);
+
+        if ($mascotas){
+            switch($language){
+                case "es":$mascotas_message = "Se aceptan mascotas bajo petición";
+                    break;
+                case "ca":$mascotas_message = "S'acceptan grups de joves sota petició";
+                    break;
+                case "fr":$mascotas_message = "les animaux sont admis uniquement sur demande";
+                    break;
+                case "en":$mascotas_message = "pets are allowed only on request";
+                    break;
+            }
+        }else{
+            switch($language){
+                case "es":$mascotas_message = "No se aceptan mascotas";
+                    break;
+                case "ca":$mascotas_message = "No s'acceptan mascotas";
+                    break;
+                case "fr":$mascotas_message = "les animaux ne pas sont admis";
+                    break;
+                case "en":$mascotas_message = "pets are not allowed";
+                    break;
+            }
+        }
+
         $return_string          =   '';
-
-        $items = array();
-
-
-        $items = array(
-            'smoking_allowed'   =>  esc_html__('Smoking Allowed', 'wprentals'),
-            'pets_allowed'      =>  esc_html__('Pets Allowed', 'wprentals'),
-            'party_allowed'     =>  esc_html__('Party Allowed', 'wprentals'),
-            'children_allowed'  =>  esc_html__('Children Allowed', 'wprentals'),
-
+        
+        # only for description
+        $vector_negaciones_desc = array(
+           1        => "calefacción",
+           2        => "aire acondicionado",
+           3        => "aparcamiento",
+           4        => "cama supletoria",
+           5        => "piscina climatizada",
+           6        => "ropa de cama",
+           7        => "toallas",
+           8        => "toallas",
+           9        => "mascota",
+           10       => "limpieza final",
+           11       => "fianza",
+           18       => "cuna",
+           109      => "llegada fuera de horario",
+           127      => "tasa turística",
+           1537     => "silla bebe",
+           20129    => "limpieza y desinfección",
+           20131    => "desinfección con certificación",
+           20190    => "desinfección",
+           24131    => "no smoking"
         );
 
+        $vector_negaciones = array(9);
+        $string_negaciones = implode("','" , $vector_negaciones);
+
+        $sql = "SELECT * from dynamic_services where id IN('".$string_negaciones."') AND language = '".$language."' ";
+        $no_services = $my_wpdb->get_results($sql);
+        //p_($no_services);
 
 
-        foreach ($items as $key=>$name) {
-            $value =    esc_html(get_post_meta($post_id, $key, true));
-            if ($value!='') {
-                $dismiss_class="";
-                $icon = ' <i class="fas fa-check checkon"></i>';
-                if ($value=='no') {
-                    $dismiss_class=" not_present  ";
-                    $icon = ' <i class="fas fa-times"></i> ';
-                }
-                $return_string.='<div class="listing_detail  col-md-6 '.$key.' '.$dismiss_class.'">'.$icon. $name.'</div>';
-            }
+        foreach ($services as $service) {
+            $dismiss_class = "";
+            $icon = ' <i class="fas fa-check checkon"></i>';
+            $return_string.='<div class="listing_detail  col-md-6'.$dismiss_class.'">'.$icon. esc_html__($service->text_title, 'wprentals').'</div>';
         }
 
+        # grupos jovenes permitidos
+        if ($grupos[0]->checkbox_grups == 1){
+            $dismiss_class = "";
+            $icon = ' <i class="fas fa-check checkon"></i>';
+            $return_string.='<div class="listing_detail  col-md-6'.$dismiss_class.'">'.$icon. esc_html__($grupos_message , 'wprentals').'</div>';
+        } // end if
 
-        if (trim($cancellation_policy)!='') {
-            //$return_string.='<div class="listing_detail  col-md-12 cancelation_policy"><label>'.esc_html__('Cancellation Policy', 'wprentals').'</label>'. $cancellation_policy.'</div>';
+        # mascotas permitidas
+        if ($mascotas){
+            $dismiss_class = "";
+            $icon = ' <i class="fas fa-check checkon"></i>';
+            $return_string.='<div class="listing_detail  col-md-6'.$dismiss_class.'">'.$icon. esc_html__($mascotas_message , 'wprentals').'</div>';
+        }// end if
+
+        $return_string.= '<br style="clear:both;"><br>';
+
+        if(!$mascotas){
+            $return_string.='<div class="listing_detail not_present col-md-6"><i class="fas fa-times"></i>'.esc_html__($mascotas_message, 'wprentals').'</div>';
         }
 
-        if (trim($other_rules)!='') {
-            //$return_string.='<div class="listing_detail  col-md-12 other_rules"><label>'.esc_html__('Other Rules', 'wprentals').'</label>'. $other_rules.'</div>';
-        }
-        return $return_string;
+        /*
+        foreach ($no_services as $no_service) {
+            $found_service = false;
+            foreach ($services as $service) {
+                if ($no_service->id == $service->id)
+                    $found_service = true;
+            }// end foreach
+            if (!$found_service)
+                $return_string.='<div class="listing_detail not_present col-md-6"><i class="fas fa-times"></i>'.esc_html__($mascotas_message, 'wprentals').'</div>';
+                //$return_string.='<div class="listing_detail not_present col-md-6"><i class="fas fa-times"></i>'.esc_html__($no_service->text_title, 'wprentals').'</div>';
+        }// end foreach
         */
 
-        $return_string          =   '';
-
-        # fumadores
-        $fumadores = get_post_meta('smoking_allowed');
-        if ($fumadores != '') {
-            $dismiss_class = "";
-            $icon = ' <i class="fas fa-check checkon"></i>';
-            if ($fumadores == 'no') {
-                $dismiss_class=" not_present  ";
-                $icon = ' <i class="fas fa-times"></i> ';
-            }
-            $return_string.='<div class="listing_detail  col-md-6 fumadores'.$dismiss_class.'">'.$icon. esc_html__('Fumadores', 'wprentals').'</div>';
+        if ($grupos[0]->checkbox_grups == 0){
+            $return_string.='<div class="listing_detail not_present col-md-6"><i class="fas fa-times"></i>'.esc_html__($grupos_message, 'wprentals').'</div>';
         }
 
-        # jovenes_fiestas
-        $jovenes_fiestas = get_post_meta($post_id, 'party_allowed');
-        if ($jovenes_fiestas != '') {
-            $dismiss_class = "";
-            $icon = ' <i class="fas fa-check checkon"></i>';
-            if ($jovenes_fiestas == 'no') {
-                $dismiss_class=" not_present  ";
-                $icon = ' <i class="fas fa-times"></i> ';
-            }
-            $return_string.='<div class="listing_detail  col-md-6 fumadores'.$dismiss_class.'">'.$icon. esc_html__('Fiestas jóvenes', 'wprentals').'</div>';
-        }
-
-        # mascotaas
-        $pets = get_post_meta($post_id, 'pets_allowed');
-        if ($pets != '') {
-            $dismiss_class = "";
-            $icon = ' <i class="fas fa-check checkon"></i>';
-            if ($pets == 'no') {
-                $dismiss_class=" not_present  ";
-                $icon = ' <i class="fas fa-times"></i> ';
-            }
-            $return_string.='<div class="listing_detail  col-md-6 fumadores'.$dismiss_class.'">'.$icon. esc_html__('Mascotas', 'wprentals').'</div>';
-        }
+        //$return_string.= '<br style="clear:both;"><br>';
 
         # registro turistico
         $registro = get_post_meta($post_id, 'registro_turistico');
-        if (is_array($registro)){
-            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Registro turistico', 'wprentals').':</span></div>';
-        }else{
-            if ($registro != '') {
-                $dismiss_class = "";
-                $icon = ' <i class="fas fa-check checkon"></i>';
-                if ($registro == 'no') {
-                    $dismiss_class=" not_present  ";
-                    $icon = ' <i class="fas fa-times"></i> ';
-                }
-                $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Registro turistico', 'wprentals').':</span> ' .$registro. '</div>';
-            }
-        }
+        $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Registro turistico', 'wprentals').':</span> ' .$registro[0]. '</div>';
 
-
-        /*
-        $fumadores = ((string)$accommodation->Features->HouseCharacteristics->SmokingAllowed == 'true') ? "yes" : "no";
-        $jovenes_fiestas = ((string)$accommodation->Features->Distribution->AcceptYoungsters == 'true') ? "yes" : "no";
-        $text_numero_registro_turistico = (string)$accommodation->TouristicRegistrationNumber;
-        update_post_meta($id, 'smoking_allowed', $fumadores, $prev_value = '');
-        update_post_meta($id, 'party_allowed', $jovenes_fiestas, $prev_value = '');
-        update_post_meta($id, 'pets_allowed', "yes", $prev_value = '');
-        update_post_meta($id, 'registro_turistico', "$text_numero_registro_turistico", $prev_value = '');
-        */
 
         return $return_string;
     }
@@ -2121,7 +2240,7 @@ if (!function_exists('estate_listing_address')):
             $return_string.='</div>';
         }
         if ($property_city != '') {
-            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('City', 'wprentals').':</span> ' .$property_city. '</div>';
+            $return_string.= '<div class="listing_detail list_detail_prop_city col-md-6"><span class="item_head">'.esc_html__('Region', 'wprentals').':</span> ' .$property_city. '</div>';
         }
         if ($property_area != '') {
             $return_string.= '<div class="listing_detail list_detail_prop_area col-md-6"><span class="item_head">'.esc_html__('Area', 'wprentals').':</span> ' .$property_area. '</div>';
@@ -2141,8 +2260,6 @@ if (!function_exists('estate_listing_address')):
 
         $return_string.= '<div class="listing_detail list_detail_prop_contry col-md-6"><span class="item_head">'.esc_html__('Property latitude', 'wprentals').':</span> ' . $property_latitude . '</div>';
         $return_string.= '<div class="listing_detail list_detail_prop_contry col-md-6"><span class="item_head">'.esc_html__('Property longitude', 'wprentals').':</span> ' . $property_longitude . '</div>';
-
-
 
         return  $return_string;
     }
@@ -2223,6 +2340,8 @@ if (!function_exists('estate_listing_details')):
 
         // nuevas
         $property_parcela = intval(get_post_meta($post_id, 'property_size_parcela', true));
+        $property_parcela= ($property_parcela) ? $property_parcela . " " . $measure_sys .'<sup>2</sup>' : "";
+
         $property_banos_banyera = intval(get_post_meta($post_id, 'property_bathrooms_banera', true));
         $property_banos_ducha = intval(get_post_meta($post_id, 'property_bathrooms_ducha', true));
         $property_banos_aseos = intval(get_post_meta($post_id, 'property_bathrooms_aseos', true));

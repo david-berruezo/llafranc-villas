@@ -22,11 +22,16 @@ function get_services_all($lang){
 
 
 function get_service_name_by_code($service_code , $lang){
-    global $db , $vector_servicios;
+    global $db , $vector_servicios , $avantio_credential;
+    # connect to database
+    $connector = new Database();
+    $connector->setCredential($avantio_credential);
+    $db = $connector::getInstance();
+    //print_r($db);
     //$servicios_list = implode(",",$vector_servicios);
-    $sql = " select * from dynamic_services where id = $service_code AND language = '".$lang."'; ";
-    $services = $db->get_row($sql);
-
+    //$sql = " select * from dynamic_services where id = $service_code AND language = '".$lang."' ";
+    //$services = $db->get_row($sql);
+    $services = false;
     return ($services) ? $services : false;
 }
 

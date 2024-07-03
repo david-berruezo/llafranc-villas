@@ -2,36 +2,22 @@
 # This file is distributed under the GNU General Public License v2.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WpRentals 2.6\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/new-wprentals\n"
-"Last-Translator: remus <crerem@gmail.com>\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-06 14:24+0000\n"
+"PO-Revision-Date: 2022-03-16 12:50+0100\n"
+"Last-Translator: \n"
 "Language-Team: English (United States)\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-08-06T07:14:29+00:00\n"
-"PO-Revision-Date: 2019-08-12 07:57+0000\n"
-"X-Generator: Loco https://localise.biz/\n"
-"X-Domain: wprentals\n"
-"Language: en_US\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.3.0; wp-5.2.2"
+"X-Generator: Poedit 3.0.1\n"
+"X-Loco-Version: 2.5.5; wp-5.9.1\n"
 
 #. Theme Name of the theme
 msgid "WpRentals"
-msgstr ""
-
-#. Theme URI of the theme
-msgid ""
-"https://themeforest.net/item/wp-rentals-booking-accommodation-wordpress-"
-"theme/12921802"
-msgstr ""
-
-#. Description of the theme
-msgid ""
-"Ultimate WordPress Theme created by WP Estate for accomodation booking. WP "
-"Rentals is clean, flexible, fully responsive and retina Ready. Its smart "
-"settings allows you to build outstanding renting websites easy and fast."
 msgstr ""
 
 #. Author of the theme
@@ -58,33 +44,8 @@ msgstr ""
 msgid "Select Properties "
 msgstr ""
 
-#: libs/theme-slider.php:13
-msgid ""
-"Select properties for slider - *hold CTRL for multiple select.For speed "
-"reason we show only the first 50 listings. If you want to add litings that "
-"are not present in this section use the \"manual\" field below.  "
-msgstr ""
-
-#: libs/theme-slider.php:38
-msgid ""
-"Add Properties in theme slider by ID. Place here the Listings Id separated "
-"by comma."
-msgstr ""
-
-#: libs/theme-slider.php:39
-msgid ""
-"Place here the Listings Id separated by comma. Will Overwrite the above "
-"selection!"
-msgstr ""
-
 #: libs/theme-slider.php:45
 msgid "Number of milisecons before auto cycling an item"
-msgstr ""
-
-#: libs/theme-slider.php:46
-msgid ""
-"Number of milisecons before auto cycling an item (5000=5sec).Put 0 if you "
-"don't want to autoslide. "
 msgstr ""
 
 #: libs/theme-slider.php:54
@@ -317,12 +278,6 @@ msgstr ""
 #: libs/ajax_functions_booking.php:1489 libs/ajax_functions_booking.php:1694
 #: libs/ajax_functions_booking.php:1698
 msgid "A booking was confirmed"
-msgstr ""
-
-#: libs/help_functions.php:1395
-msgid ""
-"It seems that this period was booked after you made the initial request and "
-"you cannot pay & finalize this request."
 msgstr ""
 
 #: libs/help_functions.php:1698 templates/listing_reviews.php:67
@@ -712,7 +667,7 @@ msgstr ""
 #: libs/help_functions.php:5409 templates/listing_page_1.php:177
 #: templates/listing_page_3.php:107 templates/listing_page_2.php:95
 msgid "Property Address"
-msgstr ""
+msgstr "Address"
 
 #: libs/help_functions.php:5210 libs/help_functions.php:5326
 #: libs/help_functions.php:5410
@@ -735,11 +690,11 @@ msgstr ""
 
 #: libs/help_functions.php:5214
 msgid "Property Latitude"
-msgstr ""
+msgstr "Latitud"
 
 #: libs/help_functions.php:5215
 msgid "Property Longitude"
-msgstr ""
+msgstr "Longitude"
 
 #: libs/help_functions.php:5216
 msgid "Google Camera Angle"
@@ -919,24 +874,6 @@ msgstr ""
 msgid "hours with weekend price"
 msgstr ""
 
-#: libs/help_functions.php:5574
-msgid ""
-"Price per night if the item is rented for more than 1 week (7 nights) or "
-"more than 1 month (30 nights)"
-msgstr ""
-
-#: libs/help_functions.php:5575
-msgid ""
-"Price per day if the item is rented for more than 1 week (7 days) or more "
-"than 1 month (30 days)"
-msgstr ""
-
-#: libs/help_functions.php:5576
-msgid ""
-"Price per hour if the item is rented for more than 7 hours or more than 30 "
-"hours"
-msgstr ""
-
 #: libs/help_functions.php:5584
 msgid "Minimum nights of booking"
 msgstr ""
@@ -1005,7 +942,7 @@ msgstr ""
 
 #: libs/help_functions.php:5887
 msgid "Afghanistan"
-msgstr "Afghanistanxxx"
+msgstr ""
 
 #: libs/help_functions.php:5888
 msgid "Albania"
@@ -1999,26 +1936,6 @@ msgstr ""
 msgid "Userpin in geolocation"
 msgstr ""
 
-#: libs/pin-admin.php:61
-msgid ""
-"Add new Google Maps pins for single actions / single categories. For speed "
-"reason, you MUST add pins if you change categories and actions names."
-msgstr ""
-
-#: libs/pin-admin.php:62
-msgid ""
-"If you add images directly into the input fields (without Upload button) "
-"please use the full image path. For ex: http://www.wprentals..... . If you "
-"use the \"upload\"  button use also \"Insert into Post\" button from the pop "
-"up window."
-msgstr ""
-
-#: libs/pin-admin.php:63
-msgid ""
-"Pins retina version must be uploaded at the same time (same folder) as the "
-"original pin and the name of the retina file should be with_2x at the end.  "
-msgstr ""
-
 #: libs/pin-admin.php:63
 msgid "Help here"
 msgstr ""
@@ -2027,21 +1944,8 @@ msgstr ""
 msgid "Use price Pins ?"
 msgstr ""
 
-#: libs/pin-admin.php:71
-msgid ""
-"Use price Pins ?(The css class for price pins is \"wpestate_marker\" . Each "
-"pin has also receive a class with the name of the category or action: For "
-"example \"wpestate_marker apartments sales\")"
-msgstr ""
-
 #: libs/pin-admin.php:80
 msgid "Use Full Price Pins ?"
-msgstr ""
-
-#: libs/pin-admin.php:81
-msgid ""
-"If not we will show prices without before and after label and in this format "
-": 5,23m or 6.83k "
 msgstr ""
 
 #: libs/pin-admin.php:95 libs/pin-admin.php:107 libs/pin-admin.php:124
@@ -2051,12 +1955,6 @@ msgstr ""
 
 #: libs/pin-admin.php:104
 msgid "For category: "
-msgstr ""
-
-#: libs/pin-admin.php:113
-msgid ""
-"Add new Google Maps pins for actions & categories combined (example: "
-"'apartments in sales')"
 msgstr ""
 
 #: libs/pin-admin.php:122
@@ -2119,205 +2017,68 @@ msgstr ""
 msgid "Profile Update"
 msgstr ""
 
-#: libs/theme-setup.php:1137
-msgid ""
-"A user updated his profile on %website_url.\n"
-"Username: %user_login"
-msgstr ""
-
 #: libs/theme-setup.php:1142
 msgid "New User ID verification"
-msgstr ""
-
-#: libs/theme-setup.php:1145
-msgid ""
-"A user added his User ID verification image on %website_url.\n"
-"Username: %user_login.\n"
-"You can check the verification status here: %user_profile_url"
-msgstr ""
-
-#: libs/theme-setup.php:1154
-msgid ""
-"Someone requested that the password be reset for the following account:\n"
-"%website_url \n"
-"Username: %forgot_username .\n"
-"If this was a mistake, just ignore this email and nothing will happen. To "
-"reset your password, visit the following address:%reset_link,\n"
-"Thank You!"
 msgstr ""
 
 #: libs/theme-setup.php:1163
 msgid "Your Password was Reset"
 msgstr ""
 
-#: libs/theme-setup.php:1166
-msgid ""
-"Your new password for the account at: %website_url: \n"
-"Username:%user_login, \n"
-"Password:%user_pass\n"
-"You can now login with your new password at: %website_url"
-msgstr ""
-
 #: libs/theme-setup.php:1173
 msgid "Your purchase was activated"
-msgstr ""
-
-#: libs/theme-setup.php:1176
-msgid ""
-"Hi there,\n"
-"Your purchase on  %website_url is activated! You should go check it out."
 msgstr ""
 
 #: libs/theme-setup.php:1181
 msgid "Your listing was approved"
 msgstr ""
 
-#: libs/theme-setup.php:1184
-msgid ""
-"Hi there,\n"
-"Your listing, %property_title was approved on  %website_url ! The listing is:"
-" %property_url.\n"
-"You should go check it out."
-msgstr ""
-
 #: libs/theme-setup.php:1190
 msgid "New User Registration"
-msgstr ""
-
-#: libs/theme-setup.php:1193
-msgid ""
-"New user registration on %website_url.\n"
-"Username: %user_login_register, \n"
-"E-mail: %user_email_register"
 msgstr ""
 
 #: libs/theme-setup.php:1199
 msgid "Your username and password on %website_url"
 msgstr ""
 
-#: libs/theme-setup.php:1202
-msgid ""
-"Hi there,\n"
-"Welcome to %website_url ! You can login now using the below credentials:\n"
-"Username:%user_login_register\n"
-"Password: %user_pass_register\n"
-"If you have any problems, please contact me.\n"
-"Thank you!"
-msgstr ""
-
 #: libs/theme-setup.php:1210
 msgid "Expired Listing sent for approval on %website_url"
-msgstr ""
-
-#: libs/theme-setup.php:1213
-msgid ""
-"Hi there,\n"
-"A user has re-submited a new property on %website_url ! You should go check "
-"it out.\n"
-"This is the property title: %submission_title."
 msgstr ""
 
 #: libs/theme-setup.php:1219
 msgid "New Paid Submission on %website_url"
 msgstr ""
 
-#: libs/theme-setup.php:1222
-msgid ""
-"Hi there,\n"
-"You have a new paid submission on  %website_url ! You should go check it out."
-msgstr ""
-
 #: libs/theme-setup.php:1229
 msgid "New Feature Upgrade on  %website_url"
-msgstr ""
-
-#: libs/theme-setup.php:1232
-msgid ""
-"Hi there,\n"
-"You have a new featured submission on  %website_url ! You should go check it "
-"out."
 msgstr ""
 
 #: libs/theme-setup.php:1238
 msgid "Account Downgraded on %website_url"
 msgstr ""
 
-#: libs/theme-setup.php:1241
-msgid ""
-"Hi there,\n"
-"You downgraded your subscription on %website_url. Because your listings "
-"number was greater than what the actual package offers, we set the status of "
-"all your listings to expired. You will need to choose which listings you "
-"want live and send them again for approval.\n"
-"Thank you!"
-msgstr ""
-
 #: libs/theme-setup.php:1248
 msgid "Membership Cancelled on %website_url"
-msgstr ""
-
-#: libs/theme-setup.php:1251
-msgid ""
-"Hi there,\n"
-"Your subscription on %website_url was cancelled because it expired or the "
-"recurring payment from the merchant was not processed. All your listings are "
-"no longer visible for our visitors but remain in your account.\n"
-"Thank you."
 msgstr ""
 
 #: libs/theme-setup.php:1257
 msgid "Membership Activated on %website_url"
 msgstr ""
 
-#: libs/theme-setup.php:1260
-msgid ""
-"Hi there,\n"
-"Your new membership on %website_url is activated! You should go check it out."
-msgstr ""
-
 #: libs/theme-setup.php:1267
 msgid "Free Listing expired on %website_url"
-msgstr ""
-
-#: libs/theme-setup.php:1270
-msgid ""
-"Hi there,\n"
-"One of your free listings on  %website_url has expired. The listing is "
-"%expired_listing_url.\n"
-"Thank you!"
 msgstr ""
 
 #: libs/theme-setup.php:1276
 msgid "New Listing Submission on %website_url"
 msgstr ""
 
-#: libs/theme-setup.php:1279
-msgid ""
-"Hi there,\n"
-"A user has submited a new property on %website_url ! You should go check it "
-"out.This is the property title %new_listing_title!"
-msgstr ""
-
 #: libs/theme-setup.php:1284
 msgid "Listing Edited on %website_url"
 msgstr ""
 
-#: libs/theme-setup.php:1287
-msgid ""
-"Hi there,\n"
-"A user has edited one of his listings  on %website_url ! You should go check "
-"it out. The property name is : %editing_listing_title!"
-msgstr ""
-
 #: libs/theme-setup.php:1293
 msgid "Recurring Payment on %website_url"
-msgstr ""
-
-#: libs/theme-setup.php:1296
-msgid ""
-"Hi there,\n"
-"We charged your account on %merchant for a subscription on %website_url ! "
-"You should go check it out."
 msgstr ""
 
 #: libs/theme-setup.php:1304 libs/theme-setup.php:1312
@@ -2325,147 +2086,44 @@ msgstr ""
 msgid "Booking Confirmed on %website_url"
 msgstr ""
 
-#: libs/theme-setup.php:1307
-msgid ""
-"Hi there,\n"
-"Your booking made on %website_url was confirmed! You can see all your "
-"reservations by logging in your account and visiting My Reservations page."
-msgstr ""
-
-#: libs/theme-setup.php:1315
-msgid ""
-"Hi there,\n"
-"Somebody confirmed a booking on %website_url! You should go and check it out!"
-"Please remember that the confirmation is made based on the payment "
-"confirmation of a non-refundable fee of the total invoice cost, processed "
-"through %website_url and sent to website administrator. "
-msgstr ""
-
-#: libs/theme-setup.php:1323
-msgid ""
-"Hi there,\n"
-"You confirmed a booking on %website_url! The booking was confirmed with no "
-"deposit!"
-msgstr ""
-
 #: libs/theme-setup.php:1330
 msgid "New Message on %website_url."
-msgstr ""
-
-#: libs/theme-setup.php:1333
-msgid ""
-"Hi there,\n"
-"You have a new message on %website_url! You should go and check it out!\n"
-"The message is:\n"
-"%content"
 msgstr ""
 
 #: libs/theme-setup.php:1341
 msgid "New Booking Request on %website_url."
 msgstr ""
 
-#: libs/theme-setup.php:1344
-msgid ""
-"Hi there,\n"
-"You have received a new booking request on %website_url !  Go to your "
-"account in Bookings page to see the request, issue the invoice or reject it!"
-"\n"
-"The property is: %booking_property_link"
-msgstr ""
-
 #: libs/theme-setup.php:1350
 msgid "You booked a period on %website_url."
-msgstr ""
-
-#: libs/theme-setup.php:1353
-msgid ""
-"Hi there,\n"
-"You have booked a period for your own listing on %website_url !  The "
-"reservation will appear in your account, under My Bookings. \n"
-"The property is: %booking_property_link"
 msgstr ""
 
 #: libs/theme-setup.php:1359
 msgid "New Invoice on %website_url."
 msgstr ""
 
-#: libs/theme-setup.php:1362
-msgid ""
-"Hi there,\n"
-"An invoice was generated for your booking request on %website_url !  A "
-"deposit will be required for booking to be confirmed. For more details check "
-"out your account, My Reservations page."
-msgstr ""
-
 #: libs/theme-setup.php:1368
 msgid "Booking Request Rejected on %website_url"
-msgstr ""
-
-#: libs/theme-setup.php:1371
-msgid ""
-"Hi there,\n"
-"One of your booking requests sent on %website_url was rejected by the owner. "
-"The rejected reservation is automatically removed from your account. "
 msgstr ""
 
 #: libs/theme-setup.php:1376
 msgid "Booking Request Cancelled on %website_url"
 msgstr ""
 
-#: libs/theme-setup.php:1379
-msgid ""
-"Hi there,\n"
-"One of the unconfirmed booking requests you received on %website_url  was "
-"cancelled! The request is automatically deleted from your account!"
-msgstr ""
-
 #: libs/theme-setup.php:1384
 msgid "Booking Period Cancelled on %website_url."
-msgstr ""
-
-#: libs/theme-setup.php:1387
-msgid ""
-"Hi there,\n"
-"One of your confirmed bookings on %website_url  was cancelled by property "
-"owner. "
 msgstr ""
 
 #: libs/theme-setup.php:1393
 msgid "You ordered a new Wire Transfer"
 msgstr ""
 
-#: libs/theme-setup.php:1396
-msgid ""
-"We received your Wire Transfer payment request on  %website_url !\n"
-"Please follow the instructions below in order to start submitting properties "
-"as soon as possible.\n"
-"The invoice number is: %invoice_no, Amount: %total_price. \n"
-"Instructions:  %payment_details."
-msgstr ""
-
 #: libs/theme-setup.php:1402
 msgid "Somebody ordered a new Wire Transfer"
 msgstr ""
 
-#: libs/theme-setup.php:1405
-msgid ""
-"Hi there,\n"
-"You received a new Wire Transfer payment request on %website_url.\n"
-"The invoice number is:  %invoice_no,  Amount: %total_price.\n"
-"Please wait until the payment is made to activate the user purchase."
-msgstr ""
-
 #: libs/theme-setup.php:1411
 msgid "Invoice payment reminder"
-msgstr ""
-
-#: libs/theme-setup.php:1414
-msgid ""
-"Hi there,\n"
-"We remind you that you need to fully pay the invoice no %invoice_id until  "
-"%until_date. This invoice is for booking no %booking_id on property "
-"%property_title with the url %property_url.\n"
-"Thank you."
 msgstr ""
 
 #: libs/property-admin.php:37
@@ -2526,7 +2184,7 @@ msgstr ""
 
 #: libs/property-admin.php:128
 msgid "Property Address Label"
-msgstr ""
+msgstr "Address"
 
 #: libs/property-admin.php:129 libs/property-admin.php:135
 msgid "Custom title instead of Features and Amenities label."
@@ -2562,12 +2220,6 @@ msgstr ""
 
 #: libs/property-admin.php:161
 msgid "Property Status "
-msgstr ""
-
-#: libs/property-admin.php:162
-msgid ""
-"Property Status (* you may need to add new css classes - please see the help "
-"files) "
 msgstr ""
 
 #: libs/property-admin.php:163
@@ -2700,12 +2352,6 @@ msgstr ""
 msgid "You are paying only the deposit required to confirm the booking:"
 msgstr ""
 
-#: libs/ajax_functions_booking.php:840
-msgid ""
-"You will need to pay the remaining balance before the first day of your "
-"booked period!"
-msgstr ""
-
 #: libs/ajax_functions_booking.php:848
 msgid "You are paying the remaining balance of your invoice:"
 msgstr ""
@@ -2818,23 +2464,12 @@ msgstr ""
 msgid "You Earn"
 msgstr ""
 
-#: libs/ajax_functions_booking.php:2070
-msgid ""
-"we deduct security deposit, city fees, cleaning fees and website service fee"
-msgstr ""
-
 #: libs/ajax_functions_booking.php:2073
 msgid "Service Fee"
 msgstr ""
 
 #: libs/ajax_functions_booking.php:2078
 msgid "Taxes"
-msgstr ""
-
-#: libs/ajax_functions_booking.php:2082
-msgid ""
-"*taxes are included in your earnings and you are responsible for paying "
-"these taxes"
 msgstr ""
 
 #: libs/ajax_functions_booking.php:2092
@@ -2900,12 +2535,6 @@ msgstr ""
 
 #: libs/ajax_functions_booking.php:2265
 msgid " and email: "
-msgstr ""
-
-#: libs/ajax_functions_booking.php:2273
-msgid ""
-"Your message was sent! You will be notified by email when a reply is "
-"received."
 msgstr ""
 
 #: libs/ajax_functions_booking.php:2382
@@ -3333,14 +2962,6 @@ msgstr ""
 msgid "processing.."
 msgstr ""
 
-#: libs/css_js_include.php:655
-msgid ""
-"Confirm your ACCOUNT DELETION request! Clicking the button below will result "
-"your account data will be deleted. This means you will no longer be able to "
-"login to your account and access your account information: My Profile, My "
-"Reservations, My bookings, Invoices. This operation CAN NOT BE REVERSED!"
-msgstr ""
-
 #: libs/css_js_include.php:662 libs/css_js_include.php:745
 msgid "You must agree to GDPR Terms"
 msgstr ""
@@ -3503,19 +3124,6 @@ msgstr ""
 
 #: libs/ajax_functions.php:111
 msgid "Mobile phone number is validated."
-msgstr ""
-
-#: libs/ajax_functions.php:114
-msgid ""
-"The entered code is not correct. The mobile phone number is not validated."
-msgstr ""
-
-#: libs/ajax_functions.php:156
-msgid ""
-"Please activate the theme to validate the purchase and have access to all "
-"theme options! See this <a href=\"https://help.wprentals.org/article/where-"
-"is-my-purchase-code/\" target=\"_blank\">link</a> if you don't know how to "
-"get your license key. Thank you!"
 msgstr ""
 
 #: libs/ajax_functions.php:161
@@ -3784,12 +3392,6 @@ msgstr ""
 msgid "New Booking Request from "
 msgstr ""
 
-#: libs/ajax_functions_edit.php:711
-msgid ""
-"Dear %s, You have received a new booking request from %s. Message sent to %s "
-"and %s"
-msgstr ""
-
 #: libs/ajax_functions_edit.php:1317
 msgid "Confirm Booking - No Deposit Needed"
 msgstr ""
@@ -3799,14 +3401,6 @@ msgstr ""
 #: libs/ajax_functions_edit.php:1834 libs/ajax_functions_edit.php:1977
 #: libs/ajax_functions_edit.php:2166
 msgid "you don't have the right to edit this"
-msgstr ""
-
-#: libs/ajax_functions_edit.php:1470 libs/ajax_functions_edit.php:1549
-#: libs/ajax_functions_edit.php:1794 libs/ajax_functions_edit.php:1928
-#: libs/ajax_functions_edit.php:2098 libs/ajax_functions_edit.php:2365
-msgid ""
-"Your listing is pending. Please complete all the mandatory fields for it to "
-"be published!"
 msgstr ""
 
 #: libs/ajax_functions_edit.php:1472 libs/ajax_functions_edit.php:1551
@@ -4181,12 +3775,6 @@ msgstr ""
 msgid "Link Relationship (XFN)"
 msgstr ""
 
-#: libs/megamenu.php:257
-msgid ""
-"The description will be displayed in the menu if the current theme supports "
-"it."
-msgstr ""
-
 #: libs/megamenu.php:264
 msgid "Menu Item Icon(ex: fa fa-comment)"
 msgstr ""
@@ -4213,12 +3801,6 @@ msgstr ""
 
 #: libs/megamenu.php:309
 msgid "Remove Image"
-msgstr ""
-
-#: libs/megamenu.php:320
-msgid ""
-"Container Styles( *set custom styles for mega menu container only:.  Ex: "
-"background position, background repeat )"
 msgstr ""
 
 #: libs/megamenu.php:336
@@ -4299,20 +3881,8 @@ msgstr ""
 msgid "Payments will be procesed in %1$s. Prices are displayed in %2$s"
 msgstr ""
 
-#: libs/dashboard_widgets.php:356
-msgid ""
-"You did not add your <strong>Paypal Details</strong>. No Paypal payment will "
-"be processed"
-msgstr ""
-
 #: libs/dashboard_widgets.php:358
 msgid "Paypal Api Keys are added.Payments will be processed."
-msgstr ""
-
-#: libs/dashboard_widgets.php:365
-msgid ""
-"You did not add your <strong>Stripe Details</strong>. No Stripe payment will "
-"be processed"
 msgstr ""
 
 #: libs/dashboard_widgets.php:367
@@ -4341,85 +3911,27 @@ msgstr ""
 
 #: libs/plugins.php:113
 msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
 #: libs/plugins.php:114
 msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: libs/plugins.php:115
-msgid ""
-"Sorry, but you do not have the correct permissions to install the %s plugin. "
-"Contact the administrator of this site for help on getting the plugin "
-"installed."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to install the %s plugins."
-" Contact the administrator of this site for help on getting the plugins "
-"installed."
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
 #: libs/plugins.php:116
 msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
 #: libs/plugins.php:117
 msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: libs/plugins.php:118
-msgid ""
-"Sorry, but you do not have the correct permissions to activate the %s plugin."
-" Contact the administrator of this site for help on getting the plugin "
-"activated."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to activate the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins activated."
-msgstr[0] ""
-msgstr[1] ""
-
-#: libs/plugins.php:119
-msgid ""
-"The following plugin needs to be updated to its latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgid_plural ""
-"The following plugins need to be updated to their latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: libs/plugins.php:120
-msgid ""
-"Sorry, but you do not have the correct permissions to update the %s plugin. "
-"Contact the administrator of this site for help on getting the plugin "
-"updated."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to update the %s plugins. "
-"Contact the administrator of this site for help on getting the plugins "
-"updated."
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
 #: libs/plugins.php:121
 msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
 #: libs/plugins.php:122
 msgid "Activate installed plugin"
-msgid_plural "Activate installed plugins"
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
 #: libs/plugins.php:123
 msgid "Return to Required Plugins Installer"
@@ -4440,12 +3952,6 @@ msgstr ""
 
 #: search.php:31
 msgid "Search Results for: "
-msgstr ""
-
-#: search.php:37
-msgid ""
-"We didn't find any results. Please try again with different search "
-"parameters. "
 msgstr ""
 
 #: search.php:41 user_dashboard_my_reservations.php:91 user_dashboard.php:113
@@ -4494,12 +4000,6 @@ msgstr ""
 msgid "Page not found"
 msgstr ""
 
-#: 404.php:15
-msgid ""
-"We're sorry. Your page could not be found, but you can check our latest "
-"listings & articles below. "
-msgstr ""
-
 #: 404.php:19
 msgid "Latest Listings"
 msgstr ""
@@ -4520,8 +4020,6 @@ msgstr ""
 msgid "Monthly Archives: %s"
 msgstr ""
 
-#: archive.php:31
-msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr ""
 
@@ -4529,8 +4027,6 @@ msgstr ""
 msgid "Yearly Archives: %s"
 msgstr ""
 
-#: archive.php:33
-msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
@@ -4670,9 +4166,7 @@ msgstr ""
 
 #: templates/listing_reviews.php:90
 msgid "%d Review"
-msgid_plural "%d Reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
 #: templates/agent_unit.php:44
 msgid "Lives in"
@@ -5013,7 +4507,7 @@ msgstr ""
 
 #: templates/submit_templates/property_location.php:127
 msgid "Latitude (for Maps Pin Position)"
-msgstr ""
+msgstr "Latitude"
 
 #: templates/submit_templates/property_location.php:134
 msgid "Longitude (for Maps Pin Position)"
@@ -5035,13 +4529,6 @@ msgstr ""
 
 #: templates/submit_templates/property_location.php:169
 msgid "Go to Amenities settings."
-msgstr ""
-
-#: templates/submit_templates/property_price.php:326
-msgid ""
-"There is a %s service fee that will be deducted from you earnings (earnings "
-"= total cost of the room (without security deposit, cleaning fee or city fee)"
-" + extra options)"
 msgstr ""
 
 #: templates/submit_templates/property_price.php:343
@@ -5141,18 +4628,6 @@ msgstr ""
 msgid "Allow guests above capacity?"
 msgstr ""
 
-#: templates/submit_templates/property_price.php:633
-msgid ""
-"Pay by the no of guests (room prices will NOT be used anymore and billing "
-"will be done by guest no only)"
-msgstr ""
-
-#: templates/submit_templates/property_price.php:652
-msgid ""
-"These options do not work together or on price per hour- choose only one and "
-"leave the other one on \"All\""
-msgstr ""
-
 #: templates/submit_templates/property_price.php:654
 msgid "Change Over days"
 msgstr ""
@@ -5231,11 +4706,6 @@ msgstr ""
 
 #: templates/submit_templates/property_price.php:921
 msgid "Allow only bookings starting with the check in on changeover days"
-msgstr ""
-
-#: templates/submit_templates/property_price.php:932
-msgid ""
-"Allow only bookings with the check in/check out (changeover) days/nights"
 msgstr ""
 
 #: templates/submit_templates/property_price.php:946
@@ -5320,23 +4790,10 @@ msgstr ""
 msgid "Describe your listing"
 msgstr ""
 
-#: templates/submit_templates/property_description_first.php:294
-#: templates/submit_templates/property_description.php:299
-msgid ""
-"Allow instant booking? If checked, you will not have the option to reject a "
-"booking request."
-msgstr ""
-
 #: templates/submit_templates/property_description_first.php:310
 #: templates/submit_templates/property_description_first.php:312
 #: word_remove.php:51
 msgid "Continue"
-msgstr ""
-
-#: templates/submit_templates/property_description_first.php:339
-msgid ""
-"You must Login / Register in the modal form that shows after you press the "
-"Continue button or else your data will be lost. "
 msgstr ""
 
 #: templates/submit_templates/property_calendar.php:33
@@ -5369,12 +4826,6 @@ msgstr ""
 
 #: templates/submit_templates/property_calendar.php:102
 msgid "There are no calendar feeds"
-msgstr ""
-
-#: templates/submit_templates/property_calendar.php:109
-msgid ""
-"iCalendar import feeds (feed will be read every 3 hours and when you hit "
-"save)"
 msgstr ""
 
 #: templates/submit_templates/property_calendar.php:110
@@ -5563,12 +5014,6 @@ msgstr ""
 msgid " Validate your Mobile Phone Number to receive SMS Notifications"
 msgstr ""
 
-#: templates/user_profile.php:61
-msgid ""
-"1. Add your Mobile no in Your Details section. Make sure you add it with "
-"country code."
-msgstr ""
-
 #: templates/user_profile.php:62
 msgid "2. Click on the button \"Send me validation code\"."
 msgstr ""
@@ -5577,24 +5022,12 @@ msgstr ""
 msgid "3. You will get a 4 digit code number via sms at"
 msgstr ""
 
-#: templates/user_profile.php:64
-msgid ""
-"4. Add the 4 digit code in the form below and click \"Validate Mobile Phone "
-"Number\""
-msgstr ""
-
 #: templates/user_profile.php:68
 msgid "Send me validation code"
 msgstr ""
 
 #: templates/user_profile.php:69
 msgid "Validate Mobile Phone Number"
-msgstr ""
-
-#: templates/user_profile.php:70
-msgid ""
-"*** If you don't receive the SMS, please check that your mobile phone number "
-"has the proper format (use the country code ex: +1 3232 232)"
 msgstr ""
 
 #: templates/user_profile.php:86
@@ -5628,11 +5061,6 @@ msgstr ""
 
 #: templates/user_profile.php:119
 msgid "Payment Info/Hidden Field"
-msgstr ""
-
-#: templates/user_profile.php:124
-msgid ""
-"Email for receiving Paypal Payments (booking fees, refund security fees, etc)"
 msgstr ""
 
 #: templates/user_profile.php:131
@@ -6105,13 +5533,6 @@ msgstr ""
 msgid "Site Settings "
 msgstr ""
 
-#: word_remove.php:49
-msgid ""
-"We recommend doing demo import first and then finishing this setup. Adding "
-"Demo import AFTER completing this setup changes your settings options to "
-"demo options. "
-msgstr ""
-
 #: word_remove.php:51
 msgid "OR"
 msgstr ""
@@ -6122,15 +5543,6 @@ msgstr ""
 
 #: word_remove.php:57
 msgid "Map Settings"
-msgstr ""
-
-#: word_remove.php:60
-msgid ""
-"VERY IMPORTANT: For already published properties, switching from Google "
-"Places to Algolia Places/OpenStreet Places (or from Algolia/Openstreet to "
-"Google Places) may require adding properties City & address again. The 2 "
-"systems can have different names for city, area and country and search by "
-"location may not work."
 msgstr ""
 
 #: word_remove.php:78 word_remove.php:79
@@ -6149,23 +5561,8 @@ msgstr ""
 msgid "Google Maps API KEY"
 msgstr ""
 
-#: word_remove.php:114
-msgid ""
-"The Google Maps JavaScript API v3 REQUIRES an API key to function correctly. "
-"Get an APIs Console key and post the code in Theme Options. You can get it "
-"from <a href=\"https://developers.google."
-"com/maps/documentation/javascript/tutorial#api_key\" target=\"_blank\">"
-"here</a>"
-msgstr ""
-
 #: word_remove.php:120
 msgid "MapBox API KEY -  used for tile server"
-msgstr ""
-
-#: word_remove.php:121
-msgid ""
-"You can get it from here: https://www.mapbox.com/. If you leave it blank we "
-"will use the default openstreet server which can be slow"
 msgstr ""
 
 #: word_remove.php:127
@@ -6206,23 +5603,12 @@ msgstr ""
 msgid "Currency Symbol"
 msgstr ""
 
-#: word_remove.php:260
-msgid ""
-"This is used for default property price currency symbol and default currency "
-"symbol in multi currency dropdown"
-msgstr ""
-
 #: word_remove.php:265 word_remove.php:266
 msgid "Where to show the currency symbol?"
 msgstr ""
 
 #: word_remove.php:273
 msgid "Language for datepicker"
-msgstr ""
-
-#: word_remove.php:274
-msgid ""
-"Select the language for booking form datepicker and search by date datepicker"
 msgstr ""
 
 #: word_remove.php:288
@@ -6253,57 +5639,20 @@ msgstr ""
 msgid "Include expenses when calculating deposit?"
 msgstr ""
 
-#: word_remove.php:371
-msgid ""
-"Include expenses when calculating deposit. The expenses are city fee and "
-"cleaning fee."
-msgstr ""
-
 #: word_remove.php:379
 msgid "Deposit Fee - % booking fee"
-msgstr ""
-
-#: word_remove.php:380
-msgid ""
-"Expenses are included or not in the deposit amount according to the above "
-"option. If the value is set to 100 (100%) the \"Include expenses when "
-"calculating deposit?\" option will be auto set to \"yes\"! "
 msgstr ""
 
 #: word_remove.php:385
 msgid "Deposit Fee - fixed value booking fee"
 msgstr ""
 
-#: word_remove.php:386
-msgid ""
-"Add the fixed fee as a number. If you use this option, leave blank Deposit "
-"Fee - % booking fee"
-msgstr ""
-
 #: word_remove.php:391
 msgid "Service Fee - % booking fee"
 msgstr ""
 
-#: word_remove.php:392
-msgid ""
-"Service Fee. Is the commision that goes to the admin and is deducted from "
-"the total booking value."
-msgstr ""
-
 #: word_remove.php:397
 msgid "Service Fee - fixed value service fee"
-msgstr ""
-
-#: word_remove.php:398
-msgid ""
-"Service Fee - fixed value service fee. If you use this option, leave blank "
-"Service Fee - % booking fee"
-msgstr ""
-
-#: word_remove.php:411
-msgid ""
-"For further setup see our help files, knowledgebase articles and tutorials "
-"to help make this process easier and more enjoyable for you: "
 msgstr ""
 
 #: word_remove.php:411
@@ -6318,16 +5667,9 @@ msgstr ""
 msgid "Payments"
 msgstr ""
 
-#: comments.php:4
-msgid ""
-"This post is password protected. Enter the password to view any comments."
-msgstr ""
-
 #: comments.php:15
 msgid "One thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
 #: comments.php:30
 msgid "Comment navigation"
@@ -6453,12 +5795,6 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
-#: user_dashboard_allinone.php:85
-msgid ""
-"The calendar will not be displayed correctly on resolution lower than 1200px "
-"(because of lack of space). Please do not use this feature on mobile devices."
-msgstr ""
-
 #: user_dashboard_allinone.php:102
 msgid "Custom Price & Period reservation"
 msgstr ""
@@ -6472,22 +5808,7 @@ msgid "Mark days as booked ?"
 msgstr ""
 
 #: functions.php:85
-msgid ""
-"Attention! For WpRentals v2.5 or later Child Theme wprentals-child/functions."
-"php must be updated as detailed in this "
-msgstr ""
-
-#: functions.php:85
 msgid "help article"
-msgstr ""
-
-#: functions.php:94
-msgid ""
-"For better speed results, the theme offers a built-in caching system for "
-"properties and categories.Because of that, properties or categories may not "
-"appear immediately on your site. Use the Clear Wp Rentals Cache button from "
-"the admin bar to see the changes made instantly. Automatic updates happen "
-"every 4 hours."
 msgstr ""
 
 #: functions.php:103
@@ -6514,50 +5835,8 @@ msgstr ""
 msgid "Your PHP version is "
 msgstr ""
 
-#: functions.php:142
-msgid ""
-"MbString extension not detected. Please contact your hosting provider in "
-"order to enable it."
-msgstr ""
-
-#: functions.php:157
-msgid ""
-"Half Map Template - make sure your page has the \"media header type\" set as "
-"google map "
-msgstr ""
-
 #: functions.php:174
 msgid "Do NOT edit booking details from admin!"
-msgstr ""
-
-#: functions.php:191
-msgid ""
-"Please do not manually change the slugs when adding new terms. If you need "
-"to edit a term name copy the new name in the slug field also."
-msgstr ""
-
-#: functions.php:205
-msgid ""
-"Please add properties from front end interface using an user with subscriber "
-"level registered in front end"
-msgstr ""
-
-#: functions.php:218
-msgid ""
-"You need to create a page with the template ICAL FEED (if you want to use "
-"icalendar export/import feature)"
-msgstr ""
-
-#: functions.php:231
-msgid ""
-"You need to create a page with the template All in one calendar (if you want "
-"to use all in one calendar feature)"
-msgstr ""
-
-#: functions.php:244
-msgid ""
-"It looks like you may have a problem with the server date.timezone settings "
-"and may encounter errors like the one described here:"
 msgstr ""
 
 #: functions.php:244
@@ -6616,12 +5895,6 @@ msgstr ""
 msgid "User Dashboard Edit"
 msgstr ""
 
-#: user_dashboard_edit_listing.php:322
-msgid ""
-"Congratulations, you have just added a new listing! Now go and fill in the "
-"rest of the details."
-msgstr ""
-
 #. Template Name of the theme
 msgid "User Dashboard Inbox"
 msgstr ""
@@ -6656,12 +5929,6 @@ msgstr ""
 
 #: user_dashboard_add_step1.php:152
 msgid "Please add the description."
-msgstr ""
-
-#: user_dashboard_add_step1.php:385
-msgid ""
-"Your current package doesn't let you publish more properties! You need to "
-"upgrade your subscription."
 msgstr ""
 
 #. Template Name of the theme
@@ -6703,3 +5970,128 @@ msgstr ""
 #: user_dashboard_my_bookings.php:143
 msgid "You don't have any booking requests yet!"
 msgstr ""
+
+#, fuzzy
+msgid "Property Entorno"
+msgstr ""
+"#-#-#-#-#  catalog.po  #-#-#-#-#\n"
+"Environment and distance\n"
+"#-#-#-#-#  catalog.po  #-#-#-#-#\n"
+"Environment"
+
+msgid "Where"
+msgstr "Where"
+
+msgid "How"
+msgstr "How"
+
+msgid "Desc1"
+msgstr "Description 1"
+
+msgid "Desc2"
+msgstr "Description 2"
+
+msgid "Beach name"
+msgstr "Beach name"
+
+msgid "Beach distance"
+msgstr "Beach distance"
+
+msgid "Golf name"
+msgstr "Golf name"
+
+msgid "Golf distance"
+msgstr "Golf distance"
+
+msgid "City name"
+msgstr "City name"
+
+msgid "City distance"
+msgstr "City distance"
+
+msgid "Super name"
+msgstr "Super name"
+
+msgid "Super distance"
+msgstr "Super distance"
+
+msgid "Airport name"
+msgstr "Airport name"
+
+msgid "Airport distance"
+msgstr "Airport distance"
+
+msgid "Train name"
+msgstr "Train name"
+
+msgid "Train distance"
+msgstr "Train distance"
+
+msgid "Bus name"
+msgstr "Bus name"
+
+msgid "Bus distance"
+msgstr "Bus distance"
+
+msgid "view to beach"
+msgstr "View to beach"
+
+msgid "view to swimming_pool"
+msgstr "View to pool"
+
+msgid "view to golf"
+msgstr "View to golf"
+
+msgid "view to garden"
+msgstr "View to garden"
+
+msgid "view to river"
+msgstr "View to river"
+
+msgid "view to mountain"
+msgstr "View to mountain"
+
+msgid "view to lake"
+msgstr "View to lake"
+
+msgid "first line beach"
+msgstr "First line beach"
+
+msgid "first line golf"
+msgstr "First line golf"
+
+msgid "entorno si"
+msgstr "Yes"
+
+msgid "entorno no"
+msgstr "No"
+
+msgid "Property latitude"
+msgstr "Latitud"
+
+msgid "Property longitude"
+msgstr "Longiutude"
+
+msgid "Property Size parcela"
+msgstr "Parcela size"
+
+msgid "Property Baños Ducha"
+msgstr "Bathrooms with shower"
+
+msgid "Property Baños Bañera"
+msgstr "Bathrooms with bathub"
+
+msgid "Property Aseos"
+msgstr "Bathrooms"
+
+msgid "Property Caracteristicas Adicionales"
+msgstr "Aditional characteristics"
+
+msgid "Amenities and  Interir Features"
+msgstr "Amenities and interior characteristics"
+
+msgid "Amenities and Exterior Features"
+msgstr "Amenities and exterior characteristics"
+
+msgid "Region"
+msgstr "Region"

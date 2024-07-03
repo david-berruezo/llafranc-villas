@@ -198,7 +198,7 @@ function wpestate_create_property_type() {
     );
 
 
-
+    /*
     $rewrites   =   wpestate_safe_rewite();
     if(isset($rewrites[6])){
         $slug=$rewrites[6];
@@ -219,9 +219,31 @@ function wpestate_create_property_type() {
 
         )
     );
+    */
 
 
-    //wprentals_convert_features_status_to_tax();
+    $rewrites   =   wpestate_safe_rewite();
+    if(isset($rewrites[7])){
+        $slug=$rewrites[7];
+    }else{
+        $slug='services';
+    }
+
+
+    register_taxonomy('extra_services', 'estate_property', array(
+            'labels' => array(
+                'name' => esc_html__('Extra Services', 'wprentals-core'),
+                'add_new_item' => esc_html__('Add New Extra Service', 'wprentals-core'),
+                'new_item_name' => esc_html__('New Extra Service', 'wprentals-core')
+            ),
+            'hierarchical' => true,
+            'query_var' => true,
+            'rewrite' => array('slug' => $slug),
+            'public' => true
+        )
+    );
+
+    wprentals_convert_features_status_to_tax();
 
 }// end create property type
 endif; // end   wpestate_create_property_type

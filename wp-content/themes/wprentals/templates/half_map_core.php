@@ -29,7 +29,7 @@ ob_start();
 $templates = ob_get_contents();
 ob_end_clean(); 
 wp_reset_query(); 
-$schema_flag = 0;
+$schema_flag=0;
 ?>
 
 <div class="row <?php echo esc_attr($map_position); ?>">
@@ -43,8 +43,8 @@ $schema_flag = 0;
         <?php  include(locate_template('templates/advanced_search_map_list.php'));?>
         <?php  include(locate_template('templates/spiner.php') ); ?> 
             
-        <div id="listing_ajax_container" class="ajax-map" itemscope itemtype ="http://schema.org/ItemList">
-            resultados de la búsqueda
+        <div id="listing_ajax_container" class="ajax-map" itemscope itemtype ="http://schema.org/ItemList"> 
+            
             <?php if( !is_tax() ){?>
                 <?php while (have_posts()) : the_post(); ?>
                 <?php 
@@ -72,7 +72,6 @@ $schema_flag = 0;
        print trim($templates);
                            
         ?>
-
         </div>
         <!-- Listings Ends  here --> 
         <?php wprentals_pagination($prop_selection->max_num_pages, $range =2); ?>       

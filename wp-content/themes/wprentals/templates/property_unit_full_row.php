@@ -50,6 +50,8 @@ $link                       =   wprentals_card_link_autocomplete($post->ID,$link
             $thumb_prop             =   get_the_post_thumbnail($post->ID, 'wpestate_property_places',$extra);
             $thumb_prop             =   wp_get_attachment_image_src( get_post_thumbnail_id(), 'wpestate_property_featured');
 
+            print_r($thumb_prop);
+            
             if($thumb_prop[0]==''){
                 $thumb_prop[0]=get_stylesheet_directory_uri().'/img/defaultimage_prop1.jpg';
             }

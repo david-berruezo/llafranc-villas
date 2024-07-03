@@ -1,4 +1,5 @@
 <?php
+echo "estamos en el template<br>";
 // Template Name: Properties list half
 // Wp Estate Pack 
 get_header();

@@ -107,16 +107,17 @@ if( !function_exists('wpestate_argumets_builder') ):
         }
 
         /*
-        // codigo probado por mi
         echo "adv_search_type: ".$adv_search_type."<br>";
         echo "is_half".$is_half."<br>";
-        // adv_search_type: type3<br>is_half0
         p_($adv_search_what);
+
+        // adv_search_type: type3<br>is_half0
         (
             [0] => property_area
             [1] => property_category
             [2] => guest_no
         )
+
 
         # añadimos una nueva taxonomia
         $adv_search_what[] = "extra_services";

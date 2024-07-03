@@ -17,10 +17,10 @@ if($wpestate_options['content_class']=="col-md-12"){
 }
 $wpestate_property_unit_slider = esc_html ( wprentals_get_option('wp_estate_prop_list_slider','') );
 ob_start();
-    while ($prop_selection->have_posts()): $prop_selection->the_post();
-        $schema_flag=1; 
-        include(locate_template('templates/property_unit.php') );
-    endwhile;
+while ($prop_selection->have_posts()): $prop_selection->the_post();
+    $schema_flag=1;
+    include(locate_template('templates/property_unit.php') );
+endwhile;
 $templates = ob_get_contents();
 ob_end_clean();
 wp_reset_query();
@@ -38,8 +38,8 @@ $schema_flag=0;
 
         <?php if( !is_tax() ){?>
             <?php while (have_posts()) : the_post(); ?>
-            <?php if (esc_html( get_post_meta($post->ID, 'page_show_title', true) ) == 'yes') { ?>
-                <?php
+                <?php if (esc_html( get_post_meta($post->ID, 'page_show_title', true) ) == 'yes') { ?>
+                    <?php
                     if (esc_html( get_post_meta($post->ID, 'page_show_title', true) ) == 'yes') {
                         if( is_page_template('advanced_search_results.php') ){?>
                             <h1 class="entry-title title_list_prop"><?php the_title(); print ': '.esc_html($prop_selection->found_posts).' '.esc_html__( 'results','wprentals');?></h1>
@@ -47,9 +47,9 @@ $schema_flag=0;
                             <h1 class="entry-title title_list_prop"><?php the_title();?></h1>
                         <?php }
                     }
-                ?>
-            <?php } ?>
-            <div class="single-content"><?php the_content();?></div>
+                    ?>
+                <?php } ?>
+                <div class="single-content"><?php the_content();?></div>
             <?php endwhile;   ?>
         <?php }else{ ?>
 
@@ -60,7 +60,7 @@ $schema_flag=0;
 
 
             if(isset($term_meta['pagetax'])){
-               $wpestate_page_tax=$term_meta['pagetax'];
+                $wpestate_page_tax=$term_meta['pagetax'];
             }
 
             if($wpestate_page_tax!=''){
@@ -107,5 +107,5 @@ $schema_flag=0;
 
     </div><!-- end 8col container-->
 
-<?php  include(get_theme_file_path('sidebar.php')); ?>
+    <?php  include(get_theme_file_path('sidebar.php')); ?>
 </div>

@@ -64,5 +64,4 @@ $wide_class =   '';
 
 <?php  include(get_theme_file_path('sidebar.php')); ?>
 </div>
-<?php echo "la pagina es: ".$post->ID."<br>"; ?>
 <?php get_footer(); ?>

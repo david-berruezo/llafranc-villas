@@ -55,12 +55,12 @@
 define("app_child_url", __DIR__);
 
 # includes
-include(app_child_url . "/Clases/DB.php");
+// include(app_child_url . "/Clases/DB.php");
 
 # var
 $db = "";
-//$avantio_credential = "local_wordpress";
-$avantio_credential = "servidor_tiendapisos";
+$avantio_credential = "local_wordpress";
+//$avantio_credential = "servidor_dani";
 $services = "";
 $actual_language = "";
 
@@ -98,6 +98,7 @@ $services = get_services($actual_language);
 //p_($services);
 
 
+
 switch($actual_language){
     case "es":
         # titulos
@@ -119,8 +120,13 @@ switch($actual_language){
         $aviso_legal_pagina = get_page_link(35462);
         # descripcion
         $desc = "Contamos con más de 50 años de experiencia y somos una de las agencias pioneras en los alquileres turísticos en diferentes poblaciones a lo largo de la Costa Brava.";
+        //echo do_shortcode("[elementor-template id='434073']");
         echo do_shortcode("[elementor-template id='371605']");
+        //[elementor-template id="371605"]
         //echo do_shortcode("[elementor-template id='371106']");
+        //echo do_shortcode("[elementor-template id='371143']");
+        $word_propiedad = "Propiedad";
+        $word_ocultar = "Ocultar";
     break;
     case "en":
         # titulos
@@ -143,6 +149,11 @@ switch($actual_language){
         # descripcion
         $desc = "We have more than 50 years of experience and we are one of the pioneer agencies in tourist rentals in different towns along the Costa Brava.";
         echo do_shortcode("[elementor-template id='371143']");
+        //echo do_shortcode("[elementor-template id='36805183733']");
+        //[elementor-template id="371143"]
+        # words
+        $word_propiedad = "Property";
+        $word_ocultar = "Hide";
     break;
     case "ca":
         # titulos
@@ -165,6 +176,9 @@ switch($actual_language){
         # descripcion
         $desc = "Comptem amb més de 50 anys d'experiència i som una de les agències pioneres als lloguers turístics a diferents poblacions al llarg de la Costa Brava.";
         echo do_shortcode("[elementor-template id='371201']");
+        //echo do_shortcode("[elementor-template id='36805183740']");
+        $word_propiedad = "Propieatat";
+        $word_ocultar = "Amagar";
     break;
     case "fr":
         # titulos
@@ -187,11 +201,12 @@ switch($actual_language){
         # descripcion
         $desc = "Nous avons plus de 50 ans d'expérience et nous sommes l'une des agences pionnières de la location touristique dans différentes villes de la Costa Brava.";
         echo do_shortcode("[elementor-template id='371178']");
+        //echo do_shortcode("[elementor-template id='36805183744']");
+        $word_propiedad = "Propriété";
+        $word_ocultar = "Cacher";
     break;
 
 }// end switch
-
-
 
 ?>
 
@@ -268,9 +283,9 @@ switch($actual_language){
         cadena+= '<input type="hidden" name="extra_services" id="extra_services" value="">';
         cadena+= '</div>';
         cadena+= '<ul class="dropdown-menu filter_menu" role="menu" aria-labelledby="extra_services_toogle">';
-        <?php foreach ($services as $service) { ?>
-        cadena+='<li role="presentation" data-id="<?php echo $service->id; ?>" data-value="<?php echo $service->text_title; ?>"><?php echo $service->text_title; ?></li>';
-        <?php } ?>
+        <?php //foreach ($services as $service) { ?>
+         cadena+='<li role="presentation" data-id="<?php //echo $service->id; ?>" data-value="<?php //echo $service->text_title; ?>"><?php //echo $service->text_title; ?></li>';
+        <?php //} ?>
         cadena+='<li role="presentation" data-id="'+codigo_sin_piscina+'" data-value="'+titulo_sin_piscina+'">'+titulo_sin_piscina+'</li>';
         cadena+= '</ul>';
         cadena+= '</div>';
@@ -281,11 +296,11 @@ switch($actual_language){
 
 
     function build_villas(){
-
+        let word_propiedad = "<?php echo $word_propiedad; ?>";
         let cadena = '<div class="col-md-3">';
         cadena+= '<i class="custom_icon_class_icon fas fa-warehouse"></i>';
         cadena+= '<div class="dropdown custom_icon_class  form-control ">';
-        cadena+= '<div data-toggle="dropdown" id="villas_directo_toogle" class=" filter_menu_trigger  " data-value="">Villas <span class="caret  caret_filter "></span>';
+        cadena+= '<div data-toggle="dropdown" id="villas_directo_toogle" class=" filter_menu_trigger  " data-value="">'+word_propiedad+' <span class="caret  caret_filter "></span>';
         cadena+= '</div>';
         cadena+= '<ul class="dropdown-menu filter_menu menu-properties" role="menu" aria-labelledby="villas_directo_toogle">';
         cadena+= '</ul>';
@@ -339,9 +354,14 @@ switch($actual_language){
         let protocol        = window.location.protocol;
         let host            = window.location.host;
         let pathname        = window.location.pathname;
+        let pathname_vector = pathname.split("/");
         let location_search = window.location.search;
-
-        let ajaxurl = domain+"/wp-admin/admin-ajax.php";
+        //console.log("domain"+domain);
+        //console.log("pathname: "+pathname);
+        //console.log("pathname: "+pathname_vector[1]);
+        // (pathname_vector[1] ? +"/"+pathname_vector[1] : "" )
+        //let ajaxurl = domain+"/"+"wp-admin/admin-ajax.php";
+        let ajaxurl = domain+"/"+pathname_vector[1]+"/wp-admin/admin-ajax.php";
         let name = "";
         let url = domain + pathname + "index.php";
         let language = "";
@@ -360,7 +380,7 @@ switch($actual_language){
                 //console.log("datos: "+data["properties"]);
                 for (let i=0; i < data["properties"].length; i++ ){
                     url = domain + pathname + "index.php";
-                    name = data["properties"][i]["post_name"];
+                    name = data["properties"][i]["post_title"];
                     if(language == "es"){
                         url+= "/properties/"+name;
                     }else{

@@ -2,7 +2,6 @@
 // Template Name: Properties list
 // Wp Estate Pack 
 get_header();
-
 $wpestate_options           =   wpestate_page_details($post->ID);
 $filtred                    =   0;
 $compare_submit             =   wpestate_get_template_link('compare_listings.php');
@@ -28,9 +27,9 @@ $current_adv_filter_city                = get_post_meta ( $post->ID, 'current_ad
 $show_featured_only                     = get_post_meta($post->ID, 'show_featured_only', true);
 $show_filter_area                       = get_post_meta($post->ID, 'show_filter_area', true);
 
-$area_array     =   '';  
-$city_array     =   '';  
-$action_array   =   ''; 
+$area_array     =   '';
+$city_array     =   '';
+$action_array   =   '';
 $categ_array    =   '';
 
 $transient_appendix='';
@@ -52,13 +51,13 @@ if (!empty($current_adv_filter_search_action) && $current_adv_filter_search_acti
 }else{
     $current_adv_filter_search_label= wpestate_category_labels_dropdowns('second');
 }
-      
+
 
 
 
 /////////////////////////////////////////////////////////////////////////category
 if ( !empty($current_adv_filter_search_category) && $current_adv_filter_search_category[0]!='all' ){
-    $taxaction_include   =   array();   
+    $taxaction_include   =   array();
 
     foreach( $current_adv_filter_search_category as $key=>$value){
         $taxaction_include[]=sanitize_title($value);
@@ -81,19 +80,19 @@ if ( !empty($current_adv_filter_search_category) && $current_adv_filter_search_c
 /////////////////////////////////////////////////////////////////////////////
 
 if ( !empty( $current_adv_filter_city ) && $current_adv_filter_city[0]!='all' ) {
-    $taxaction_include   =   array();   
+    $taxaction_include   =   array();
 
     foreach( $current_adv_filter_city as $key=>$value){
         $taxaction_include[]=sanitize_title($value);
         $transient_appendix.='_'.sanitize_title($value);
     }
-    
+
     $city_array = array(
         'taxonomy' => 'property_city',
         'field' => 'slug',
         'terms' => $taxaction_include
     );
-    
+
     $current_adv_filter_city_label=$current_adv_filter_city[0];
 }else{
     $current_adv_filter_city_label=esc_html__( 'All Cities','wprentals');
@@ -103,31 +102,31 @@ if ( !empty( $current_adv_filter_city ) && $current_adv_filter_city[0]!='all' ) 
 /////////////////////////////////////////////////////////////////////////////
 
 if ( !empty( $current_adv_filter_area ) && $current_adv_filter_area[0]!='all' ) {
-    $taxaction_include   =   array();   
+    $taxaction_include   =   array();
 
     foreach( $current_adv_filter_area as $key=>$value){
         $taxaction_include[]=sanitize_title($value);
         $transient_appendix.='_'.sanitize_title($value);
     }
-    
+
     $area_array = array(
         'taxonomy' => 'property_area',
         'field' => 'slug',
         'terms' => $taxaction_include
     );
-    
+
     $current_adv_filter_area_label=$current_adv_filter_area[0];
 }else{
     $current_adv_filter_area_label=esc_html__( 'All Areas','wprentals');
 }
-  
- 
+
+
 
 /////////////////////////////////////////////////////////////////////////////
 
-$meta_query = array();
+$meta_query=array();
 if($show_featured_only=='yes'){
-    $compare_array = array();
+    $compare_array=array();
     $compare_array['key']        = 'prop_featured';
     $compare_array['value']      = 1;
     $compare_array['type']       = 'numeric';
@@ -135,9 +134,11 @@ if($show_featured_only=='yes'){
     $meta_query[]                = $compare_array;
     $transient_appendix.='_show_featured';
 }
-     
+
 $meta_directions    =   'DESC';
 $meta_order         =   'prop_featured';
+//$meta_order         =   '_thumbnail_id';
+
 $order              =   get_post_meta($post->ID, 'listing_filter',true );
 switch ($order){
     case 1:
@@ -165,46 +166,96 @@ switch ($order){
         $meta_directions='ASC';
         break;
 }
- $transient_appendix.='_'.$meta_order.'_'.$meta_directions;
- 
- 
+$transient_appendix.='_'.$meta_order.'_'.$meta_directions;
+
+
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 if( is_front_page() ){
-     global $paged;
+    global $paged;
     $paged= (get_query_var('page')) ? get_query_var('page') : 1;
 }
-wp_reset_query();     
+wp_reset_query();
 
 $transient_appendix.='_paged_'.$paged;
 
 
-$meta_query = array(
-    'relation' => 'AND',
-    array(
-        'key' => 'guest_no',
-        'value' => '5',
-        'compare' => '>',
-    ),
-);
-
-
 $args = array(
-      'post_type'         => 'estate_property',
-      'post_status'       => 'publish',
-      'paged'             => $paged,
-      'posts_per_page'    => $prop_no,
-      'orderby'           => 'meta_value_num',
-      'meta_key'          => $meta_order,
-      'order'             => $meta_directions,
-      'meta_query'        => $meta_query,
-      'tax_query'         => array(
-                                'relation' => 'AND',
-                                $categ_array,
-                                $action_array,
-                                $city_array,
-                                $area_array
-                            )
+    'post_type'         => 'estate_property',
+    'post_status'       => 'publish',
+    'paged'             => $paged,
+    'posts_per_page'    => $prop_no,
+    'orderby'           => 'meta_value_num',
+    'meta_key'          => $meta_order,
+    'order'             => $meta_directions,
+    'meta_query'        => $meta_query,
+    'tax_query'         => array(
+        'relation' => 'AND',
+        $categ_array,
+        $action_array,
+        $city_array,
+        $area_array
+    )
 );
+
+
+
+//p_($meta_order);
+// prop_featured
+
+//p_($meta_directions);
+// DESC
+
+//p_($meta_query);
+// array()
+
+/*
+Array
+(
+    [post_type] => estate_property
+    [post_status] => publish
+    [paged] => 1
+    [posts_per_page] => 18
+    [orderby] => meta_value_num
+    [meta_key] => prop_featured
+    [order] => DESC
+    [meta_query] => Array
+(
+)
+
+[tax_query] => Array
+(
+    [relation] => AND
+            [0] =>
+            [1] =>
+            [2] =>
+            [3] =>
+        )
+
+)
+
+Array
+(
+    [post_type] => estate_property
+    [post_status] => publish
+    [paged] => 1
+    [posts_per_page] => 18
+    [orderby] => meta_value_num
+    [meta_key] => prop_featured
+    [order] => DESC
+    [meta_query] => Array
+    (
+    )
+    [tax_query] => Array
+    (
+        [relation] => AND
+        [0] =>
+        [1] =>
+        [2] =>
+        [3] =>
+    )
+
+)
+*/
 
 
 if( $order==0 ){
@@ -217,32 +268,40 @@ $prop_selection     =   wpestate_request_transient_cache( 'wpestate_prop_list'.$
 if($prop_selection==false){
     if( $order==0 ){
         if(function_exists('wpestate_return_filtered_by_order')){
-            $prop_selection = wpestate_return_filtered_by_order($args);
+            //p_($args);
+            # parameters to query
+            $args_dos = $args;
+            $args_dos["orderby"] = "title";
+            $args_dos["order"] = "ASC";
+
+            # call to query
+            $prop_selection = wpestate_return_filtered_by_order($args_dos);
         }
     }else{
+        echo "entra aqui<br>";
         $prop_selection = new WP_Query($args);
     }
-    
+
     wpestate_set_transient_cache(  'wpestate_prop_list'.$transient_appendix, $prop_selection, 60*4*4 );
 }
-  
+
 include(locate_template('templates/normal_map_core.php'));
 
 if (wp_script_is( 'wpestate_googlecode_regular', 'enqueued' )) {
 
-    $mapargs                    =   $args;   
+    $mapargs                    =   $args;
     $max_pins                   =   intval( wprentals_get_option('wp_estate_map_max_pins') );
     $mapargs['posts_per_page']  =   $max_pins;
     $mapargs['offset']          =   ($paged-1)*$prop_no;
     $mapargs['fields']          =   'ids';
-    
-    
+
+
     $transient_appendix.='_maxpins'.$max_pins.'_offset_'.($paged-1)*$prop_no;
-  
-    $selected_pins  =   wpestate_listing_pins($transient_appendix,1,$mapargs,1,1);//call the new pins  
-    wp_localize_script('wpestate_googlecode_regular', 'googlecode_regular_vars2', 
+
+    $selected_pins  =   wpestate_listing_pins($transient_appendix,1,$mapargs,1,1);//call the new pins
+    wp_localize_script('wpestate_googlecode_regular', 'googlecode_regular_vars2',
         array('markers2'          =>  $selected_pins));
 }
-?>
 
-<?php get_footer();  ?>
+get_footer();
+?>

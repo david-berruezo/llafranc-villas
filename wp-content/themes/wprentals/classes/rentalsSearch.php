@@ -136,13 +136,16 @@ class WpRentalsSearch {
             $this->change_data_to_half();
         }
 
-
         global $post;
+
+
         $return_string=$this->get_advanced_search_wrapper($position);
+
 
         $return_string.='<div class="'.esc_attr($this->get_advanced_search_wrapper_class($position)).' advanced_search_form_wrapper"  data-postid="'.esc_attr($post->ID).'">';
 
-            $return_string.= '<form role="search" method="get"   action="'. esc_url( $this->search_submit_link ).'" >';
+        $return_string.= '<form role="search" method="get"   action="'. esc_url( $this->search_submit_link ).'" >';
+
                 if (function_exists('icl_translate') ){
                     $return_string.= do_action( 'wpml_add_language_form_field' );
                 }
@@ -152,6 +155,7 @@ class WpRentalsSearch {
                 }
 
                 $return_string.=$this->display_search_fields($position);
+
 
                 if($this->use_extended_search == 'yes'){
                    $return_string.=$this->wprentals_show_extended_search('adv');
@@ -166,6 +170,7 @@ class WpRentalsSearch {
                 if( $this->search_type =='type4' ){
                     $return_string.='</div>';
                 }
+                
 
                 $return_string.=$this->show_extented_search($position);
 
@@ -383,11 +388,11 @@ class WpRentalsSearch {
     */
     function display_search_fields($position){
         $return_string  =   '';
-        foreach($this->search_fields['adv_search_what'] as $key=>$field){
-            if($field=='none'){
+        foreach($this->search_fields['adv_search_what'] as $key => $field){
+            if($field == 'none' || $field == "property_action_category"){
                 continue;
             }
-
+            //echo "filtro: " . $field . "<br>";
             $label      =   $this->search_field_get_label($key);
             $icon       =   $this->search_field_get_icon($key,$field);
             $form_class =   $this->calculate_field_length($field,$position);

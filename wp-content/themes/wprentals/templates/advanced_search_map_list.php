@@ -70,7 +70,7 @@ if ($wpestate_where_currency == 'before') {
         <?php
 
             global $search_object;
-            print  trim($search_object->wpstate_display_search_form('half')); 
+            print  trim($search_object->wpstate_display_search_form('half'));
             include(locate_template('libs/internal_autocomplete_wpestate.php'));
 
         ?>

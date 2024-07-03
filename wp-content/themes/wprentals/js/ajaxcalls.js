@@ -6,8 +6,7 @@
 
 function wpestate_start_filtering_ajax_map(newpage,pan_ne_lat, pan_ne_long, pan_sw_lat,pan_sv_long,move_map) {
     "use strict";
-    
-   
+
     is_fit_bounds_zoom=1;
     map_geo_first_load=1;
     external_action_ondemand=1;
@@ -276,15 +275,6 @@ function wpestate_geolocation_marker (place_lat, place_lng){
         map.fitBounds(placeCircle.getBounds());
     }
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -688,10 +678,119 @@ function wpestate_listing_pay(prop_id, selected_div, is_featured, is_upgrade) {
     });//end ajax
 }
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////
 /// start filtering -jslint checked
 ////////////////////////////////////////////////////////////////////////////////////////////
 function wpestate_start_filtering(newpage) {
+    "use strict";
+
+    jQuery('#grid_view').addClass('icon_selected');
+    jQuery('#list_view').removeClass('icon_selected');
+    var action, category, city, area, order, ajaxurl, page_id , guests , rooms , dormitorios , aseos , piscina , piscina_privada , piscina_comunitaria;
+    var aire_acondicionado , wifi , calefaccion , lavadora , lavavajillas , aparcamiento , terraza , barbacoa
+    // get action vars
+    action = jQuery('#a_filter_action').attr('data-value');
+    // get category
+    category = jQuery('#a_filter_categ').attr('data-value');
+    // get city
+    city = jQuery('#a_filter_cities').attr('data-value');
+    // get area
+    area = jQuery('#a_filter_areas').attr('data-value');
+    // guests
+    guests = jQuery('#guests_toogle').attr('data-value');
+    // rooms
+    rooms = jQuery('#rooms_toogle').attr('data-value');
+    // aseos
+    // aseos = jQuery('#aseos_toogle').attr('data-value');
+    // dormitorios
+    //dormitorios = jQuery('#dormitorios_toogle').attr('data-value');
+    // checkbox
+    // piscina
+    piscina_privada = jQuery("#check_piscina_privada").prop('checked');
+    piscina_comunitaria = jQuery("#check_piscina_comunitaria").prop('checked');
+    if (piscina_privada || piscina_comunitaria){
+        piscina = true;
+    }else{
+        piscina = false;
+    }
+    // aire
+    aire_acondicionado = jQuery("#check_aire_acondicionado").prop('checked');
+    // wifi
+    wifi = jQuery("#check_wifi").prop('checked');
+    // calefaccion
+    calefaccion = jQuery("#check_calefaccion").prop('checked');
+    // lavadora
+    lavadora = jQuery("#check_lavadora").prop('checked');
+    // lavavajillas
+    lavavajillas = jQuery("#check_lavavajillas").prop('checked');
+    // aparcamiento
+    aparcamiento = jQuery("#check_aparcamiento").prop('checked');
+    // terrazza
+    terraza = jQuery("#check_terraza").prop('checked');
+    // aire
+    barbacoa = jQuery("#check_barbacoa").prop('checked');
+
+    // get order
+    order = jQuery('#a_filter_order').attr('data-value');
+    ajaxurl =  ajaxcalls_vars.admin_url + 'admin-ajax.php';
+    page_id =   jQuery('#page_idx').val();
+    jQuery('#listing_ajax_container').empty();
+    jQuery('#listing_loader').show();
+
+    //alert("launch");
+
+    var nonce = jQuery('#wprentals_ajax_filtering').val();
+
+    jQuery.ajax({
+        type: 'POST',
+        url: ajaxurl,
+        data: {
+            'action'            :   'wpestate_ajax_filter_listings',
+            'action_values'     :   action,
+            'category_values'   :   category,
+            'city'              :   city,
+            'area'              :   area,
+            'guests'            :   guests,
+            'rooms'             :   rooms,
+            //'dormitorios'       :   dormitorios,
+            //'aseos'             :   aseos,
+            'piscina'           :   piscina,
+            'piscina_privada'   :   piscina_privada,
+            'piscina_comunitaria':  piscina_comunitaria,
+            'aire_acondicionado':   aire_acondicionado,
+            'wifi'              :   wifi,
+            'calefaccion'       :   calefaccion,
+            'lavadora'          :   lavadora,
+            'lavavajillas'      :   lavavajillas,
+            'aparcamiento'      :   aparcamiento,
+            'terraza'           :   terraza,
+            'barbacoa'          :   barbacoa,
+            'order'             :   order,
+            'newpage'           :   newpage,
+            'page_id'           :   page_id,
+            'security'          :   nonce
+        },
+        success: function (data) {
+            jQuery('#listing_loader').hide();
+            jQuery('#listing_ajax_container').empty().append(data);
+            jQuery('.pagination_nojax').hide();
+            wpestate_restart_js_after_ajax();
+            wpestate_lazy_load_carousel_property_unit();
+            //var bLazy = new Blazy();
+            //bLazy.revalidate();
+        },
+        error: function (errorThrown) {
+
+        }
+    });//end ajax
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+/// start filtering -jslint checked
+////////////////////////////////////////////////////////////////////////////////////////////
+function wpestate_start_filtering_new(newpage) {
     "use strict";
 
     jQuery('#grid_view').addClass('icon_selected');
@@ -721,9 +820,9 @@ function wpestate_start_filtering(newpage) {
         let atributo = atributos[index];
         if (jQuery(atributo).is(":checked")){
             atributo = jQuery(atributo).attr("name");
-            console.log("atributo: "+atributo);
+            //console.log("atributo: "+atributo);
             let encontrado = atributo.search("checkbox");
-            console.log("encontrado: "+encontrado);
+            //console.log("encontrado: "+encontrado);
             if (encontrado != -1){
                 let codigo_atributo = atributo.replace("checkbox_","");
                 features.push(codigo_atributo);
@@ -774,13 +873,16 @@ function wpestate_start_filtering(newpage) {
 }
 
 function print_values_wpestate_start_filtering(services,features,services_string,features_string){
+    /*
     console.log("--------------- datos --------------");
     console.log("services: "+services);
     console.log("features: "+features);
     console.log("services string: "+services_string);
     console.log("features string: "+features_string);
     console.log("--------------- fin datos --------------");
+    */
 }
+
 
 /*
 function wpestate_start_filtering(newpage) {

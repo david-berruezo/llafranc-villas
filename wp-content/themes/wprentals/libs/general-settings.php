@@ -180,7 +180,7 @@ endif;
 if( !function_exists('wpestate_image_size') ):
     function wpestate_image_size(){
         add_image_size('wpestate_blog_unit'           , 400 , 242, true); // 1.45 387 234 1.65
-        add_image_size('wpestate_blog_unit2'           , 805 , 453, true); // 1.45 387 234 1.65       
+        add_image_size('wpestate_blog_unit2'           , 805 , 453, true); // 1.45 387 234 1.65
         add_image_size('wpestate_slider_thumb'        , 143,  83, true); //
         add_image_size('wpestate_property_listings'   , 400, 314, true); // 1.6 590, 362, 1.27 386, 302
         add_image_size('wpestate_property_featured'   , 1170, 921, true); // 1.27

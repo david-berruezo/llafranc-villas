@@ -23,9 +23,6 @@ global $post;
 $booking_type       =   wprentals_return_booking_type($post->ID);
 $rental_type        =   wprentals_get_option('wp_estate_item_rental_type');
 
-
-
-
 if($wpestate_listing_type==3){
     include(locate_template('templates/property_unit_3.php') );
     return true;
@@ -88,6 +85,8 @@ if( $schema_flag==1) {
 }else{
    $schema_data=' itemscope itemtype="http://schema.org/Product" ';
 }
+
+$actual_language = pll_current_language();
 ?>
 
 
@@ -111,14 +110,82 @@ if( $schema_flag==1) {
 
             <?php wpestate_print_property_unit_slider($post->ID,$wpestate_property_unit_slider,$wpestate_listing_type,$wpestate_currency,$wpestate_where_currency,$link,''); ?>
 
-
-
             <?php
+            # pagina ofertas
             if($featured==1){
+
+                //$my_wpdb = new wpdb("tiendapi_user","Perretin771","tiendapi_inmobiliaria",'localhost');
+                $my_wpdb = new wpdb("automocion_usuario","Avantio777","automocion_inmobiliaria",'localhost');
+
+                $my_post = pll_get_post_translations($post->ID);
+                $my_post = $my_post["es"];
+
+                $fecha_entrada = new DateTime();
+                $fecha_salida = new DateTime();
+                $one_year_ago = new DateInterval( "P1Y" );
+                $fecha_salida->add($one_year_ago);
+                $fecha_saldia_formato = $fecha_salida->format('Y-m-d');
+                $fecha_entrada_formato = $fecha_entrada->format('Y-m-d');
+                $language = "es";
+
+                $sql = " SELECT a.id , a.text_title , ap.name,ap.fecha,ap.type,ap.amount , ap.season, ap.id as id_descuento
+FROM avantio_accomodations as a
+JOIN avantio_pricemodifiers as ap on ap.id = a.avantio_pricemodifiers
+where a.id = $my_post and language = 'es' and ap.id <> 1625122 ";
+
+                $datos = $my_wpdb->get_results($sql);
+
+                // Por temporadas
+                $id_descuento = -1;
+                $vector_discounts = array();
+                foreach ($datos as $my_dato){
+                    if ($id_descuento  == -1){
+                        $temp = array(
+                            "fecha_entrada" => $my_dato->fecha,
+                            "fecha_salida"  => "",
+                            "amount"        => str_replace("-","",$my_dato->amount)
+                        );
+                        $id_descuento = $my_dato->id_descuento;
+                    }else if ($id_descuento != $my_dato->id_descuento && $id_descuento != -1){
+                        array_push($vector_discounts,$temp);
+                        $temp = array(
+                            "fecha_entrada" => $my_dato->fecha,
+                            "fecha_salida"  => "",
+                            "amount"        => str_replace("-","",$my_dato->amount)
+                        );
+                        $id_descuento = $my_dato->id_descuento;
+                    }else if ($id_descuento == $my_dato->id_descuento){
+                        $temp["fecha_salida"] = $my_dato->fecha;
+                    }
+                }// end foreach
+
+                array_push($vector_discounts,$temp);
+
+
+                $isOrdered = false;
+                while(!$isOrdered) {
+                    $isOrdered = true;
+                    for ($i = 0; $i < count($vector_discounts); $i++) {
+                        for ($j = 0; $j < count($vector_discounts); $j++) {
+                            if ($vector_discounts[$i]["amount"] < $vector_discounts[$j]["amount"] && ($vector_discounts[$i]["fecha_entrada"] == $vector_discounts[$j]["fecha_entrada"] && $vector_discounts[$i]["fecha_salida"] == $vector_discounts[$j]["fecha_salida"])) {
+                                $vector_discounts[$i]["amount"] = $vector_discounts[$j]["amount"];
+                                unset($vector_discounts[$j]);
+                                $vector_discounts = array_values($vector_discounts);
+                                $isOrdered = false;
+                            }
+                        }
+                    }
+                }
+                
+
                 print '<div class="featured_div">'.esc_html__( 'featured','wprentals').'</div>';
+                if(count($vector_discounts) == 1){
+                    $descuento = ($datos[0]->amount) ? intval($datos[0]->amount) . " %" :  "" ;
+                    print '<div class="property_status_wrapper"><div class="property_status status_nuevo">'.$descuento.'</div></div>';
+                }
             }
 
-            echo wpestate_return_property_status($post->ID);
+            //echo wpestate_return_property_status($post->ID);
             ?>
 
             <div class="title-container">
@@ -155,8 +222,6 @@ if( $schema_flag==1) {
                     }
                 ?>
 
-
-
                 <?php echo wprentals_card_owner_image($post->ID); ?>
 
 
@@ -172,13 +237,48 @@ if( $schema_flag==1) {
                     </div>
 
                     <div class="category_tagline actions_icon">
-                        <?php print wp_kses_post($property_categ.' / '.$property_action);?>
+                        <?php print wp_kses_post($property_categ);?>
+                        <?php //print wp_kses_post($property_categ.' / '.$property_action);?>
                     </div>
                 </div>
 
                 <div class="property_unit_action">
                     <span class="icon-fav <?php print esc_attr($favorite_class); ?>" data-original-title="<?php print esc_attr($fav_mes); ?>" data-postid="<?php print intval($post->ID); ?>"><i class="fas fa-heart"></i></span>
                 </div>
+
+                <?php
+                if($featured == 1) {
+                    if ($actual_language == "es") {
+                        $titulo_descuento = "Descuento";
+                        $titulo_hasta_descuento = "Hasta";
+                    }else if ($actual_language == "en"){
+                        $titulo_descuento = "Discount";
+                        $titulo_hasta_descuento = "Until";
+                    }else if ($actual_language == "fr"){
+                        $titulo_descuento = "Rabais";
+                        $titulo_hasta_descuento = "Jusqu'à";
+                    }else if ($actual_language == "ca"){
+                        $titulo_descuento = "Descompte";
+                        $titulo_hasta_descuento = "Fins";
+                    } // end if
+                    foreach ($vector_discounts as $discount){
+                        $fecha_entrada = ($discount["fecha_entrada"]) ? $discount["fecha_entrada"] : "" ;
+                        $fecha_salida = ($discount["fecha_salida"]) ? $discount["fecha_salida"] : "" ;
+                        $descuento = ($discount["amount"]) ? intval($discount["amount"]) . " %" :  "" ;
+                        ?>
+                        <div class="category_name">
+                            <?php if(count($vector_discounts) > 1){ ?>
+                                <?php print '<span class="pernight" style="background:#00518f;font-size:14px;padding:3px;top:5px;position:relative;">'.$titulo_descuento. ': ' . $fecha_entrada . ' '. $titulo_hasta_descuento . ' ' .  $fecha_salida . '</span>' ?>
+                            <?php }else{ ?>
+                                <?php print '<span class="pernight" style="background:#00518f;font-size:14px;padding:3px;top:5px;position:relative;">'.$titulo_descuento. ': ' . $fecha_entrada . ' '. $titulo_hasta_descuento . ' ' . $fecha_salida . '</span>' ?>
+                            <?php } ?>
+                        </div>
+                        <div style="position:relative;height:5px;margin-top:5px;"><br style="clear:both;"></div>
+
+                    <?php }// end foreach ?>
+
+                <?php } ?>
+
             </div>
 
 

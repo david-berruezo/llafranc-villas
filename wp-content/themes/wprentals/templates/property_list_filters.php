@@ -130,99 +130,17 @@ if($category_second_dropdown_label == $current_adv_filter_category_label_non){
                 print intval($post->ID);
             }
             ?>">
-
-        <!--
-        <div class="Huéspedes col-md-2">
-            <i class="custom_icon_class_icon fas fa-users"></i>
-            <div class="wpestate_guest_no_control_wraper">
-                <div class="wpestate_guest_no_control_info form-control filter_menu_trigger">Huéspedes</div>
-                <div class="wpestate_guest_no_buttons" data-max-guest="0" data-max-extra-guest-no="0" data-overload-guest="0">
-                    <div class="max_guest_notice"></div>
-                    <div class="wpestate_guest_no_buttons_item control_adults">
-                        <div class="wpestate_guest_no_buttons_labels">
-                            <div class="wpestate_guest_no_buttons_title_labels">Adults</div>
-                            <div class="wpestate_guest_no_buttons_description_labels">Ages 13 or above</div>
-                        </div>
-                        <div class="wpestate_guest_no_buttons_steppers steper_adults">
-                            <button class="wpestate_guest_no_button_minus  wpestate_guest_no_button_control">
-                                <svg width="13" height="2" viewBox="0 0 13 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 0V2H13V0H0Z" fill="#5D6475"></path>
-                                </svg>
-                            </button>
-                            <div class="wpestate_guest_no_button_value  steper_value_adults">0</div>
-                            <button class="wpestate_guest_no_button_plus  wpestate_guest_no_button_control adults_control_plus ">
-                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5.6875 0V5.6875H0V7.3125H5.6875V13H7.3125V7.3125H13V5.6875H7.3125V0H5.6875Z" fill="#5D6475"></path>
-                                </svg>
-                            </button>
-                            <input type="hidden" class="placeholeder_search_val" name="adults_fvalue" value="0">
-                        </div>
-                    </div>
-                    <div class="wpestate_guest_no_buttons_item control_childs">
-                        <div class="wpestate_guest_no_buttons_labels">
-                            <div class="wpestate_guest_no_buttons_title_labels">Children</div>
-                            <div class="wpestate_guest_no_buttons_description_labels">Ages 2 to 12</div>
-                        </div>
-                        <div class="wpestate_guest_no_buttons_steppers steper_childs">
-                            <button class="wpestate_guest_no_button_minus  wpestate_guest_no_button_control">
-                                <svg width="13" height="2" viewBox="0 0 13 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 0V2H13V0H0Z" fill="#5D6475"></path>
-                                </svg>
-                            </button>
-                            <div class="wpestate_guest_no_button_value  steper_value_childs">0</div>
-                            <button class="wpestate_guest_no_button_plus  wpestate_guest_no_button_control childs_control_plus ">
-                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5.6875 0V5.6875H0V7.3125H5.6875V13H7.3125V7.3125H13V5.6875H7.3125V0H5.6875Z" fill="#5D6475"></path>
-                                </svg>
-                            </button>
-                            <input type="hidden" class="placeholeder_search_val" name="childs_fvalue" value="0">
-                        </div>
-                    </div>
-                    <div class="wpestate_guest_no_buttons_item control_infants">
-                        <div class="wpestate_guest_no_buttons_labels">
-                            <div class="wpestate_guest_no_buttons_title_labels">Infants</div>
-                            <div class="wpestate_guest_no_buttons_description_labels">Under 2 years</div>
-                        </div>
-                        <div class="wpestate_guest_no_buttons_steppers steper_infants">
-                            <button class="wpestate_guest_no_button_minus  wpestate_guest_no_button_control">
-                                <svg width="13" height="2" viewBox="0 0 13 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 0V2H13V0H0Z" fill="#5D6475"></path>
-                                </svg>
-                            </button>
-                            <div class="wpestate_guest_no_button_value  steper_value_infants">0</div>
-                            <button class="wpestate_guest_no_button_plus  wpestate_guest_no_button_control infants_control_plus ">
-                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5.6875 0V5.6875H0V7.3125H5.6875V13H7.3125V7.3125H13V5.6875H7.3125V0H5.6875Z" fill="#5D6475"></path>
-                                </svg>
-                            </button>
-                            <input type="hidden" class="placeholeder_search_val" name="infants_fvalue" value="0">
-                        </div>
-                    </div>
-                    <a class="close_guest_control" href="#">Close</a>
-                </div>
-                <input type="hidden" name="guest_no" class="guest_no_hidden" value="0">
-            </div>
-            <script type="text/javascript">
-                //<![CDATA[
-                jQuery(document).ready(function(){
-                    wpestate_control_guest_no();
-                });
-                //]]&gt;
-            </script>
-        </div>
-        -->
-
-
-            <div class="col-md-2">
-                <div class="dropdown custom_icon_class  form-control ">
-                    <div data-toggle="dropdown" id="property_category_toogle" class=" filter_menu_trigger  " data-value="">Villas <span class="caret  caret_filter "></span></div>
-                    <ul class="dropdown-menu filter_menu menu-properties" role="menu" aria-labelledby="property_category_toogle">
-                    </ul>
+        
+            <div class="col-md-2 action_taxonomy_filter">
+                <div class="dropdown form_control listing_filter_select" >
+                    <div data-toggle="dropdown" id="a_filter_action" class="filter_menu_trigger" 
+                        data-value="<?php print wp_kses($current_adv_filter_search_label_non,$allowed_html);?>"> <?php print wp_kses($current_adv_filter_search_label,$allowed_html);?> <span class="caret caret_filter"></span> </div>           
+                    <ul  class="dropdown-menu filter_menu" role="menu" aria-labelledby="a_filter_action">
+                        <?php print  wp_kses($action_select_list,$allowed_html_list); ?>
+                    </ul>        
                 </div>
             </div>
-
-
-
+        
             <div class="col-md-2 main_taxonomy_filter">
                 <div class="dropdown form_control listing_filter_select" >
                     <div data-toggle="dropdown" id="a_filter_categ" class="filter_menu_trigger" 
@@ -250,39 +168,17 @@ if($category_second_dropdown_label == $current_adv_filter_category_label_non){
                     </ul>        
                 </div>
             </div>
-
-            <!--
-            <div class="col-md-2">
-                <div class="dropdown custom_icon_class  form-control">
-                    <div data-toggle="dropdown" id="property_category_toogle" class=" filter_menu_trigger  " data-value="">Piscina <span class="caret  caret_filter "></span></div>
-                    <ul class="dropdown-menu filter_menu" role="menu" aria-labelledby="property_category_toogle">
-                        <li role="presentation" data-value="piscina-comunitaria">Piscina comunitaria</li>
-                        <li role="presentation" data-value="piscina-privada">Piscina privada</li>
-                        <li role="presentation" data-value="sin-piscina">Sin piscina</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <div class="dropdown custom_icon_class  form-control">
-                    <div data-toggle="dropdown" id="property_category_toogle" class=" filter_menu_trigger  " data-value="">Servicios <span class="caret  caret_filter "></span></div>
-                    <ul class="dropdown-menu filter_menu" role="menu" aria-labelledby="property_category_toogle">
-                        <li role="presentation" data-value="wifi">Wifi</li>
-                        <li role="presentation" data-value="aire-acondicionado">Aire acondicionado</li>
-                        <li role="presentation" data-value="mascotas">Mascotas</li>
-                    </ul>
-                </div>
-            </div>
-
+        
+        
             <div class="col-md-2 order_filter">
                 <div class="dropdown  listing_filter_select " >
-                    <div data-toggle="dropdown" id="a_filter_order" class="filter_menu_trigger" data-value="0"> <?php //print wp_kses($selected_order,$allowed_html); ?> <span class="caret caret_filter"></span> </div>
+                    <div data-toggle="dropdown" id="a_filter_order" class="filter_menu_trigger" data-value="0"> <?php print wp_kses($selected_order,$allowed_html); ?> <span class="caret caret_filter"></span> </div>           
 
                     <ul id="filter_order" class="dropdown-menu filter_menu" role="menu" aria-labelledby="a_filter_order">
-                        <?php  //print  wp_kses($listings_list,$allowed_html_list);?>
+                        <?php  print  wp_kses($listings_list,$allowed_html_list);?>
                     </ul>        
                 </div>
-            </div>
-            -->
+
+            </div>     
     </div> 
     <?php } ?>      

@@ -144,7 +144,8 @@ if( $schema_flag==1) {
                     ?>
 
                     <div class="category_tagline actions_icon">
-                        <?php print trim($property_categ.' / '.$property_action);?>
+                        <?php print trim($property_categ);?>
+                        <?php //print trim($property_categ.' / '.$property_action);?>
                     </div>
 
                     <div class="category_tagline custom_details">
@@ -171,6 +172,8 @@ if( $schema_flag==1) {
                                     $value      =   esc_html(get_post_meta($post->ID, $slug, true));
 
                                 }
+
+
 
                                 if($value!=''){
                                     print '<div class="custom_listing_data">';

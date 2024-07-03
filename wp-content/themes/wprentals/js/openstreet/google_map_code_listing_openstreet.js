@@ -148,8 +148,8 @@ function wpestate_wprentals_google_setMarkers_leaf(map, locations) {
                 infoguest = '<span id="infoguest" class="custom_infobox_icon"><i class="' + custom_array[2] + '"></i>' + custom_array[3] + '</span>';
 
             }
-            infobox += '<div class="info_details '+infobox_class+' "><a id="infocloser" onClick=\'javascript:jQuery(".leaflet-popup-close-button")[0].click();\' ></span>'+status_html+'<a href="' + link + '"><div class="infogradient"></div><div class="infoimage" style="background-image:url(' + info_image + ')"  ></div></a><a href="' + link + '" id="infobox_title"> ' + title + '</a><div class="prop_detailsx">' + category_name + " " + in_type + " " + action_name + '</div><div class="infodetails">' + infoguest + inforooms + '</div><div class="prop_pricex">' + price + '</div></div>';
-
+            //infobox += '<div class="info_details '+infobox_class+' "><a id="infocloser" onClick=\'javascript:jQuery(".leaflet-popup-close-button")[0].click();\' ></span>'+status_html+'<a href="' + link + '"><div class="infogradient"></div><div class="infoimage" style="background-image:url(' + info_image + ')"  ></div></a><a href="' + link + '" id="infobox_title"> ' + title + '</a><div class="prop_detailsx">' + category_name + " " + in_type + " " + action_name + '</div><div class="infodetails">' + infoguest + inforooms + '</div><div class="prop_pricex">' + price + '</div></div>';
+            infobox += '<div class="info_details '+infobox_class+' "><a id="infocloser" onClick=\'javascript:jQuery(".leaflet-popup-close-button")[0].click();\' ></span>'+status_html+'<a href="' + link + '"><div class="infogradient"></div><div class="infoimage" style="background-image:url(' + info_image + ')"  ></div></a><a href="' + link + '" id="infobox_title"> ' + title + '</a><div class="prop_detailsx">' + category_name + " " + '</div><div class="infodetails">' + infoguest + inforooms + '</div><div class="prop_pricex">' + price + '</div></div>';
       //  }
         
         

@@ -231,7 +231,7 @@ class Wprentals_Recent_Items_Slider extends Widget_Base {
             $attributes['area_ids']           =   $this -> wpresidence_send_to_shortcode( $settings['area_ids'] );
             $attributes['show_featured_only'] =   $settings['show_featured_only'];
             $attributes['autoscroll']         =   $settings['autoscroll'];
-						$attributes['number']         =   $settings['number'];
+			$attributes['number']         =   $settings['number'];
 
             echo  wpestate_slider_recent_posts_pictures($attributes);
 	}

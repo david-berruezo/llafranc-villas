@@ -1,15 +1,17 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "Project-Id-Version: WpRentals\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-06 10:51+0300\n"
-"PO-Revision-Date: 2021-11-15 15:39+0000\n"
+"PO-Revision-Date: 2022-03-16 17:48+0100\n"
 "Last-Translator: \n"
 "Language-Team: Español\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz/\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: style.css\n"
@@ -17,12 +19,9 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Loco-Version: 2.5.5; wp-5.9.1\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
-"\n"
-"Report-Msgid-Bugs-To: \n"
-"Language: es_ES\n"
-"X-Loco-Version: 2.5.5; wp-5.8.2"
 
 #: 404.php:13
 msgid "Page not found"
@@ -81,7 +80,7 @@ msgstr ""
 #: dashboard/templates/search_rezervation_list.php:8 search.php:41
 #: searchform.php:3
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: classes/rentalsSearch.php:241 libs/search_functions.php:292
 msgid "More Search Options"
@@ -125,7 +124,7 @@ msgstr ""
 #: libs/help_functions.php:298 libs/listing_functions.php:367
 #: libs/search_functions.php:109
 msgid "Guests"
-msgstr ""
+msgstr "Huéspedes"
 
 #: classes/search_settings.php:82 libs/search_functions2.php:119 search.php:40
 msgid "Type Keyword"
@@ -155,7 +154,7 @@ msgstr ""
 #: classes/search_settings.php:168 libs/ajax_functions.php:2312
 #: libs/help_functions.php:1310 templates/property_list_filters.php:38
 msgid "All Types"
-msgstr ""
+msgstr "Tipos"
 
 #: classes/search_settings.php:169 libs/ajax_functions.php:2327
 #: libs/help_functions.php:1316 templates/property_list_filters.php:31
@@ -166,7 +165,7 @@ msgstr ""
 #: libs/listing_functions.php:1569
 #: templates/submit_templates/property_details.php:99
 msgid "Bedrooms"
-msgstr ""
+msgstr "Habitaciones"
 
 #: classes/search_settings.php:171
 msgid "Baths"
@@ -251,14 +250,14 @@ msgstr ""
 #: contact_page.php:135 libs/css_js_include.php:554 libs/css_js_include.php:561
 #: libs/css_js_include.php:674 libs/css_js_include.php:678
 msgid "Your Message"
-msgstr ""
+msgstr "Tu mensaje"
 
 #: contact_page.php:141 libs/ajax_functions.php:2255
 #: libs/css_js_include.php:562 libs/css_js_include.php:622
 #: libs/css_js_include.php:679 libs/css_js_include.php:706
 #: libs/css_js_include.php:804
 msgid "Send Message"
-msgstr ""
+msgstr "Enviar mensaje"
 
 #: dashboard/dashboard-functions.php:87
 msgid "Bookings - last 30 days"
@@ -501,7 +500,7 @@ msgstr ""
 #: templates/property_unit_3.php:61 templates/property_unit_full_row.php:27
 #: templates/property_unit_wide.php:56 templates/property_unit_widget.php:67
 msgid "add to favorites"
-msgstr ""
+msgstr "Agregar a favoritos"
 
 #: dashboard/templates/dashboard_listing_unit.php:45
 #: libs/css_js_include.php:688 templates/property_unit.php:75
@@ -529,7 +528,7 @@ msgstr ""
 
 #: dashboard/templates/dashboard_pack_unit.php:37
 msgid "Featured"
-msgstr ""
+msgstr "Descuento"
 
 #: dashboard/templates/dashboard_unit_widget_popular.php:16
 msgid "No of bookings"
@@ -738,7 +737,7 @@ msgstr ""
 #: dashboard/templates/unit-templates/booking_title_section.php:31
 #: dashboard/templates/unit-templates/reservation_title_section.php:28
 msgid "Guests: "
-msgstr ""
+msgstr "Huéspedes:"
 
 #: dashboard/templates/unit-templates/booking_title_section.php:39
 msgid "Reservation made by owner"
@@ -822,11 +821,11 @@ msgstr ""
 
 #: dashboard/templates/unit-templates/property-unit-actions.php:9
 msgid "Edit property"
-msgstr ""
+msgstr "Editar propiedad"
 
 #: dashboard/templates/unit-templates/property-unit-actions.php:10
 msgid "Delete property"
-msgstr ""
+msgstr "Eliminar propiedad"
 
 #: dashboard/templates/unit-templates/property-unit-actions.php:10
 msgid "Are you sure you wish to delete "
@@ -870,7 +869,7 @@ msgstr ""
 #: dashboard/templates/unit-templates/property-unit-actions.php:90
 #: libs/css_js_include.php:684
 msgid "Property is featured"
-msgstr ""
+msgstr "Detalles de la propiedad"
 
 #: dashboard/templates/unit-templates/property-unit-actions.php:94
 msgid "Featured Fee"
@@ -888,7 +887,7 @@ msgstr ""
 #: templates/property_unit.php:118 templates/property_unit_3.php:121
 #: templates/property_unit_featured.php:71 templates/property_unit_wide.php:106
 msgid "featured"
-msgstr ""
+msgstr "Descuento"
 
 #: dashboard/templates/unit-templates/property-unit-reviews.php:5
 msgid "No Reviews"
@@ -1376,21 +1375,21 @@ msgstr ""
 #: libs/css_js_include.php:558 libs/css_js_include.php:671
 #: libs/css_js_include.php:675
 msgid "Your Name"
-msgstr ""
+msgstr "Tu nombre"
 
 #: libs/ajax_functions.php:2220 libs/css_js_include.php:552
 #: libs/css_js_include.php:559 libs/css_js_include.php:672
 #: libs/css_js_include.php:676
 msgid "Your Email"
-msgstr ""
+msgstr "Tu email"
 
 #: libs/ajax_functions.php:2235 libs/listing_functions.php:365
 msgid "Guest"
-msgstr ""
+msgstr "Huésped"
 
 #: libs/ajax_functions.php:2248
 msgid "Your message"
-msgstr ""
+msgstr "Tu mensaje"
 
 #: libs/ajax_functions.php:2342 libs/help_functions.php:4561
 #: libs/search_functions.php:70 libs/search_functions.php:411
@@ -1398,7 +1397,7 @@ msgstr ""
 #: property_list.php:98 property_list_half.php:92
 #: templates/property_list_filters.php:44
 msgid "All Cities"
-msgstr ""
+msgstr "Ciudades"
 
 #: libs/ajax_functions.php:2356 libs/help_functions.php:4602
 #: libs/help_functions.php:4637 libs/search_functions.php:84
@@ -1406,7 +1405,7 @@ msgstr ""
 #: libs/search_functions3.php:801 property_list.php:120
 #: property_list_half.php:110 templates/property_list_filters.php:46
 msgid "All Areas"
-msgstr ""
+msgstr "Áreas"
 
 #: libs/ajax_functions.php:2679
 msgid "Deposit for Booking on "
@@ -1476,7 +1475,7 @@ msgstr ""
 #: libs/ajax_functions_booking.php:795 libs/ajax_functions_booking.php:1966
 #: libs/ajax_functions_edit.php:1158
 msgid "Price per Guest"
-msgstr ""
+msgstr "Precio por huésped"
 
 #: libs/ajax_functions_booking.php:803 libs/ajax_functions_booking.php:1974
 #: libs/ajax_functions_edit.php:1166
@@ -1512,7 +1511,7 @@ msgstr ""
 #: user_dashboard.php:103 user_dashboard_favorite.php:46
 #: user_dashboard_invoices.php:126
 msgid "Price"
-msgstr ""
+msgstr "Precio"
 
 #: libs/ajax_functions_booking.php:831 libs/ajax_functions_booking.php:2010
 #: libs/ajax_functions_edit.php:1189
@@ -1546,7 +1545,7 @@ msgstr ""
 #: libs/css_js_include.php:791 libs/help_functions.php:296
 #: libs/help_functions.php:3735 libs/search_functions.php:107
 msgid "guests"
-msgstr ""
+msgstr "Huéspedes"
 
 #: libs/ajax_functions_booking.php:850
 msgid "period with custom price per guest"
@@ -1560,12 +1559,12 @@ msgstr ""
 #: libs/ajax_functions_booking.php:871 libs/ajax_functions_booking.php:2052
 #: libs/ajax_functions_edit.php:1005 libs/ajax_functions_edit.php:1231
 msgid "Extra Guests"
-msgstr ""
+msgstr "Huéspedes extra"
 
 #: libs/ajax_functions_booking.php:872 libs/ajax_functions_booking.php:2054
 #: libs/ajax_functions_booking.php:2465 libs/ajax_functions_edit.php:1233
 msgid "extra guests"
-msgstr ""
+msgstr "Huéspedes extra"
 
 #: libs/ajax_functions_booking.php:874
 msgid " , period with custom price per guest"
@@ -1669,7 +1668,7 @@ msgstr ""
 
 #: libs/ajax_functions_booking.php:1963 libs/ajax_functions_edit.php:1155
 msgid "No of guests"
-msgstr ""
+msgstr "Número de Huéspedes"
 
 #: libs/ajax_functions_booking.php:1972
 msgid "default price:"
@@ -1679,7 +1678,7 @@ msgstr ""
 #: user_dashboard.php:101 user_dashboard_favorite.php:44
 #: user_dashboard_my_bookings.php:50 user_dashboard_my_reservations.php:80
 msgid "Property"
-msgstr ""
+msgstr "Propiedad"
 
 #: libs/ajax_functions_booking.php:2000
 msgid "Rented by"
@@ -1714,13 +1713,13 @@ msgstr ""
 #: templates/property_unit_wide.php:185
 #: templates/submit_templates/property_price.php:58
 msgid "Per Guest"
-msgstr ""
+msgstr "por huésped"
 
 #: libs/ajax_functions_booking.php:2094 libs/ajax_functions_edit.php:975
 #: libs/help_functions.php:2836 libs/listing_functions.php:651
 #: templates/submit_templates/property_price.php:59
 msgid "per Guest"
-msgstr ""
+msgstr "por huésped"
 
 #: libs/ajax_functions_booking.php:2125 libs/ajax_functions_booking.php:2502
 #: libs/ajax_functions_edit.php:999 libs/ajax_functions_edit.php:1300
@@ -1829,6 +1828,8 @@ msgid ""
 "Your message was sent! You will be notified by email when a reply is "
 "received."
 msgstr ""
+"¡Tu mensaje fue enviado! Se le notificará por correo electrónico cuando se "
+"reciba una respuesta."
 
 #: libs/ajax_functions_booking.php:2465
 msgid "Costs for "
@@ -2242,7 +2243,7 @@ msgstr ""
 #: libs/css_js_include.php:687 libs/help_functions.php:467
 #: single-estate_property.php:78
 msgid "Add to Favorites"
-msgstr ""
+msgstr "Agregar a favoritos"
 
 #: libs/css_js_include.php:690
 msgid "saving.."
@@ -2312,7 +2313,7 @@ msgstr ""
 
 #: libs/css_js_include.php:789
 msgid "Please select the number of guests"
-msgstr ""
+msgstr "Por favor seleccione el número de huéspedes"
 
 #: libs/css_js_include.php:790
 msgid "The number of guests is greater than the property capacity - "
@@ -2397,7 +2398,7 @@ msgstr ""
 
 #: libs/css_js_include.php:974
 msgid "Please select a property !"
-msgstr ""
+msgstr "Por favor seleccione la propiedad"
 
 #: libs/css_js_include.php:975
 msgid "Please submit a title !"
@@ -2413,7 +2414,7 @@ msgstr ""
 
 #: libs/css_js_include.php:978
 msgid "Please select the guest no !"
-msgstr ""
+msgstr "Por favor seleccione el núm. de huéspedes"
 
 #: libs/css_js_include.php:979
 msgid "Please pick a city !"
@@ -2653,7 +2654,7 @@ msgstr ""
 #: libs/help_functions.php:97 templates/listing_page_1.php:135
 #: templates/property_header2.php:39
 msgid "Check Availability"
-msgstr ""
+msgstr "Comprobar disponibilidad"
 
 #: libs/help_functions.php:256
 #: templates/submit_templates/property_calendar.php:160
@@ -2670,16 +2671,16 @@ msgstr ""
 
 #: libs/help_functions.php:714
 msgid "I consent to the"
-msgstr ""
+msgstr "Doy mi consentimiento a la"
 
 #. Template Name of the plugin/theme
 #: libs/help_functions.php:714
 msgid "GDPR Terms"
-msgstr ""
+msgstr "GDPR Términos"
 
 #: libs/help_functions.php:739
 msgid "Share"
-msgstr ""
+msgstr "Compartir"
 
 #: libs/help_functions.php:1408
 msgid "K"
@@ -2735,7 +2736,7 @@ msgstr ""
 #: libs/help_functions.php:3727 libs/theme-slider.php:149
 #: libs/theme-slider.php:269
 msgid "guest"
-msgstr ""
+msgstr "huésped"
 
 #: libs/help_functions.php:3746
 msgid "room"
@@ -2915,7 +2916,7 @@ msgstr ""
 #: templates/submit_templates/property_description_first.php:32
 #: templates/user_menu.php:200
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #: libs/help_functions.php:5591
 msgid "Affiliate link"
@@ -2971,7 +2972,7 @@ msgstr ""
 
 #: libs/help_functions.php:5607
 msgid "Property Media"
-msgstr ""
+msgstr "Media de la propidad"
 
 #: libs/help_functions.php:5608
 msgid "Embed Video Id"
@@ -2987,22 +2988,22 @@ msgstr ""
 
 #: libs/help_functions.php:5611
 msgid "property Size"
-msgstr ""
+msgstr "tamaño de la propiedad"
 
 #: libs/help_functions.php:5612 libs/help_functions.php:5734
 #: libs/help_functions.php:5818
 msgid "Property Rooms"
-msgstr ""
+msgstr "Dormitorios de la propiedad"
 
 #: libs/help_functions.php:5613 libs/help_functions.php:5735
 #: libs/help_functions.php:5819
 msgid "Property Bedrooms"
-msgstr ""
+msgstr "Habitaciones de la propiedad"
 
 #: libs/help_functions.php:5614 libs/help_functions.php:5736
 #: libs/help_functions.php:5820
 msgid "Property Bathrooms"
-msgstr ""
+msgstr "Baños de la propiedad"
 
 #: libs/help_functions.php:5615 libs/listing_functions.php:1397
 #: templates/submit_templates/property_details.php:219
@@ -3037,34 +3038,34 @@ msgstr ""
 #: libs/help_functions.php:5621 libs/help_functions.php:5737
 #: libs/help_functions.php:5821 libs/listing_functions.php:78
 msgid "Property Address"
-msgstr ""
+msgstr "Dirección de la propiedad"
 
 #: libs/help_functions.php:5622 libs/help_functions.php:5738
 #: libs/help_functions.php:5822
 msgid "Property Zip"
-msgstr ""
+msgstr "Código postal de la propiedad"
 
 #: libs/help_functions.php:5623 libs/help_functions.php:5739
 #: libs/help_functions.php:5823
 msgid "Property County"
-msgstr ""
+msgstr "País de la propiedad"
 
 #: libs/help_functions.php:5624 libs/help_functions.php:5740
 #: libs/help_functions.php:5824
 msgid "Property State"
-msgstr ""
+msgstr "Estado de la propiedad"
 
 #: libs/help_functions.php:5625
 msgid "Property Map"
-msgstr ""
+msgstr "Mapa de la propiedad"
 
 #: libs/help_functions.php:5626
 msgid "Property Latitude"
-msgstr ""
+msgstr "Latitud de la propiedad"
 
 #: libs/help_functions.php:5627
 msgid "Property Longitude"
-msgstr ""
+msgstr "Longitud de la propiedad"
 
 #: libs/help_functions.php:5628
 msgid "Google Camera Angle"
@@ -3080,7 +3081,7 @@ msgstr ""
 
 #: libs/help_functions.php:5723 libs/help_functions.php:5807
 msgid "Property/Item Guests Capacity"
-msgstr ""
+msgstr "Capacidad de Huéspedes en propiedades"
 
 #: libs/help_functions.php:5724 libs/help_functions.php:5808
 msgid "Property/Item Taxes"
@@ -3101,11 +3102,11 @@ msgstr ""
 #: libs/help_functions.php:5733 libs/help_functions.php:5817
 #: libs/listing_functions.php:1553
 msgid "Property Size"
-msgstr ""
+msgstr "Tamaño de la propiedad"
 
 #: libs/help_functions.php:5741 libs/help_functions.php:5825
 msgid "Property Country"
-msgstr ""
+msgstr "País de la propiedad"
 
 #: libs/help_functions.php:5914
 msgid "These fields are mandatory: "
@@ -4343,22 +4344,22 @@ msgstr ""
 
 #: libs/listing_functions.php:40
 msgid "Property Price"
-msgstr ""
+msgstr "Precio de la propiedad"
 
 #: libs/listing_functions.php:110
 msgid "Property Details"
-msgstr ""
+msgstr "Detalles"
 
 #: libs/listing_functions.php:148
 #: templates/submit_templates/property_amenities.php:111
 msgid "Amenities and Features"
-msgstr ""
+msgstr "Amenities y características"
 
 #. Template Name of the plugin/theme
 #: libs/listing_functions.php:188
 #: templates/submit_templates/property_details.php:209
 msgid "Terms and Conditions"
-msgstr ""
+msgstr "Términos y condiciones"
 
 #: libs/listing_functions.php:240
 msgid "Sleeping Situation"
@@ -4406,7 +4407,7 @@ msgstr ""
 
 #: libs/listing_functions.php:643 libs/listing_functions.php:839
 msgid "Price per guest"
-msgstr ""
+msgstr "Precio por huésped"
 
 #: libs/listing_functions.php:662
 msgid "City Tax Fee"
@@ -4477,7 +4478,7 @@ msgstr ""
 #: libs/listing_functions.php:1432 libs/listing_functions.php:1479
 #: templates/submit_templates/property_location.php:41
 msgid "Address"
-msgstr ""
+msgstr "Dirección"
 
 #: libs/listing_functions.php:1436
 msgid "Exact location information is provided after a booking is confirmed."
@@ -4504,11 +4505,11 @@ msgstr "Código Postal"
 #: templates/submit_templates/property_description_first.php:267
 #: templates/submit_templates/property_description_first.php:270
 msgid "Country"
-msgstr ""
+msgstr "País"
 
 #: libs/listing_functions.php:1541
 msgid "Property Status"
-msgstr ""
+msgstr "Estado de la propiedad"
 
 #: libs/listing_functions.php:1543
 msgid "Listing Status"
@@ -4516,7 +4517,7 @@ msgstr ""
 
 #: libs/listing_functions.php:1547
 msgid "Property ID"
-msgstr ""
+msgstr "ID de la propiedad"
 
 #: libs/listing_functions.php:1549
 msgid "Listing ID"
@@ -4528,7 +4529,7 @@ msgstr ""
 
 #: libs/listing_functions.php:1560
 msgid "Property Lot Size"
-msgstr ""
+msgstr "Tamaño del lote de la propiedad"
 
 #: libs/listing_functions.php:1562
 msgid "Listing Lot Size"
@@ -4683,8 +4684,8 @@ msgstr ""
 
 #: libs/pin-admin.php:81
 msgid ""
-"If not we will show prices without before and after label and in this format "
-": 5,23m or 6.83k "
+"If not we will show prices without before and after label and in this "
+"format : 5,23m or 6.83k "
 msgstr ""
 
 #: libs/pin-admin.php:95 libs/pin-admin.php:107 libs/pin-admin.php:124
@@ -4752,9 +4753,9 @@ msgid ""
 "Contact the administrator of this site for help on getting the plugin "
 "installed."
 msgid_plural ""
-"Sorry, but you do not have the correct permissions to install the %s plugins."
-" Contact the administrator of this site for help on getting the plugins "
-"installed."
+"Sorry, but you do not have the correct permissions to install the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins installed."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -4777,9 +4778,9 @@ msgstr[1] ""
 #: libs/plugins.php:128
 #, php-format
 msgid ""
-"Sorry, but you do not have the correct permissions to activate the %s plugin."
-" Contact the administrator of this site for help on getting the plugin "
-"activated."
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin activated."
 msgid_plural ""
 "Sorry, but you do not have the correct permissions to activate the %s "
 "plugins. Contact the administrator of this site for help on getting the "
@@ -5266,7 +5267,7 @@ msgstr ""
 
 #: libs/property-admin.php:128
 msgid "Property Address Label"
-msgstr ""
+msgstr "Etiqueta de dirección de propiedad"
 
 #: libs/property-admin.php:129 libs/property-admin.php:135
 msgid "Custom title instead of Features and Amenities label."
@@ -5274,11 +5275,11 @@ msgstr ""
 
 #: libs/property-admin.php:134
 msgid "Property Features Label"
-msgstr ""
+msgstr "Etiqueta de características de la propiedad"
 
 #: libs/property-admin.php:140
 msgid "Property Description Label"
-msgstr ""
+msgstr "Etiqueta de descripción de propiedad"
 
 #: libs/property-admin.php:141
 msgid "Custom title instead of Description label."
@@ -5286,23 +5287,23 @@ msgstr ""
 
 #: libs/property-admin.php:146
 msgid "Property Details Label"
-msgstr ""
+msgstr "Etiqueta de detalles de propiedad"
 
 #: libs/property-admin.php:147
 msgid "Custom title instead of Property Details label. "
-msgstr ""
+msgstr "Título personalizado en lugar de la etiqueta Detalles de la propiedad."
 
 #: libs/property-admin.php:153
 msgid "Property Price Label"
-msgstr ""
+msgstr "Etiqueta de precio de propiedad"
 
 #: libs/property-admin.php:154
 msgid "Custom title instead of Property Price label. "
-msgstr ""
+msgstr "Título personalizado en lugar de etiqueta de precio de propiedad."
 
 #: libs/property-admin.php:161
 msgid "Property Status "
-msgstr ""
+msgstr "Estado de la propiedad"
 
 #: libs/property-admin.php:162
 msgid ""
@@ -5420,8 +5421,8 @@ msgstr ""
 #: libs/theme-setup.php:1181
 msgid ""
 "Hi there,\n"
-"Your listing, %property_title was approved on  %website_url ! The listing is:"
-" %property_url.\n"
+"Your listing, %property_title was approved on  %website_url ! The listing "
+"is: %property_url.\n"
 "You should go check it out."
 msgstr ""
 
@@ -5613,8 +5614,8 @@ msgstr ""
 msgid ""
 "Hi there,\n"
 "You have received a new booking request on %website_url !  Go to your "
-"account in Bookings page to see the request, issue the invoice or reject it!"
-"\n"
+"account in Bookings page to see the request, issue the invoice or reject "
+"it!\n"
 "The property is: %booking_property_link"
 msgstr ""
 
@@ -5715,7 +5716,7 @@ msgstr ""
 
 #: libs/theme-slider.php:12
 msgid "Select Properties "
-msgstr ""
+msgstr "Selecciona la propiedad"
 
 #: libs/theme-slider.php:13
 msgid ""
@@ -5846,7 +5847,7 @@ msgstr ""
 #: templates/booking_form_template.php:45 templates/listingslider.php:51
 #: templates/mobile_booking.php:35
 msgid "per guest"
-msgstr ""
+msgstr "por huésped"
 
 #: templates/breadcrumbs.php:24
 msgid "Home"
@@ -6032,7 +6033,7 @@ msgstr ""
 
 #: templates/mobile_menu.php:128
 msgid "terms & conditions"
-msgstr ""
+msgstr "términos y condiciones"
 
 #: templates/mobile_menu.php:130
 msgid "A password will be e-mailed to you"
@@ -6109,7 +6110,7 @@ msgstr ""
 #: templates/property_menu.php:5 templates/property_menu_hidden.php:5
 #: templates/user_menu.php:203
 msgid "Details"
-msgstr ""
+msgstr "Detalles"
 
 #: templates/property_menu.php:6
 msgid "Ammenities"
@@ -6134,19 +6135,19 @@ msgstr ""
 
 #: templates/property_menu.php:19 templates/property_menu_hidden.php:21
 msgid "Map"
-msgstr ""
+msgstr "Mapa"
 
 #: templates/property_menu_hidden.php:6 templates/user_menu.php:205
 msgid "Amenities"
-msgstr ""
+msgstr "Amenities"
 
 #: templates/property_menu_hidden.php:7 templates/show_avalability.php:3
 msgid "Availability"
-msgstr ""
+msgstr "Disponibilidad"
 
 #: templates/property_pictures2.php:6
 msgid "Property Pictures"
-msgstr ""
+msgstr "Imágenes de la propiedad"
 
 #: templates/property_pictures3.php:46
 msgid "video thumb"
@@ -6202,7 +6203,7 @@ msgstr ""
 
 #: templates/similar_listings.php:106
 msgid "Similar Listings"
-msgstr ""
+msgstr "Propiedades similares"
 
 #: templates/submission_guide.php:81
 msgid "Description "
@@ -6226,7 +6227,7 @@ msgstr ""
 
 #: templates/submission_guide.php:86
 msgid "Amenities "
-msgstr ""
+msgstr "Amenities"
 
 #: templates/submission_guide.php:87 templates/user_menu.php:206
 msgid "Calendar"
@@ -6332,7 +6333,7 @@ msgstr ""
 #: templates/submit_templates/property_description.php:72
 #: templates/submit_templates/property_description_first.php:69
 msgid "Property Description"
-msgstr ""
+msgstr "Descripción de la propiedad"
 
 #: templates/submit_templates/property_description.php:87
 #: templates/submit_templates/property_description_first.php:88
@@ -6348,7 +6349,7 @@ msgstr ""
 #: templates/submit_templates/property_description_first.php:159
 #: templates/submit_templates/property_description_first.php:164
 msgid "Guest No"
-msgstr ""
+msgstr "Número de huéspedes"
 
 #: templates/submit_templates/property_description.php:157
 msgid "Guest No (mandatory)"
@@ -6550,8 +6551,8 @@ msgstr ""
 #, php-format
 msgid ""
 "There is a %s service fee that will be deducted from you earnings (earnings "
-"= total cost of the room (without security deposit, cleaning fee or city fee)"
-" + extra options)"
+"= total cost of the room (without security deposit, cleaning fee or city "
+"fee) + extra options)"
 msgstr ""
 
 #: templates/submit_templates/property_price.php:338
@@ -6646,7 +6647,7 @@ msgstr ""
 
 #: templates/submit_templates/property_price.php:607
 msgid "Extra Guests "
-msgstr ""
+msgstr "Huéspedes extra"
 
 #: templates/submit_templates/property_price.php:618
 msgid "Allow guests above capacity?"
@@ -7022,9 +7023,8 @@ msgstr ""
 msgid ""
 "The Google Maps JavaScript API v3 REQUIRES an API key to function correctly. "
 "Get an APIs Console key and post the code in Theme Options. You can get it "
-"from <a href=\"https://developers.google."
-"com/maps/documentation/javascript/tutorial#api_key\" target=\"_blank\">"
-"here</a>"
+"from <a href=\"https://developers.google.com/maps/documentation/javascript/"
+"tutorial#api_key\" target=\"_blank\">here</a>"
 msgstr ""
 
 #: word_remove.php:120
@@ -7238,7 +7238,7 @@ msgstr ""
 
 #. Template Name of the plugin/theme
 msgid "Contact Page"
-msgstr ""
+msgstr "Página de contacto"
 
 #. Template Name of the plugin/theme
 msgid "Owner list"
@@ -7290,7 +7290,7 @@ msgstr ""
 
 #. Template Name of the plugin/theme
 msgid "Properties list"
-msgstr ""
+msgstr "Lista de propiedades"
 
 #. Template Name of the plugin/theme
 msgid "User Dashboard Edit"
@@ -7309,7 +7309,7 @@ msgid "User Dashboard Favorite"
 msgstr ""
 
 msgid "Property Entorno"
-msgstr "Entorno y distancia"
+msgstr "Entorno y distáncia"
 
 msgid "Where"
 msgstr "Dónde"
@@ -7359,14 +7359,8 @@ msgstr "Nombre tren"
 msgid "Train distance"
 msgstr "Distancia tren"
 
-msgid "Train distance"
-msgstr "Distancia tren"
-
 msgid "Bus name"
 msgstr "Nombre bus"
-
-msgid "Bus distance"
-msgstr "Distancia bus"
 
 msgid "Bus distance"
 msgstr "Distancia bus"
@@ -7377,10 +7371,8 @@ msgstr "Vistas a la playa"
 msgid "view to swimming_pool"
 msgstr "Vistas a la piscina"
 
-
 msgid "view to golf"
 msgstr "Vistas al golf"
-
 
 msgid "view to garden"
 msgstr "Vistas al jardin"
@@ -7406,17 +7398,14 @@ msgstr "Si"
 msgid "entorno no"
 msgstr "No"
 
-
 msgid "Property latitude"
 msgstr "Latitud"
-
 
 msgid "Property longitude"
 msgstr "Longiutd"
 
-
 msgid "Property Size parcela"
-msgstr "Parcela"
+msgstr "Tamaño de la parcela"
 
 msgid "Property Baños Ducha"
 msgstr "Baños con ducha"
@@ -7424,13 +7413,17 @@ msgstr "Baños con ducha"
 msgid "Property Baños Bañera"
 msgstr "Baños con bañera"
 
-
 msgid "Property Aseos"
 msgstr "Aseos"
 
 msgid "Property Caracteristicas Adicionales"
 msgstr "Características adicionales"
 
+msgid "Amenities and  Interir Features"
+msgstr "Amenities y características interiores"
 
+msgid "Amenities and Exterior Features"
+msgstr "Amenities y características exteriores"
 
-
+msgid "Region"
+msgstr "Región"

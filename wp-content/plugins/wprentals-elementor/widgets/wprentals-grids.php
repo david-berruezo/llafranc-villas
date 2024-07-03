@@ -663,7 +663,7 @@ class Wprentals_Grids extends Widget_Base
 
     protected function render()
     {
-        $settings 												= $this->get_settings_for_display();
+        $settings 											= $this->get_settings_for_display();
         $args['type'] 										= $settings['wprentals_grid_type'];
         $args['wprentals_design_type']	=	$settings['wprentals_design_type'];
         $args['grid_taxonomy']						= $settings['grid_taxonomy'];

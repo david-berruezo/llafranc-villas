@@ -87,7 +87,7 @@ endif;
 
 if( !function_exists('wpestate_return_filtered_by_order') ):
 function wpestate_return_filtered_by_order($args){
-    add_filter( 'posts_orderby', 'wpestate_my_order' );
+    //add_filter( 'posts_orderby', 'wpestate_my_order' );
     $prop_selection = new WP_Query($args);
     remove_filter( 'posts_orderby', 'wpestate_my_order' );
     return $prop_selection;

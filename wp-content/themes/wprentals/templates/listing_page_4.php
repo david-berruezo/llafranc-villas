@@ -92,23 +92,29 @@ $guest_list= wpestate_get_guest_dropdown('noany');
         </div>
 
 
-        <?php echo wpestate_property_price($post->ID,$wpestate_property_price_text);?>
+        <?php //echo wpestate_property_price($post->ID,$wpestate_property_price_text);?>
         <?php echo wpestate_sleeping_situation_wrapper($post->ID,$wp_estate_sleeping_text); ?>
         <?php echo wpestate_property_address_wrapper($post->ID,$wpestate_property_adr_text);?>     
         <?php echo wpestate_property_details_wrapper($post->ID,$wpestate_property_details_text); ?>
-        <?php echo wpestate_features_and_ammenities_wrapper($post->ID,$wpestate_property_features_text);?>
+        <?php //echo wpestate_features_and_ammenities_wrapper($post->ID,$wpestate_property_features_text);?>
+        <?php echo wpestate_features_and_ammenities_wrapper_interior($post->ID,$wpestate_property_features_text);?>
+        <?php echo wpestate_features_and_ammenities_wrapper_exterior($post->ID,$wpestate_property_features_text);?>
+        <!-- encotorno y distancia -->
+        <?php echo wpestate_property_entorno_y_distancia($post->ID);?>
+        <!-- mas caracteristicas -->
+        <?php echo wpestate_property_caracteristicas_adicionales_wrapper($post->ID); ?>
         <?php echo wpestate_listing_terms_wrapper($post->ID,$wp_estate_terms_text);?>
         <?php echo wpestate_property_yelp_wrapper($post->ID);?>
         <?php wpestate_show_virtual_tour($post->ID);?>
 
-        
+        <!--
         <div class="property_page_container boxed_calendar">
             <?php
             include(locate_template ('/templates/show_avalability.php') );
             wp_reset_query();
             ?>
         </div>
-
+        -->
 
         <?php
         endwhile; // end of the loop
@@ -142,11 +148,13 @@ $guest_list= wpestate_get_guest_dropdown('noany');
 <div class=" full_width_row">
     <?php include(locate_template ('/templates/listing_reviews.php') ); ?>
 
+    <!--
     <div class="owner-page-wrapper">
         <div class="owner-wrapper  content-fixed-listing row" id="listing_owner">
-            <?php //include(locate_template ('/templates/owner_area.php' ) ); ?>
+            <?php include(locate_template ('/templates/owner_area.php' ) ); ?>
         </div>
     </div>
+    -->
 
 
     <div class="google_map_on_list_wrapper">    

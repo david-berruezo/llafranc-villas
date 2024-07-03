@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 add_action('wp_ajax_nopriv_wprentals_mapbox_places_query', 'wprentals_mapbox_places_query');
 add_action('wp_ajax_wprentals_mapbox_places_query', 'wprentals_mapbox_places_query');
 
@@ -2270,6 +2267,461 @@ security: a42d693e48
 ////////////////////////////////////////////////////////////////////////////////
 add_action('wp_ajax_nopriv_wpestate_ajax_filter_listings', 'wpestate_ajax_filter_listings');
 add_action('wp_ajax_wpestate_ajax_filter_listings', 'wpestate_ajax_filter_listings');
+
+if (!function_exists('wpestate_ajax_filter_listings')):
+
+    function wpestate_ajax_filter_listings()
+    {
+        check_ajax_referer('wprentals_ajax_filtering_nonce', 'security');
+
+        global $wpestate_currency;
+        global $wpestate_where_currency;
+        global $post;
+        global $wpestate_options;
+        global $wpestate_full_page;
+        global $wpestate_curent_fav;
+        global $wpestate_listing_type;
+        global $wpestate_property_unit_slider;
+
+        $wpestate_property_unit_slider = esc_html(wprentals_get_option('wp_estate_prop_list_slider', ''));
+        $wpestate_listing_type = wprentals_get_option('wp_estate_listing_unit_type', '');
+        $current_user = wp_get_current_user();
+        $userID = $current_user->ID;
+        $user_option = 'favorites' . $userID;
+        $wpestate_curent_fav = get_option($user_option);
+        $wpestate_currency = esc_html(wprentals_get_option('wp_estate_currency_label_main', ''));
+        $wpestate_where_currency = esc_html(wprentals_get_option('wp_estate_where_currency_symbol', ''));
+        $area_array = '';
+        $city_array = '';
+        $action_array = '';
+        $categ_array = '';
+        $show_compare = 1;
+
+        if (isset($_POST['page_id'])) {
+            $wpestate_options = wpestate_page_details(intval($_POST['page_id']));
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        ///// category filters
+        //////////////////////////////////////////////////////////////////////////////////////
+        $allowed_html = array();
+        if (isset($_POST['category_values']) && trim($_POST['category_values']) != esc_html__('All Types', 'wprentals') && trim($_POST['category_values']) != 'All Types' && $_POST['category_values'] != '' && $_POST['category_values'] != 'all') {
+            $taxcateg_include = sanitize_title(wp_kses($_POST['category_values'], $allowed_html));
+            $categ_array = array(
+                'taxonomy' => 'property_category',
+                'field' => 'slug',
+                'terms' => $taxcateg_include
+            );
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        ///// action  filters
+        //////////////////////////////////////////////////////////////////////////////////////
+
+        if ((isset($_POST['action_values']) && trim($_POST['action_values']) != esc_html__('All Sizes', 'wprentals')) && trim($_POST['action_values']) != 'All Sizes' && $_POST['action_values'] != '' && $_POST['action_values'] != 'all') {
+            $taxaction_include = sanitize_title(wp_kses($_POST['action_values'], $allowed_html));
+            $action_array = array(
+                'taxonomy' => 'property_action_category',
+                'field' => 'slug',
+                'terms' => $taxaction_include
+            );
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        ///// city filters
+        //////////////////////////////////////////////////////////////////////////////////////
+
+        if (isset($_POST['city']) && trim($_POST['city']) != esc_html__('All Cities', 'wprentals') && trim($_POST['city']) != 'All Cities' && $_POST['city'] && trim($_POST['city']) != 'all') {
+            $taxcity[] = sanitize_title(wp_kses($_POST['city'], $allowed_html));
+            $city_array = array(
+                'taxonomy' => 'property_city',
+                'field' => 'slug',
+                'terms' => $taxcity
+            );
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        ///// area filters
+        //////////////////////////////////////////////////////////////////////////////////////
+
+        if (isset($_POST['area']) && trim($_POST['area']) != esc_html__('All Areas', 'wprentals') && trim($_POST['area']) != 'All Areas' && $_POST['area'] && trim($_POST['area']) != 'all') {
+            $taxarea[] = sanitize_title(wp_kses($_POST['area'], $allowed_html));
+            $area_array = array(
+                'taxonomy' => 'property_area',
+                'field' => 'slug',
+                'terms' => $taxarea
+            );
+        }
+
+        # lang
+        $actual_language = pll_current_language();
+
+        // meta key
+        $guests = 1;
+        if (isset($_POST['guests']) && $_POST['guests'] != "") {
+            $guests = (int)$_POST['guests'];
+        }
+
+        // rooms
+        $rooms = 1;
+        if (isset($_POST['rooms']) && $_POST['rooms'] != "") {
+            $rooms = (int)$_POST['rooms'];
+        }
+
+        // dormitorios
+        /*
+        $dormitorios = 1;
+        if (isset($_POST['dormitorios']) && $_POST['dormitorios'] != "") {
+            $dormitorios = (int)$_POST['dormitorios'];
+        }
+
+
+        // aseos
+        $aseos = 0;
+        if (isset($_POST['aseos']) && $_POST['aseos'] != "") {
+            $aseos = (int)$_POST['aseos'];
+        }
+        */
+
+        # taxonomy
+        $property_features = "";
+
+        $encontrado_piscina = false;
+        $encontrado_piscina_privada = false;
+        $encontrado_piscina_comunitaria = false;
+        $encontrado_lavadora = false;
+        $encontrado_lavavajillas = false;
+        $encontrado_terraza = false;
+        $encontrado_barbacoa = false;
+
+        // piscina
+        $piscina = 0;
+        if (isset($_POST['piscina']) && $_POST['piscina'] == "true") {
+            $piscina = 1;
+        }
+
+        $tipo_piscina = "";
+        if ($piscina == 1) {
+            # translation
+            /*
+            $term_piscina = term_exists("Piscina", "property_features", null);
+            $term_piscina_lang = pll_get_term_translations($term_piscina["term_id"]);
+            $encontrado_piscina = true;
+            p_($term_piscina);
+            p_($term_piscina_lang);
+            */
+            if (isset($_POST['piscina_comunitaria']) && $_POST['piscina_comunitaria'] == "true") {
+                /*
+                $tipo_piscina = "comunitaria";
+                $term_piscina_comun = term_exists("Piscina comunitaria", "property_features", null);
+                $term_piscina_comun_lang = pll_get_term_translations($term_piscina_comun["term_id"]);
+                */
+                $tipo_piscina = "comunitaria";
+                $encotnrado_piscina_comunitaria = true;
+            } else if (isset($_POST['piscina_privada']) && $_POST['piscina_privada'] == "true") {
+                /*
+                $tipo_piscina = "privada";
+                $term_piscina_privada = term_exists("Piscina privada", "property_features", null);
+                $term_piscina_privada_lang = pll_get_term_translations($term_piscina_privada["term_id"]);
+                */
+                $tipo_piscina = "privada";
+                $encotnrado_piscina_privada = true;
+            }
+
+        } // end if piscina
+
+        # lavadora
+        if (isset($_POST['lavadora']) && $_POST['lavadora'] == "true") {
+            $term_lavadora = term_exists("Lavadora", "property_features", null);
+            $term_lavadora_lang = pll_get_term_translations($term_lavadora["term_id"]);
+            $encontrado_lavadora = true;
+        }// end if
+
+        # lavavajillas
+        if (isset($_POST['lavavajillas']) && $_POST['lavavajillas'] == "true") {
+            $term_lavavajillas = term_exists("lavavajillas", "property_features", null);
+            $term_lavavajillas_lang = pll_get_term_translations($term_lavavajillas["term_id"]);
+            $encontrado_lavavajillas = true;
+        }// end if
+
+        # terraza
+        if (isset($_POST['terraza']) && $_POST['terraza'] == "true") {
+            $term_terraza = term_exists("terraza", "property_features", null);
+            $term_terraza_lang = pll_get_term_translations($term_terraza["term_id"]);
+            $encontrado_terraza = true;
+        }// end if
+
+        # barbacoa
+        if (isset($_POST['barbacoa']) && $_POST['barbacoa'] == "true") {
+            $term_barbacoa = term_exists("barbacoa", "property_features", null);
+            $term_barbacoa_lang = pll_get_term_translations($term_barbacoa["term_id"]);
+            $encontrado_barbacoa = true;
+        }// end if
+
+        # total
+        $property_features = array(
+            array(
+                'taxonomy' => 'property_features',
+                'field' => 'term_id',
+                'terms' => ""
+            )
+        );
+        
+        $terms = array();
+
+        if ($encontrado_piscina)
+            array_push($terms , $term_piscina_lang[$actual_language]);
+
+        if ($encontrado_piscina_privada)
+            array_push($terms , $term_piscina_privada_lang[$actual_language]);
+
+        if ($encontrado_piscina_comunitaria)
+            array_push($terms , $term_piscina_comun_lang[$actual_language]);
+
+        if ($encontrado_lavadora)
+            array_push($terms , $term_lavadora_lang[$actual_language]);
+
+        if ($encontrado_lavavajillas)
+            array_push($terms , $term_lavavajillas_lang[$actual_language]);
+
+        if ($encontrado_terraza)
+            array_push($terms , $term_terraza_lang[$actual_language]);
+
+        if ($encontrado_barbacoa)
+            array_push($terms , $term_barbacoa_lang[$actual_language]);
+
+        $property_features[0]["terms"] = $terms;
+        //p_();
+
+        if (!$encontrado_piscina && !$encontrado_piscina_privada && !$encontrado_piscina_comunitaria && !$encontrado_lavadora && !$encontrado_lavavajillas && !$encontrado_terraza && !$encontrado_barbacoa)
+            $property_features = "";
+
+        # taxonomy
+        $extra_services = "";
+        $encontrado_aire = false;
+        $encontrado_internet = false;
+        $encontrado_calefaccion = false;
+        $encontrado_aparcamiento = false;
+
+        # aire acondicionado
+        if (isset($_POST['aire_acondicionado']) && $_POST['aire_acondicionado'] == "true") {
+            # translation
+            $term_aire = term_exists("Aire acondicionado", "extra_services", null);
+            $term_aire_lang = pll_get_term_translations($term_aire["term_id"]);
+            $encontrado_aire = true;
+        }// end if
+
+        # wifi | acceso a internet
+        $tipo_wifi = "";
+        if (isset($_POST['wifi']) && $_POST['wifi'] == "true") {
+            # translation
+            $term_internet = term_exists("Acceso a Internet", "extra_services", null);
+            $term_internet_lang = pll_get_term_translations($term_internet["term_id"]);
+            $encontrado_internet = true;
+            $tipo_wifi = "wifi";
+        }// end if
+
+
+        # calefaccion
+        if (isset($_POST['calefaccion']) && $_POST['calefaccion'] == "true") {
+            # translation
+            $term_calefaccion = term_exists("Calefacción", "extra_services", null);
+            $term_calefaccion_lang = pll_get_term_translations($term_calefaccion["term_id"]);
+            $encontrado_calefaccion = true;
+        }// end if
+
+        # aparcamiento
+        if (isset($_POST['aparcamiento']) && $_POST['aparcamiento'] == "true") {
+            # translation
+            $term_aparcamiento = term_exists("Aparcamiento", "extra_services", null);
+            $term_aparcamiento_lang = pll_get_term_translations($term_aparcamiento["term_id"]);
+            $encontrado_aparcamiento = true;
+        }// end if
+
+
+        # todos extra_services
+        $extra_services = array(
+            array(
+                'taxonomy' => 'extra_services',
+                'field' => 'term_id',
+                'terms' => ""
+            )
+        );
+
+        $terms = array();
+
+        if ($encontrado_aire)
+            array_push($terms , $term_aire_lang[$actual_language]);
+
+        if ($encontrado_internet)
+            array_push($terms , $term_internet_lang[$actual_language]);
+
+        if ($encontrado_calefaccion)
+            array_push($terms , $term_calefaccion_lang[$actual_language]);
+
+        if ($encontrado_aparcamiento)
+            array_push($terms , $term_aparcamiento_lang[$actual_language]);
+
+
+        $extra_services[0]["terms"] = $terms;
+
+        if (!$encontrado_aire && !$encontrado_internet && !$encontrado_calefaccion && !$encontrado_aparcamiento)
+            $extra_services = "";
+
+        // wp_reset_query();
+
+        /*
+        echo "---------- datos ------------<br>";
+        echo "guests: ".$guests."<br>";
+        echo "rooms: ".$rooms."<br>";
+        echo "dormitorios: ".$dormitorios."<br>";
+        echo "asesos: ".$aseos."<br>";
+        echo "piscina: ".$piscina."<br>";
+        echo "tipo piscina: ".$tipo_piscina."<br>";
+        echo "---------- datos ------------<br>";
+        p_($property_features);
+        p_($categ_array);
+        */
+        
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        ///// order details
+        //////////////////////////////////////////////////////////////////////////////////////
+        if (isset($_POST['order'])) {
+            $order = wp_kses($_POST['order'], $allowed_html);
+        }
+        switch ($order) {
+            case 0:
+                $meta_order='prop_featured';
+                $meta_directions='DESC';
+                break;
+            case 1:
+                $meta_order='property_price';
+                $meta_directions='DESC';
+                break;
+            case 2:
+                $meta_order='property_price';
+                $meta_directions='ASC';
+                break;
+            case 3:
+                $meta_order='property_size';
+                $meta_directions='DESC';
+                break;
+            case 4:
+                $meta_order='property_size';
+                $meta_directions='ASC';
+                break;
+            case 5:
+                $meta_order='property_bedrooms';
+                $meta_directions='DESC';
+                break;
+            case 6:
+                $meta_order='property_bedrooms';
+                $meta_directions='ASC';
+                break;
+        }
+        $paged      =   intval($_POST['newpage']);
+        $prop_no    =   intval(wprentals_get_option('wp_estate_prop_no', ''));
+
+        # query swimming pool
+        $meta_query = array(
+            'relation' => 'AND',
+            array(
+                'key'     => 'guest_no',
+                'value'   => $guests,
+                'compare' => '>=',
+                'type'    => 'NUMERIC'
+            ),
+            array(
+                'key'     => 'property_rooms',
+                'value'   => $rooms,
+                'compare' => '>=',
+                'type'    => 'NUMERIC'
+            ),
+        );
+
+        if($tipo_piscina){
+            $meta_query[] = array(
+                'key'     => 'property_tipo_piscina',
+                'value'   => $tipo_piscina,
+                'compare' => '=',
+                'type'    => 'CHAR'
+            );
+        }
+
+        if ($tipo_wifi){
+            $meta_query[] = array(
+                'key'     => 'prop_tipo_wifi',
+                'value'   => $tipo_wifi,
+                'compare' => '=',
+                'type'    => 'CHAR'
+            );
+        }
+
+
+        # meta query arguments
+        $args = array(
+            'post_type'         => 'estate_property',
+            'post_status'       => 'publish',
+            'paged'             => $paged,
+            'posts_per_page'    => $prop_no,
+            //'orderby'         => 'meta_value_num',
+            "orderby"           => "title",
+            //'meta_key'        => $meta_order,
+            // 'order'          => $meta_directions,
+            "order"             => "ASC",
+            'tax_query'         => array(
+                'relation' => 'AND',
+                $categ_array,
+                $action_array,
+                $city_array,
+                $area_array,
+                $property_features,
+                $extra_services
+            ),
+            'meta_query' => $meta_query
+        );
+
+
+        //p_($args);
+
+        if ($wpestate_options['content_class'] == "col-md-12") {
+            $wpestate_full_page = 1;
+        }
+
+        if ($order==0) {
+            //add_filter('posts_orderby', 'wpestate_my_order');
+            $prop_selection = new WP_Query($args);
+            if (function_exists('wpestate_disable_filtering')) {
+                wpestate_disable_filtering('posts_orderby', 'wpestate_my_order');
+            }
+        } else {
+            $prop_selection = new WP_Query($args);
+        }
+
+        print '<span id="scrollhere"></span>';
+        $counter = 0;
+
+        if ($prop_selection->have_posts()) {
+            while ($prop_selection->have_posts()): $prop_selection->the_post();
+                include(locate_template('templates/property_unit.php'));
+            endwhile;
+            wprentals_pagination_ajax($prop_selection->max_num_pages, $range =2, $paged, 'pagination_ajax');
+        } else {
+            print '<span class="no_results">'. esc_html__("We didn't find any results", "wprentals").'</>';
+        }
+        wp_reset_query();
+
+        die();
+    }
+
+endif; // end   ajax_filter_listings_search
+
+/*
 if (!function_exists('wpestate_ajax_filter_listings')):
 
     function wpestate_ajax_filter_listings()
@@ -2430,7 +2882,7 @@ if (!function_exists('wpestate_ajax_filter_listings')):
                                         $action_array,
                                         $city_array,
                                         $area_array,
-                                        $services_array,
+                                        //$services_array,
                                 )
         );
 
@@ -2464,7 +2916,7 @@ if (!function_exists('wpestate_ajax_filter_listings')):
     }
 
  endif; // end   ajax_filter_listings_search
-
+*/
 
 
 
@@ -2475,7 +2927,138 @@ add_action('wp_ajax_nopriv_wpestate_ajax_filter_listings_search', 'wpestate_ajax
 add_action('wp_ajax_wpestate_ajax_filter_listings_search', 'wpestate_ajax_filter_listings_search');
 
 if (!function_exists('wpestate_ajax_filter_listings_search')):
+    function wpestate_ajax_filter_listings_search()
+    {
+        check_ajax_referer('wprentals_ajax_filtering_nonce', 'security');
 
+        global $post;
+        global $current_user;
+        global $wpestate_options;
+        global $wpestate_show_compare_only;
+        global $wpestate_currency;
+        global $wpestate_where_currency;
+        global $wpestate_full_page ;
+        global $wpestate_listing_type;
+        global $wpestate_property_unit_slider;
+
+        $wpestate_property_unit_slider   =   esc_html(wprentals_get_option('wp_estate_prop_list_slider', ''));
+        $wpestate_listing_type           =   wprentals_get_option('wp_estate_listing_unit_type', '');
+        $wpestate_full_page              =   0;
+        $wpestate_options                =   wpestate_page_details(intval($_POST['postid']));
+
+        if ($wpestate_options['content_class']=="col-md-12") {
+            $wpestate_full_page=1;
+        }
+
+        $wpestate_show_compare_only =   'no';
+        $current_user               =   wp_get_current_user();
+        $userID                     =   $current_user->ID;
+        $user_option                =   'favorites'.$userID;
+        $wpestate_curent_fav        =   get_option($user_option);
+        $wpestate_currency          =   esc_html(wprentals_get_option('wp_estate_currency_label_main', ''));
+        $wpestate_where_currency    =   esc_html(wprentals_get_option('wp_estate_where_currency_symbol', ''));
+        $area_array =
+        $city_array =
+        $action_array               = '';
+        $categ_array                = '';
+        $allowed_html               = array();
+        //////////////////////////////////////////////////////////////////////////////////////
+        ///// city filters
+        //////////////////////////////////////////////////////////////////////////////////////
+
+        if (isset($_POST['city']) and trim($_POST['city']) != 'all' and trim($_POST['city']) != '') {
+            $taxcity[] = sanitize_title(wp_kses($_POST['city'], $allowed_html));
+            $city_array = array(
+                'taxonomy'  => 'property_city',
+                'field'     => 'slug',
+                'terms'     => $taxcity
+            );
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        ///// area filters
+        //////////////////////////////////////////////////////////////////////////////////////
+
+        if (isset($_POST['area']) && trim($_POST['area']) != 'all' && trim($_POST['area']) != '') {
+            $taxarea[] = sanitize_title(wp_kses($_POST['area'], $allowed_html));
+            $area_array = array(
+                'taxonomy' => 'property_area',
+                'field'    => 'slug',
+                'terms'    => $taxarea
+            );
+        }
+
+
+        $meta_query     =   array();
+        $guest_array    =   array();
+        if (isset($_POST['guest_no'])  && is_numeric($_POST['guest_no']) && intval($_POST['guest_no'])!=0) {
+            $wpestate_guest_no                = intval($_POST['guest_no']);
+            $guest_array['key']      = 'guest_no';
+            $guest_array['value']    = $wpestate_guest_no;
+            $guest_array['type']     = 'numeric';
+            $guest_array['compare']  = '>=';
+            $meta_query[]            = $guest_array;
+        }
+
+
+        $country_array=array();
+        if (isset($_POST['country'])  && $_POST['country']!='') {
+            $country                     =   sanitize_text_field(wp_kses($_POST['country'], $allowed_html));
+            $country                     =   str_replace('-', ' ', $country);
+            $country_array['key']        =   'property_country';
+            $country_array['value']      =   $country;
+            $country_array['type']       =   'CHAR';
+            $country_array['compare']    =   'LIKE';
+            $meta_query[]                =   $country_array;
+        }
+
+
+
+        $allowed_html            =   array();
+        $wpestate_book_from      =   '';
+        $wpestate_book_to        =   '';
+        if (isset($_POST['check_in'])) {
+            $wpestate_book_from      =  sanitize_text_field(wp_kses($_POST['check_in'], $allowed_html));
+        }
+        if (isset($_POST['check_out'])) {
+            $wpestate_book_to        =   sanitize_text_field(wp_kses($_POST['check_out'], $allowed_html));
+        }
+
+        $paged      =   intval($_POST['newpage']);
+        $prop_no    =   intval(wprentals_get_option('wp_estate_prop_no', ''));
+        $args = array(
+            'post_type'         => 'estate_property',
+            'post_status'       => 'publish',
+            'posts_per_page'    => -1,
+            'meta_query'        => $meta_query,
+            'tax_query'         => array(
+                'relation' => 'AND',
+                $categ_array,
+                $action_array,
+                $city_array,
+                $area_array
+            )
+        );
+
+
+        $prop_selection = new WP_Query($args);
+
+        $counter          =   0;
+        $compare_submit   =   wpestate_get_template_link('compare_listings.php');
+
+        if ($prop_selection->have_posts()) {
+            while ($prop_selection->have_posts()): $prop_selection->the_post();
+                if (wpestate_check_booking_valability($wpestate_book_from, $wpestate_book_to, $post->ID)) {
+                    include(locate_template('templates/property_unit.php'));
+                }
+            endwhile;
+        } else {
+            print '<span class="no_results">'. esc_html__("We didn't find any results", "wprentals").'</>';
+        }
+        die();
+    }
+    /*
     function wpestate_ajax_filter_listings_search()
     {
         check_ajax_referer('wprentals_ajax_filtering_nonce', 'security');
@@ -2607,6 +3190,7 @@ if (!function_exists('wpestate_ajax_filter_listings_search')):
         }
         die();
     }
+    */
 endif; // end   ajax_filter_listings
 
 

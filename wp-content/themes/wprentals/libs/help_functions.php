@@ -1103,18 +1103,51 @@ if (!function_exists('wpestate_print_property_unit_slider')):
 
 
         if ($wpestate_property_unit_slider == 'yes') {
-            //slider
-            $arguments = array(
-                'numberposts' => -1,
-                'post_type' => 'attachment',
-                'post_mime_type' => 'image',
-                'post_parent' => $post_id,
-                'post_status' => null,
-                'exclude' => get_post_thumbnail_id(),
-                'orderby' => 'menu_order',
-                'order' => 'ASC'
-            );
+
+            $lang = pll_current_language();
+
+            //post_id: 379342401
+            //post_id: 379342
+
+            if($lang != "es"){
+                //echo "post_id: ".$post_id."<br>";
+                $my_post = pll_get_post($post_id,"es");
+                //echo "post_id: ".$post_id."<br>";
+                // slider
+                $arguments = array(
+                    'numberposts' => -1,
+                    'post_type' => 'attachment',
+                    'post_mime_type' => 'image',
+                    'post_parent' => $my_post,
+                    'post_status' => null,
+                    'exclude' => get_post_thumbnail_id(),
+                    'orderby' => 'menu_order',
+                    'order' => 'ASC',
+                    //'lang' => "es"
+                );
+            }else{
+                // slider
+                $arguments = array(
+                    'numberposts' => -1,
+                    'post_type' => 'attachment',
+                    'post_mime_type' => 'image',
+                    'post_parent' => $post_id,
+                    'post_status' => null,
+                    'exclude' => get_post_thumbnail_id(),
+                    'orderby' => 'menu_order',
+                    'order' => 'ASC',
+                    //'lang' => "es"
+                );
+            }
+
+            /*
+            Array ( [numberposts] => -1 [post_type] => attachment [post_mime_type] => image [post_parent] => 379342 [post_status] => [exclude] => 36805208381 [orderby] => menu_order [order] => ASC )
+            Array ( [numberposts] => -1 [post_type] => attachment [post_mime_type] => image [post_parent] => 379342 [post_status] => [exclude] => 36805208381 [orderby] => menu_order [order] => ASC )
+            */
+            //print_r($arguments);
+
             $post_attachments = get_posts($arguments);
+            //print_r($post_attachments);
             $slides = '';
             $no_slides = 0;
 
@@ -1197,12 +1230,12 @@ if (!function_exists('wpestate_return_property_status')):
             if (!empty($property_status)) {
                 foreach ($property_status as $key => $term) {
                     if ($term->slug != 'normal') {
-                        $to_return .= '<div class="property_status status_' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</div>';
+                        //$to_return .= '<div class="property_status status_' . esc_attr($term->slug) . '">' . esc_html($term->name) . '</div>';
                     }
                 }
             }
 
-            return '<div class="property_status_wrapper">' . $to_return . '</div>';
+            //return '<div class="property_status_wrapper">' . $to_return . '</div>';
         }
     }
 
@@ -5025,6 +5058,7 @@ if (!function_exists('wpestate_get_select_arguments')):
         );
 
         $show_empty_city_status = esc_html(wprentals_get_option('wp_estate_show_empty_city', ''));
+
         if ($show_empty_city_status == 'yes') {
             $args = array(
                 'hide_empty' => false,
@@ -6825,7 +6859,7 @@ if (!function_exists('wpestate_show_tax_header')):
         if (isset($term_meta['category_featured_image'])) {
             $category_featured_image = $term_meta['category_featured_image'];
         }
-
+        
         if (isset($term_meta['category_attach_id'])) {
             $category_attach_id = $term_meta['category_attach_id'];
             $category_featured_image = wp_get_attachment_image_src($category_attach_id, 'full');

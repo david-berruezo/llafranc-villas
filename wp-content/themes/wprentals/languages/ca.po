@@ -3,7 +3,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "Project-Id-Version: WpRentals\n"
 "POT-Creation-Date: 2021-05-06 10:51+0300\n"
-"PO-Revision-Date: 2021-11-15 16:12+0000\n"
+"PO-Revision-Date: 2022-03-08 10:26+0000\n"
 "Last-Translator: \n"
 "Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 "Report-Msgid-Bugs-To: \n"
 "Language: ca\n"
-"X-Loco-Version: 2.5.5; wp-5.8.2"
+"X-Loco-Version: 2.5.5; wp-5.9.1"
 
 #: templates/submit_templates/property_price.php:826
 msgid " *(click to select multiple days and modify price for a certain period)"
@@ -381,7 +381,7 @@ msgstr ""
 #: libs/css_js_include.php:687 libs/help_functions.php:467
 #: single-estate_property.php:78
 msgid "Add to Favorites"
-msgstr ""
+msgstr "Afegir a favorits"
 
 #: dashboard/templates/dashboard_listing_unit.php:41
 #: libs/css_js_include.php:689 templates/property_unit.php:71
@@ -2274,7 +2274,7 @@ msgstr ""
 #. Template Name of the plugin/theme
 #: libs/help_functions.php:714
 msgid "GDPR Terms"
-msgstr ""
+msgstr "Condicions del GDPR"
 
 #: word_remove.php:150
 msgid "General Settings"
@@ -2749,7 +2749,7 @@ msgstr ""
 
 #: libs/help_functions.php:714
 msgid "I consent to the"
-msgstr ""
+msgstr "Accepto el"
 
 #: dashboard/templates/user_profile.php:78
 msgid "I live in"
@@ -4844,11 +4844,11 @@ msgstr "La propietat està destacada "
 
 #: libs/help_functions.php:5626
 msgid "Property Latitude"
-msgstr ""
+msgstr "Latitud de la propietat"
 
 #: libs/help_functions.php:5627
 msgid "Property Longitude"
-msgstr ""
+msgstr "Longitud"
 
 #: libs/listing_functions.php:1560
 msgid "Property Lot Size"
@@ -4910,7 +4910,7 @@ msgstr ""
 #: libs/help_functions.php:5622 libs/help_functions.php:5738
 #: libs/help_functions.php:5822
 msgid "Property Zip"
-msgstr ""
+msgstr "Codi Postal de la propietat"
 
 #: libs/help_functions.php:5589 libs/help_functions.php:5721
 #: libs/help_functions.php:5805
@@ -5454,7 +5454,7 @@ msgstr ""
 #: libs/css_js_include.php:679 libs/css_js_include.php:706
 #: libs/css_js_include.php:804
 msgid "Send Message"
-msgstr ""
+msgstr "Enviar missatge"
 
 #: dashboard/templates/book-listing-unit.php:87
 msgid "Send reminder email!"
@@ -5570,7 +5570,7 @@ msgstr ""
 
 #: libs/help_functions.php:739
 msgid "Share"
-msgstr ""
+msgstr "Compartir"
 
 #: libs/help_functions.php:5024 libs/help_functions.php:6722
 msgid "Shopping"
@@ -5931,7 +5931,7 @@ msgstr ""
 #: libs/listing_functions.php:188
 #: templates/submit_templates/property_details.php:209
 msgid "Terms and Conditions"
-msgstr ""
+msgstr "Termes i condicions"
 
 #. translators: %s: version number
 #: libs/plugins/class-tgm-plugin-activation.php:2067
@@ -7181,7 +7181,7 @@ msgstr ""
 #: libs/css_js_include.php:559 libs/css_js_include.php:672
 #: libs/css_js_include.php:676
 msgid "Your Email"
-msgstr ""
+msgstr "El teu email"
 
 #: comments.php:58
 msgid "Your email address will not be published.  "
@@ -7202,17 +7202,19 @@ msgstr ""
 #: contact_page.php:135 libs/css_js_include.php:554 libs/css_js_include.php:561
 #: libs/css_js_include.php:674 libs/css_js_include.php:678
 msgid "Your Message"
-msgstr ""
+msgstr "El teu missatge"
 
 #: libs/ajax_functions.php:2248
 msgid "Your message"
-msgstr ""
+msgstr "El teu missatge"
 
 #: libs/ajax_functions_booking.php:2356
 msgid ""
 "Your message was sent! You will be notified by email when a reply is "
 "received."
 msgstr ""
+"El teu missatge s'ha enviat! Se us notificarà per correu electrònic quan "
+"rebi una resposta."
 
 #: dashboard/dashboard-functions.php:406
 msgid "Your most booked listings"
@@ -7226,7 +7228,7 @@ msgstr ""
 #: libs/css_js_include.php:558 libs/css_js_include.php:671
 #: libs/css_js_include.php:675
 msgid "Your Name"
-msgstr ""
+msgstr "El teu nom"
 
 #: libs/theme-setup.php:1163
 msgid ""
@@ -7309,7 +7311,118 @@ msgstr ""
 #: libs/listing_functions.php:1453 libs/listing_functions.php:1494
 #: templates/submit_templates/property_location.php:52
 msgid "Zip"
-msgstr ""
+msgstr "Codi Postal"
 
 msgid "Property Entorno"
 msgstr "Entorn i distancia"
+
+msgid "Region"
+msgstr "Regió"
+
+msgid "Property latitude"
+msgstr "Latitud"
+
+msgid "Property longitude"
+msgstr "Longiutd"
+
+msgid "Property Size parcela"
+msgstr "Tamany de la parcela"
+
+msgid "Property Baños Ducha"
+msgstr "Banys amb ducha"
+
+msgid "Property Baños Bañera"
+msgstr "Banys amb banyera"
+
+msgid "Property Aseos"
+msgstr "Banys"
+
+msgid "Property Caracteristicas Adicionales"
+msgstr "Característiques adicionals"
+
+msgid "Amenities and  Interir Features"
+msgstr "Amenities i característiques interiors"
+
+msgid "Amenities and Exterior Features"
+msgstr "Amenities i característiques exteriors"
+
+msgid "Beach name"
+msgstr "Platja"
+
+msgid "Beach distance"
+msgstr "Distáncia platja"
+
+msgid "Golf name"
+msgstr "Golf"
+
+msgid "Golf distance"
+msgstr "Distancia golf"
+
+msgid "City name"
+msgstr "Ciutat"
+
+msgid "City distance"
+msgstr "Distancia ciutat"
+
+msgid "Super name"
+msgstr "Super"
+
+msgid "Super distance"
+msgstr "Distancia super"
+
+msgid "Airport name"
+msgstr "Aeroport"
+
+msgid "Airport distance"
+msgstr "Distancia aeroport"
+
+msgid "Train name"
+msgstr "Tren"
+
+msgid "Train distance"
+msgstr "Distancia tren"
+
+msgid "Bus name"
+msgstr "Bus"
+
+msgid "Bus distance"
+msgstr "Distancia bus"
+
+msgid "view to beach"
+msgstr "Vistas a la platja"
+
+msgid "view to swimming_pool"
+msgstr "Vistas a la piscina"
+
+msgid "view to golf"
+msgstr "Vistas al golf"
+
+msgid "view to garden"
+msgstr "Vistas al jardí"
+
+msgid "view to river"
+msgstr "Vistas al riu"
+
+msgid "view to mountain"
+msgstr "Vistas a la montanya"
+
+msgid "view to lake"
+msgstr "Vistas al llac"
+
+msgid "first line beach"
+msgstr "Primera linia de mar"
+
+msgid "first line golf"
+msgstr "Primera linia de golf"
+
+msgid "entorno si"
+msgstr "Si"
+
+msgid "entorno no"
+msgstr "No"
+
+msgid "Where"
+msgstr "On"
+
+msgid "How"
+msgstr "Com"

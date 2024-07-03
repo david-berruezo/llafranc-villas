@@ -10,14 +10,17 @@ $counter                = 0;
 $post_category          = get_the_terms($post->ID, 'property_category');
 $post_action_category   = get_the_terms($post->ID, 'property_action_category');
 $post_city_category     = get_the_terms($post->ID, 'property_city');
+$post_area_category     = get_the_terms($post->ID, 'property_area');
 $similar_no             = 3;
 $args                   = '';
 $items[]                = '';
 $items_actions[]        = '';
 $items_city[]           = '';
+$items_area[]           = '';
 $categ_array            = '';
 $action_array           = '';
 $city_array             = '';
+$area_array             = '';
 $not_in                 = array();
 $not_in[]               = $post->ID;
 
@@ -71,28 +74,47 @@ if ($post_city_category!=''):
         );
 endif;
 
+
+////////////////////////////////////////////////////////////////////////////
+/// compose taxomomy action area
+////////////////////////////////////////////////////////////////////////////
+
+if ($post_area_category!=''):
+    foreach ($post_area_category as $item) {
+        $items_area[] = $item->term_id;
+    }
+    $area_array=array(
+        'taxonomy' => 'property_area',
+        'field' => 'id',
+        'terms' => $items_area
+    );
+endif;
+
+
 ////////////////////////////////////////////////////////////////////////////
 /// compose wp_query
 ////////////////////////////////////////////////////////////////////////////
 
 if(isset($show_sim_two) && $show_sim_two==1){
-    $similar_no=2;
+    $similar_no = 2;
 }
 
-$args=array(
+$args = array(
     'showposts'             => $similar_no,      
     'ignore_sticky_posts'   => 0,
     'post_type'             => 'estate_property',
     'post_status'           => 'publish',
     'post__not_in'          => $not_in,
     'tax_query'             => array(
-    'relation'              => 'AND',
-                               $categ_array,
-                               $action_array,
-                               $city_array
-                               )
+        'relation'              => 'AND',
+        $area_array,
+        //$city_array,
+        $categ_array,
+        $action_array
+   )
 );
 
+//p_($args);
 global $wpestate_listing_type;
 $wpestate_listing_type   =   wprentals_get_option('wp_estate_listing_unit_type','');
 $compare_submit          =   wpestate_get_template_link('compare_listings.php');

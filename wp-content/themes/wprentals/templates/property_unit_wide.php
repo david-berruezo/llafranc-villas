@@ -148,7 +148,8 @@ if( $schema_flag==1) {
                 </div>
 
                 <div class="category_tagline actions_icon">
-                    <?php print wp_kses_post($property_categ.' / '.$property_action);//escaped above ?>
+                    <?php //print wp_kses_post($property_categ.' / '.$property_action);//escaped above ?>
+                    <?php print wp_kses_post($property_categ);//escaped above ?>
                 </div>
 
 
@@ -174,7 +175,8 @@ if( $schema_flag==1) {
 
 
                     <div class="category_tagline actions_icon">
-                        <?php print trim($property_categ.' / '.$property_action);?>
+                        <?php print trim($property_categ);?>
+                        <?php //print trim($property_categ.' / '.$property_action);?>
                     </div>
 
                     <div class="category_tagline">

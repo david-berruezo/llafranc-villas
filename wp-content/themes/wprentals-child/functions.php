@@ -9,18 +9,21 @@
 # constants
 define("app_child_url", __DIR__);
 
+# var
+$db = "";
+//$avantio_credential = "local_wordpress";
+//$avantio_credential = "servidor_dani";
+$avantio_credential = "servidor";
+$services = "";
+$actual_language = "";
+
 # includes
 include(app_child_url . "/Clases/Database.php");
 # helpers
 include(app_child_url . "/helpers/funciones.php");
 include(app_child_url . "/helpers/funciones_wordpress.php");
 
-# var
-$db = "";
-//$avantio_credential = "local_wordpress";
-$avantio_credential = "servidor_tiendapisos_uno";
-$services = "";
-$actual_language = "";
+
 
 // Exit if accessed directly
 if ( !defined( 'ABSPATH' ) ) exit;
@@ -28,7 +31,6 @@ if ( !defined( 'ABSPATH' ) ) exit;
 # styles
 if ( !function_exists( 'wpestate_chld_thm_cfg_parent_css' ) ):
     function wpestate_chld_thm_cfg_parent_css() {
-
         $parent_style = 'wpestate_style';
         wp_enqueue_style('bootstrap',get_template_directory_uri().'/css/bootstrap.css', array(), '1.0', 'all');
         wp_enqueue_style('bootstrap-theme',get_template_directory_uri().'/css/bootstrap-theme.css', array(), '1.0', 'all');
@@ -51,6 +53,8 @@ load_child_theme_textdomain('wprentals', get_stylesheet_directory().'/languages'
 // END ENQUEUE PARENT ACTION
 
 
+
+
 # connect to database function
 function connect_two_db(){
     global $db , $avantio_credential;
@@ -61,12 +65,10 @@ function connect_two_db(){
 }
 
 # call connect to database function
-connect_two_db();
-
+//connect_two_db();
 
 # get actual_language
 $actual_language = pll_current_language();
-
 
 # our functions
 # child theme
@@ -82,7 +84,6 @@ function wp_enqueue_scripts_brava() {
 
 # get properties list by ajax
 function load_properties(){
-
     $language = pll_current_language();
 
     $args = array(
@@ -98,7 +99,7 @@ function load_properties(){
 }
 
 add_action('wp_ajax_nopriv_load_properties', 'load_properties');
-//add_action('wp_ajax_load_properties', 'load_properties');
+add_action('wp_ajax_load_properties', 'load_properties');
 
 add_action("init","add_footer");
 
@@ -129,79 +130,73 @@ function delete_video(){
 }
 
 
-add_action( 'init', 'delete_service' );
+content_wrapper();
+function content_wrapper(){
 
-function delete_service(){
-    //unregister_taxonomy( 'extra_services');
-}
+    # home
+    $url =  $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+    $root_url =  $_SERVER['SERVER_NAME'];
 
-
-
-//add_action( 'init', 'delete_all' );
-
-/*
-function delete_all(){
-
-    # delete posts and terms
-    delete_posts_by_custom_post_type();
-    delete_terms_of_taxonomies();
-
-    # delete post type and taxonomies
-    //delete_custom_post_type_estate();
-    //delete_taxonomies();
-}
-
-function delete_posts_by_custom_post_type(){
-    $args = array(
-        'post_type' => 'estate_property',
-        "numberposts" => -1
-    );
-    $posts = get_posts($args);
-    $ids = array_column($posts,"ID");
-    clean_object_term_cache( $ids, 'estate_property' );
-    foreach ($posts as $post) {
-        $delete = wp_delete_post($post->ID,true);
-    } // end foreach
-}
-
-function delete_custom_post_type_estate(){
-    unregister_post_type( 'estate_property' );
-}
-
-function delete_taxonomies(){
-    unregister_taxonomy( 'property_category');
-    unregister_taxonomy( 'property_action_category');
-    unregister_taxonomy( 'property_city');
-    unregister_taxonomy( 'property_area');
-    unregister_taxonomy( 'property_features');
-    unregister_taxonomy( 'property_status');
-}
-
-function delete_terms_of_taxonomies(){
-    delete_all_terms( 'property_category');
-    delete_all_terms( 'property_action_category');
-    delete_all_terms( 'property_city');
-    delete_all_terms( 'property_area');
-    delete_all_terms( 'property_features');
-    delete_all_terms( 'property_status');
-}
+    $arr_url = explode("/", $url);
+    unset($arr_url[sizeof($arr_url)-1]);
+    $new_url = implode("/",$arr_url);
 
 
-function delete_all_terms($taxonomy_name){
-    $terms = get_terms( array(
-        'taxonomy' => $taxonomy_name,
-        'hide_empty' => false
-    ));
-    foreach ( $terms as $term ) {
-        wp_delete_term($term->term_id, $taxonomy_name);
+    if($new_url == $root_url)
+    {
+        ?>
+        <style>
+            .content_wrapper{
+                width:1170px;
+                margin: 0px auto;
+                position: relative;
+                padding: 0px 0px 30px 0px;
+                min-height: 800px;
+                background-color:#fafafa;
+            }
+            .elementor-background-overlay{
+                background-color:#fafafa;
+                display:none;
+            }
+        </style>
+        <?php
+    }
+
+    # home fr en ca
+    if(strpos($url,"home") !== false){
+        ?>
+        <style>
+            .content_wrapper{
+                width:1170px;
+                /*background-color:#fff;*/
+            }
+            .elementor-background-overlay{
+                /* background-color:#fdfdfd!important; */
+            }
+        </style>
+        <?php
     }
 }
-*/
 
 
-// check the page to fill entorno y distancia
-add_action( 'init', 'check_page' );
+#add_action("wp_loaded","content_wrapper_load");
 
+function content_wrapper_load(){
+    # all pages
+    ?>
+    <style>
+        .content_wrapper{
+            /* width:100%!important; */
+            background-color:#fff;
+        }
+        .elementor-background-overlay{
+            background-color:#fdfdfd;
+            display:block;
+        }
+    </style>
+    <?php
+
+}
 
 function check_page(){
 
@@ -222,7 +217,6 @@ function check_page(){
     }
 
 
-
     /*
     echo "el id: " . get_the_ID() . "<br>";
 
@@ -230,9 +224,7 @@ function check_page(){
         echo "el id: " . get_the_ID() . "<br>";
         entorno_y_distancia();
     }
-    */
 
-    /*
     echo "el id es: ".get_the_ID()."<br>";
     if (is_page()){
         echo get_the_ID();
@@ -241,6 +233,10 @@ function check_page(){
     */
 }
 
+
+
+
+/*
 function entorno_y_distancia(){
 
     $xml = load_xml();
@@ -328,55 +324,6 @@ function entorno_y_distancia(){
     }// end foreach
 
 }
+*/
 
-
-function load_xml(){
-    # read and save xml files
-    # path
-    $files_to_search = "c:\htdocs\brava_rentals\avantio_cron_cli\app\xmldata";
-    //$files_to_search = "H:\htdocs\wordpress\avantio_cron_cli\app\xmldata";
-    //$files_to_search = "/home/automocion/public_html/avantio_cron_cli/app/xmldata";
-    //p_($files_to_search);
-    $files = array();
-    # read scandir
-    $files_to_search_scan = scandir($files_to_search);
-    foreach($files_to_search_scan as $value)
-    {
-        //p_($value);
-        if($value === '.' || $value === '..') { continue; }
-        //echo "fichero: ".$value. "<br>";
-        if(is_file("$files_to_search/$value")) {
-            if (strpos($value,"accommodations") !== false){
-                $files["accomodations"] = $files_to_search . "/" . $value;
-            }
-            if (strpos($value,"availabilities") !== false){
-                $files["availabilities"] = $files_to_search . "/" . $value;
-            }
-            if (strpos($value,"descriptions") !== false){
-                $files["descriptions"] = $files_to_search . "/" . $value;
-            }
-            if (strpos($value,"geographicareas") !== false){
-                $files["geographicareas"] = $files_to_search . "/" . $value;
-            }
-            if (strpos($value,"kinds") !== false){
-                $files["kinds"] = $files_to_search . "/" . $value;
-            }
-            if (strpos($value,"occupational") !== false){
-                $files["ocuppationalrules"] = $files_to_search . "/" . $value;
-            }
-            if (strpos($value,"pricemodificers") !== false){
-                $files["pricemodificers"] = $files_to_search . "/" . $value;
-            }
-            if (strpos($value,"rates") !== false){
-                $files["rates"] = $files_to_search . "/" . $value;
-            }
-            if (strpos($value,"services") !== false){
-                $files["services"] = $files_to_search . "/" . $value;
-            }
-        } // end if
-    } // end foreach
-    //p_($files)
-    $xml = simplexml_load_file($files["accomodations"]);
-    return $xml;
-}
 ?>

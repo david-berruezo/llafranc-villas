@@ -76,22 +76,19 @@ class Plugin {
             require_once( __DIR__ . '/widgets/simple-term-list.php' );
             require_once( __DIR__ . '/widgets/booking-form.php' );
             require_once( __DIR__ . '/widgets/full_map.php' );
-						require_once( __DIR__ . '/widgets/wpestate_tabs.php' );
+			require_once( __DIR__ . '/widgets/wpestate_tabs.php' );
             require_once( __DIR__ . '/widgets/wpestate_accordions.php' );
-
-						    require_once( __DIR__ . '/widgets/recent-items-v1.php' );
-								require_once( __DIR__ . '/widgets/recent-items-v2.php' );
-								require_once( __DIR__ . '/widgets/recent-items-v3.php' );
-
-	    					require_once( __DIR__ . '/widgets/recent-items-slider-v1.php' );
-								require_once( __DIR__ . '/widgets/recent-items-slider-v2.php' );
-								require_once( __DIR__ . '/widgets/recent-items-slider-v3.php' );
-
-								require_once( __DIR__ . '/widgets/wprentals-grids.php' );
-								require_once( __DIR__ . '/widgets/contact_form_builder.php' );
-
+            require_once( __DIR__ . '/widgets/recent-items-v1.php' );
+			require_once( __DIR__ . '/widgets/recent-items-v2.php' );
+			require_once( __DIR__ . '/widgets/recent-items-v3.php' );
+            require_once( __DIR__ . '/widgets/recent-items-slider-v1.php' );
+			require_once( __DIR__ . '/widgets/recent-items-slider-v2.php' );
+			require_once( __DIR__ . '/widgets/recent-items-slider-v3.php' );
+            require_once( __DIR__ . '/widgets/wprentals-grids.php' );
+			require_once( __DIR__ . '/widgets/contact_form_builder.php' );
 
 	}
+
 
 	/**
 	 * Register Widgets
